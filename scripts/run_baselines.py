@@ -18,17 +18,24 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 import yaml
 
 from support_agent.baselines.simple import (
-    NearestNeighborReplier, SimpleClassifier, simple_triage, taxonomy_handling,
+    NearestNeighborReplier,
+    SimpleClassifier,
+    simple_triage,
+    taxonomy_handling,
 )
 from support_agent.baselines.trivial import TrivialClassifier, TrivialReplier, fixed_triage
 from support_agent.eval.metrics import (
-    aurc, classification_report, reply_automated_checks, risk_coverage_curve, triage_report,
+    aurc,
+    classification_report,
+    reply_automated_checks,
+    risk_coverage_curve,
+    triage_report,
 )
 from support_agent.retrieval.index import PrecedentIndex
 
 
 def load_jsonl(path):
-    return [json.loads(l) for l in open(path, encoding="utf-8")]
+    return [json.loads(line) for line in open(path, encoding="utf-8")]
 
 
 def main():
@@ -41,7 +48,6 @@ def main():
     cfg = yaml.safe_load(open(args.config, encoding="utf-8"))
     taxonomy = yaml.safe_load(open(args.taxonomy, encoding="utf-8"))
     handling_by_intent = taxonomy_handling(taxonomy)
-    never_auto = set(cfg["triage"]["never_auto_intents"])
 
     cases_path = os.path.join(cfg["paths"]["interim_dir"], f"{cfg['brand']}_cases.jsonl")
     brand_short = cfg["brand"].replace("_support", "")
@@ -112,7 +118,6 @@ def main():
     print(f"nearest-neighbour reply: mean top-1 similarity={sum(nn_sims)/n:.3f}  "
           f"self-match leakage (retrieved its own case)={self_leak}/{n}")
 
-    nn_checks = [reply_automated_checks(d, [d]) for d in nn_drafts]  # trivially grounds in itself; see note below
     print("NOTE: for a nearest-neighbour reply, 'lexical_grounding' against its own source is definitionally "
           "1.0 and not informative -- the real quality question is whether that source reply fits THIS query, "
           "which is what mean top-1 similarity and the judge/human read address instead.")

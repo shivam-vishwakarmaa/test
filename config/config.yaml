@@ -31,30 +31,46 @@ retrieval:
   exclude_deflections: true
 
 llm:
-  # 'anthropic' for real runs; 'cached' replays committed artifacts so the
-  # headline numbers reproduce offline in minutes; 'ollama' is a local fallback.
+  # 'cached' replays committed artifacts so the headline numbers reproduce
+  # offline in minutes with no key -- the safe default that never spends
+  # money or quota just because someone ran a script. 'gemini' and
+  # 'anthropic' make real API calls; 'ollama' is a fully local fallback.
+  # Override per-run with the LLM_BACKEND env var (see README / Makefile)
+  # rather than editing this file for a one-off run.
   backend: cached
   cache_dir: artifacts/llm_cache
   max_retries: 4
   timeout_s: 120
+  ollama_url: http://localhost:11434
+  ollama_model: qwen2.5:3b
 
 agent:
   # Support automation is volume-bound: a production Hulu queue is tens of
   # thousands of tickets a week, so the deployable choice is the cheapest model
-  # that clears the quality bar, not the strongest one. Haiku 4.5 is the
-  # default; swap to claude-opus-5 here to run the capability ablation.
-  model: claude-haiku-4-5
+  # that clears the quality bar, not the strongest one. gemini-2.5-flash is
+  # the default for this submission (Decision #16 -- a GEMINI_API_KEY was
+  # supplied for this run); claude-haiku-4-5 is the equivalent choice on the
+  # 'anthropic' backend. Override with AGENT_MODEL for an ablation.
+  model: gemini-2.5-flash
   temperature: 0.0
   max_tokens: 1024
   n_few_shot: 8
 
 judge:
-  # Deliberately a DIFFERENT and stronger model than the drafter. A judge that
-  # shares a family with the generator inflates scores through self-enhancement
-  # bias; see docs/REPORT.md section 4.
-  model: claude-opus-5
+  # Deliberately a DIFFERENT model from the drafter, to avoid the
+  # self-enhancement bias where an LLM judge scores its own family's outputs
+  # higher (see docs/REPORT.md section 4). The intended design is also a
+  # STRONGER tier (Haiku drafts, Opus judges, on the 'anthropic' backend);
+  # on 'gemini' this run's free-tier API key has zero quota on every pro-tier
+  # model (verified: gemini-2.5-pro and gemini-3.1-pro-preview both return
+  # HTTP 429 RESOURCE_EXHAUSTED), so the judge here is gemini-3.5-flash: a
+  # different model generation from the gemini-2.5-flash drafter, but the
+  # same provider and tier -- a materially weaker bias mitigation than the
+  # Anthropic pairing. This is a known, stated limitation, not a hidden one
+  # -- see Decision #18 and REPORT.md section 4.
+  model: gemini-3.5-flash
   temperature: 0.0
-  max_tokens: 1500
+  max_tokens: 1024
   # Each reply is judged twice with the rubric criteria in reversed order to
   # measure order sensitivity.
   double_score_for_consistency: true

@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 import os
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 from .threads import strip_leading_mentions
 

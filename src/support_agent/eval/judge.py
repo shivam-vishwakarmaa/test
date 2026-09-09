@@ -32,8 +32,7 @@ evidence behind each):
 """
 from __future__ import annotations
 
-import json
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from support_agent.llm.client import LLMClient
 
@@ -155,7 +154,7 @@ def quadratic_weighted_kappa(a: list[int], b: list[int], min_rating: int = 1, ma
     judge/human scores, since it penalizes a 1-vs-5 disagreement far more than
     a 3-vs-4 disagreement, unlike plain (unweighted) Cohen's kappa."""
     n_cats = max_rating - min_rating + 1
-    O = [[0] * n_cats for _ in range(n_cats)]
+    O = [[0] * n_cats for _ in range(n_cats)]  # noqa: E741 -- standard kappa notation (Observed matrix)
     for x, y in zip(a, b):
         O[x - min_rating][y - min_rating] += 1
     n = len(a)

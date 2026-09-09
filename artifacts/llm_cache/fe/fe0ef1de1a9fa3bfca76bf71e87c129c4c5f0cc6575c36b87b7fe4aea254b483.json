@@ -1,0 +1,44 @@
+{
+ "tag": "golden5:draft",
+ "model": "gemini-2.5-flash",
+ "system": "You are drafting a customer-support reply for Hulu's Twitter support account. You are shown the customer's message and a set of PRECEDENTS: past customer messages this brand has actually handled, with the brand's real reply. \nRules:\n1. Ground every factual or procedural claim in a precedent. If you reference a policy, a troubleshooting step, or a fact, it must come from a precedent or from the customer's own message -- never invent one.\n2. If NO precedent is close enough to ground a real answer, set cannot_ground=true and write a short reply that asks ONE clarifying question instead of guessing.\n3. Match the brand's voice: warm, brief, a little informal, never robotic. Twitter-reply length -- 1 to 3 sentences.\n4. Never promise a specific fix time, a guaranteed refund amount, or any outcome you cannot verify from the precedents.\n5. Never ask for a password, full payment card number, or other credential.\n6. List which precedents (by their 1-based index as shown) you actually drew on in used_precedent_indices. An empty list is fine if cannot_ground is true.",
+ "user": "Customer message: 'I cancelled my hulu account a few months ago, but I am still getting charged. I cannot seem to find any support email, so please help.'\nClassified intent: billing_payment (handling policy: escalate)\n\nPRECEDENTS:\n  [1] customer said: \"I cancelled hulu and I am still being charged I'm very upset\"\n      brand replied: \"We would be too in your shoes, so we'd love to take a closer look at everything on our end! 📞 or 💬\"\n  [2] customer said: 'when you cancelled your account 3 days ago and still got charged yesterday 🙃 gimme my money back. @hulu_support'\n      brand replied: 'Sorry to hear about the unexpected charge! For assistance with this, please reach out to us here'\n  [3] customer said: 'Hey @hulu_support, I was certain I cancelled my subscription after the first time my account was charged, but I just found out today that I have been getting charged. Your cancellation UX is extremely deceptive and I would like to be refunded.'\n      brand replied: 'Sorry to hear about the unexpected charge, Nova! For 1:1 assistance, give us a 📞 at the number here'\n  [4] customer said: 'Hey @hulu_support I canceled on 6/25 and STILL getting charged. And your customer support chat doesn’t work. Cancel and refund me ASAP.'\n      brand replied: \"Sorry for any frustrations, Rena! Give us a call: and we'd be happy to get this sorted out for you.\"\n  [5] customer said: \"Hi Hulu, I've cancelled my account twice after the free trial and I STILL keep getting billed. Can you please elaborate. My email is __email__ and would be more than happy to chat on a call\"\n      brand replied: \"(1/2) Apologies for the difficulty canceling, Alan! We're very sad to see you go, but it's now canceled effective immediately.\"\n  [6] customer said: \"Cancelled my @115940 subscription weeks ago, get charged for another month today. and i don't even have access to actually use it bc its cancelled. wtf @hulu_support ? completely deleted my account now no thank you I'm done\"\n      brand replied: 'Sorry for any unexpected charges! Please call/chat us so we can look at our available options'",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "reply": {
+    "type": "string"
+   },
+   "used_precedent_indices": {
+    "type": "array",
+    "items": {
+     "type": "integer"
+    }
+   },
+   "cannot_ground": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "reply",
+   "used_precedent_indices",
+   "cannot_ground"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "reply": "Sorry to hear about the unexpected charges! We'd be happy to take a closer look at this for you. Please reach out to us here: [link to support page or phone number].",
+  "used_precedent_indices": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "cannot_ground": false
+ },
+ "input_tokens": 782,
+ "output_tokens": 90,
+ "ts": 1788977484.523268
+}

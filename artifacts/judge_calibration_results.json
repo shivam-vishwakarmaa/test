@@ -1,0 +1,132 @@
+{
+ "agreement": {
+  "grounded": {
+   "qwk": 0.1558441558441559,
+   "exact_agreement": 0.0,
+   "within_1": 0.8,
+   "n": 5
+  },
+  "correct_safe": {
+   "qwk": 0.31372549019607854,
+   "exact_agreement": 0.2,
+   "within_1": 0.8,
+   "n": 5
+  },
+  "tone": {
+   "qwk": 0.0,
+   "exact_agreement": 0.6,
+   "within_1": 1.0,
+   "n": 5
+  },
+  "actionable": {
+   "qwk": 0.2857142857142857,
+   "exact_agreement": 0.2,
+   "within_1": 0.6,
+   "n": 5
+  },
+  "concise": {
+   "qwk": 0.0,
+   "exact_agreement": 0.8,
+   "within_1": 1.0,
+   "n": 5
+  }
+ },
+ "mean_qwk": 0.15105678635090403,
+ "per_item": [
+  {
+   "id": "cal_92_real",
+   "source": "real_historical",
+   "judge_scores": {
+    "grounded": 1.5,
+    "correct_safe": 2.5,
+    "tone": 3.5,
+    "actionable": 1.0,
+    "concise": 5.0
+   },
+   "human_scores": {
+    "grounded": 3,
+    "correct_safe": 4,
+    "tone": 4,
+    "actionable": 2,
+    "concise": 5
+   },
+   "reasoning": "The draft is completely ungrounded as there are no retrieved precedents, and it fails to provide any actionable troubleshooting steps or solutions for the customer's login issue on Roku or online."
+  },
+  {
+   "id": "cal_75_real",
+   "source": "real_historical",
+   "judge_scores": {
+    "grounded": 5.0,
+    "correct_safe": 5.0,
+    "tone": 5.0,
+    "actionable": 5.0,
+    "concise": 5.0
+   },
+   "human_scores": {
+    "grounded": 4,
+    "correct_safe": 4,
+    "tone": 4,
+    "actionable": 3,
+    "concise": 5
+   },
+   "reasoning": "The draft is excellent: it safely and politely acknowledges the customer's frustration, offers a clear next step to resolve the login issue via chat, and remains concise without hallucinating any unsupported policies."
+  },
+  {
+   "id": "cal_58_real",
+   "source": "real_historical",
+   "judge_scores": {
+    "grounded": 3.0,
+    "correct_safe": 4.0,
+    "tone": 4.0,
+    "actionable": 3.0,
+    "concise": 5.0
+   },
+   "human_scores": {
+    "grounded": 4,
+    "correct_safe": 4,
+    "tone": 4,
+    "actionable": 3,
+    "concise": 5
+   },
+   "reasoning": "The agent hallucinated the customer's name as 'Anni' and unhelpfully redirected them back to the phone support line they had just complained about having long wait times."
+  },
+  {
+   "id": "cal_108_real",
+   "source": "real_historical",
+   "judge_scores": {
+    "grounded": 5.0,
+    "correct_safe": 5.0,
+    "tone": 5.0,
+    "actionable": 5.0,
+    "concise": 5.0
+   },
+   "human_scores": {
+    "grounded": 4,
+    "correct_safe": 4,
+    "tone": 4,
+    "actionable": 3,
+    "concise": 5
+   },
+   "reasoning": "The draft is excellent: it safely avoids guessing billing details in the absence of precedents, maintains a polite and apologetic tone, and provides a clear, concise call to action for the customer to reach out via secure channels."
+  },
+  {
+   "id": "cal_33_real",
+   "source": "real_historical",
+   "judge_scores": {
+    "grounded": 1.0,
+    "correct_safe": 2.5,
+    "tone": 3.5,
+    "actionable": 3.0,
+    "concise": 5.0
+   },
+   "human_scores": {
+    "grounded": 4,
+    "correct_safe": 3,
+    "tone": 4,
+    "actionable": 4,
+    "concise": 4
+   },
+   "reasoning": "The draft is concise and polite, but it is completely ungrounded as there are no retrieved precedents to support the troubleshooting questions, and it assumes the customer's name is Michael without any basis in the message."
+  }
+ ]
+}

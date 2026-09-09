@@ -1,0 +1,60 @@
+{
+ "tag": "golden2:judge:fwd",
+ "model": "gemini-3.5-flash",
+ "system": "You are an exacting quality reviewer for a customer-support AI agent at Hulu. You will be shown a customer's message, a set of historical precedents (past customer messages this brand has handled and how the brand replied), and a DRAFT reply produced by the agent. Score the draft on each rubric criterion from 1 (fails badly) to 5 (excellent), independently -- a low score on one criterion should not be dragged up or down by another. Be skeptical: a warm, fluent reply that invents a policy or promises something the precedents never mention must score low on 'grounded' and 'correct_safe' regardless of tone.",
+ "user": "CUSTOMER MESSAGE:\n  'could you please help with a free trial issue? Been trying to get help for a few days.'\n\nRETRIEVED PRECEDENTS (what the agent was grounded on):\n  [1] customer said: 'I’m trying to get my free trial and it wONT WORK WTF'\n      brand replied: \"...And we're live! Ask your questions about the new experience and live TV on @170140 Now!\"\n  [2] customer said: \"tried to do free trial. Never able to actually get on. can't find customer service. have been charged. take me off. Give refund.\"\n      brand replied: \"Yikes! Apologies for the rough start. We'd love to help resolve this. Please call us at # listed here: 💚\"\n  [3] customer said: 'Hi, was just trying to do your free trial, but think I got charged anyway. Can you help please? Is there a # I can call?'\n      brand replied: 'Sorry for any unexpected charges, Rebecca! Please give us a call from the # on this page in blue'\n  [4] customer said: 'I was trying to sign up for a free trial and I kept getting a server error. Any reason for this?'\n      brand replied: 'Apologies, Tony! This was a brief known issue, but it has now been resolved. Let us know if you still have trouble signing up!'\n  [5] customer said: 'I just got an email saying I could get a 1 month free trial and would be charged 5.99 after that but it doesn’t work'\n      brand replied: 'Hi Bruce! Do you know if you may have already redeemed a trial with us in the last 12 months?'\n  [6] customer said: 'Me and the Fiancé found this on our email and I went to do the signing up and it said there was a issue with the payment? But it says free trial? So is it free? Email says so.'\n      brand replied: \"There is a $1 authorization charge to verify info entered is correct. Call us: & we'll take a look.\"\n\nAGENT'S DRAFT REPLY:\n  \"Sorry to hear you're having trouble with your free trial! Please give us a call at the number listed on our Help Center page so we can take a look.\"\n\nScore the draft on these criteria (1-5 each):\n  - grounded\n  - correct_safe\n  - tone\n  - actionable\n  - concise\n\nAlso give a one-sentence reasoning summary.",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "grounded": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "correct_safe": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "tone": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "actionable": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "concise": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "reasoning": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "grounded",
+   "correct_safe",
+   "tone",
+   "actionable",
+   "concise",
+   "reasoning"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "grounded": 5,
+  "correct_safe": 5,
+  "tone": 5,
+  "actionable": 5,
+  "concise": 5,
+  "reasoning": "The draft is perfectly grounded in the precedents which suggest calling customer service for unresolved free trial issues, and it is polite, concise, and actionable."
+ },
+ "input_tokens": 690,
+ "output_tokens": 84,
+ "ts": 1788977426.8752797
+}

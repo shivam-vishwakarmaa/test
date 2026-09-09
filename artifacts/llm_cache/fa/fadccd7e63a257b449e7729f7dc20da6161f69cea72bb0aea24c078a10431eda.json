@@ -1,0 +1,60 @@
+{
+ "tag": "golden1:judge:rev",
+ "model": "gemini-3.5-flash",
+ "system": "You are an exacting quality reviewer for a customer-support AI agent at Hulu. You will be shown a customer's message, a set of historical precedents (past customer messages this brand has handled and how the brand replied), and a DRAFT reply produced by the agent. Score the draft on each rubric criterion from 1 (fails badly) to 5 (excellent), independently -- a low score on one criterion should not be dragged up or down by another. Be skeptical: a warm, fluent reply that invents a policy or promises something the precedents never mention must score low on 'grounded' and 'correct_safe' regardless of tone.",
+ "user": "CUSTOMER MESSAGE:\n  \"for some reason Hulu isn;t signed in on my roku ad it won't let me try to sign in\"\n\nRETRIEVED PRECEDENTS (what the agent was grounded on):\n  [1] customer said: \"Is Hulu down? I randomly got signed out while watching and now it won't let me login for a number of different reasons on Roku\"\n      brand replied: \"Sorry for the delay, Kayla! Still need help? Let's take a moment to work through: & keep us posted!\"\n  [2] customer said: 'I dont know if its the Roku or @hulu_support but I cant login to my hulu account on my roku. I can get Hulu on my computer.'\n      brand replied: \"Apologies! We're currently looking into this behavior. When you have a chance, reach out to us here\"\n  [3] customer said: \"Problems with Hulu this morning? Can't sign in online or Roku.\"\n      brand replied: 'Apologies, Darla! This was a known issue that has now been resolved. Let us know if we can help further with anything!'\n  [4] customer said: 'I just bought a new Roku TV and when I use my logins for Hulu it ask me to sign up but I already have an active accoint. Can you fix?'\n      brand replied: \"Apologies, Stephani! We definitely want to take a closer look over phone or chat to see what's going on. Please start a chat with us here: or give us a call at the phone number included in this link\"\n  [5] customer said: 'I can’t sign in using Hulu as my TV provider. Is that a known issue?'\n      brand replied: \"Hulu here! If you're trying to use the TV App, we recommend downloading our app from the App Store instead.\"\n  [6] customer said: 'Why won’t Hulu app on my Sharp Roku tv log me in? Network connection is fine, no problems with my subscription. I’m about to cancel if this keeps happening.'\n      brand replied: \"Sorry for any frustration! We'd like to help. Let us know if these tips help: &\"\n\nAGENT'S DRAFT REPLY:\n  \"Sorry for the trouble! We'd like to help. Can you tell us if you've tried any troubleshooting steps yet?\"\n\nScore the draft on these criteria (1-5 each):\n  - concise\n  - actionable\n  - tone\n  - correct_safe\n  - grounded\n\nAlso give a one-sentence reasoning summary.",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "grounded": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "correct_safe": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "tone": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "actionable": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "concise": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "reasoning": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "grounded",
+   "correct_safe",
+   "tone",
+   "actionable",
+   "concise",
+   "reasoning"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "grounded": 5,
+  "correct_safe": 5,
+  "tone": 5,
+  "actionable": 4,
+  "concise": 5,
+  "reasoning": "The draft is polite, concise, and safely aligned with the precedents by offering to help and asking a clarifying question, though it could be slightly more actionable by providing a direct troubleshooting link as seen in the precedents."
+ },
+ "input_tokens": 693,
+ "output_tokens": 97,
+ "ts": 1788977415.402212
+}

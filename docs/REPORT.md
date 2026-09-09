@@ -1,9 +1,10 @@
 # Report — Hulu (`hulu_support`) AI support agent
 
 Repro: `pip install -r requirements.txt && python scripts/run_baselines.py` (< 1 minute, no API
-key). LLM-agent numbers: `ANTHROPIC_API_KEY=... python scripts/run_llm_agent.py` (~10–15 min,
-~$2–5) then `python scripts/run_judge_calibration.py`. See `README.md` for the full pipeline
-and `docs/DECISIONS.md` for the 15 non-obvious calls this report leans on.
+key) reproduces every non-LLM number below exactly. `LLM_BACKEND=cached python
+scripts/run_llm_agent.py` (also < 1 minute, no key) replays the real (if small — see section 2.3)
+Gemini-backed sample this report's LLM numbers come from. See `README.md` for the full pipeline
+and `docs/DECISIONS.md` for the 20 non-obvious calls this report leans on.
 
 ## 1. Problem framing
 
@@ -75,21 +76,43 @@ A sharper way to see the same thing: `other_non_support` has 25.8% precision and
 simple classifier is nearly a coin flip on "should this even get a reply," which is the exact
 boundary the LLM agent's classifier and confidence-gating exist to improve on.
 
-### 2.3 LLM agent (Haiku 4.5 drafter/classifier, Opus 5 judge)
+### 2.3 LLM agent (Gemini 2.5 Flash drafter/classifier, Gemini 3.5 Flash judge)
 
-**Status: implemented and ready to run, not yet executed against paid API calls** (see README —
-this was a deliberate scope decision, not an oversight: every number above is real and reproduces
-in under a minute; the LLM numbers require `ANTHROPIC_API_KEY` and ~10–15 minutes / ~$2–5, run via
-`python scripts/run_llm_agent.py` then `python scripts/run_judge_calibration.py`, after which this
-section's table populates directly from `artifacts/llm_agent_results.json`). Two concrete,
-falsifiable predictions, stated *before* running it so they're a real test rather than a
+**Status: executed for real against the live Gemini API — at a fraction of the intended scale,
+for a documented reason.** A `GEMINI_API_KEY` was supplied specifically so this section could stop
+being a prediction. It ran, end to end (classify → retrieve → draft → triage → judge), and then hit
+a wall the design didn't anticipate: this key's free tier caps **each model at 20 requests per
+day**, not per minute (`quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier`, confirmed from
+the actual API error body, not inferred). At 2 calls/example for classify+draft and 2 more for the
+double-scored judge, that ceiling landed at **5/220 golden examples fully run** (classified, drafted,
+and triaged) and **3 of those 5 also judged**, plus **5/45 judge-calibration items scored**, before
+each model's daily quota hit zero. The harness itself now handles this correctly — Decision #19 —
+stopping cleanly and preserving every completed result instead of crashing partway through and
+losing them, which is what the first attempt at this run actually did. This is a small, honest,
+real sample, not a substitute for the two full-scale free baselines above, which remain this
+report's actual headline numbers. See section 4 for why treating this n=5 as anything more would be
+the report's single most misleading move, and Decision #18 for why the judge here is a weaker
+bias-mitigation pairing than the codebase was designed for.
+
+| Metric (n=5, real) | Value |
+|---|---|
+| Classification accuracy | 60.0% (macro-F1 45.0%) — 2 gold `billing_payment`/`cancel_refund` cases predicted as the taxonomy's stated "adjacent" money intents (Decision #6's edge case, seen live) |
+| Triage | 0% auto-send, 0% unsafe-auto, 100% escalate-recall, 80% escalate-precision (n=5; one over-escalation: `content_availability` routed to a human for "only 1 precedent used, below minimum 3" against a gold label of auto-answerable) |
+| Judge scores (n=3 drafts) | grounded 5.0, correct_safe 5.0, tone 5.0, actionable 4.83, concise 5.0 — uninformatively high at this n; see section 4 |
+| Judge-vs-human QWK (n=5 calibration items) | 0.151 mean across criteria — **not a usable agreement estimate at this n**; see section 4 |
+
+Two falsifiable predictions were stated before running this, as a real test rather than a
 post-hoc story: (1) the LLM classifier should gain most on `how_to_feature` and
 `other_non_support` — the two intents where the simple baseline's precision is worst (38% and 26%
-respectively) because both require semantic judgment a bag-of-n-grams can't do (distinguishing "a
-question with the answer implied" from "an unclassifiable fragment," e.g. golden_id 7 vs. 165); (2)
-the unsafe-auto-rate should drop further below 12.7%, because the LLM triage layer gates on
-*retrieval grounding* in addition to intent (Decision #6), which the simple baseline's rule cannot
-do at all.
+respectively) because both require semantic judgment a bag-of-n-grams can't do; (2) the
+unsafe-auto-rate should drop further below 12.7%, because the LLM triage layer gates on *retrieval
+grounding* in addition to intent (Decision #6). Neither of the 5 completed examples exercises the
+auto-send path at all (every one escalated, correctly, on `never_auto_intents` or a hard confidence/
+grounding gate), so prediction (2) is untested by this sample, not confirmed — the honest state is
+"still open," and completing the run (Decision #19's continuation plan) is what would actually test
+it. `LLM_BACKEND=cached python scripts/run_llm_agent.py` replays exactly these 5 real results with
+no key and no cost; `make llm-agent` (or `-anthropic`) continues the run against a live key,
+resuming from cache automatically.
 
 ## 3. Failure analysis — top 5 failure modes, with real examples
 
@@ -183,28 +206,55 @@ Several things, stated against ourselves rather than left for a reader to find:
   "retrieval works because this exact templated complaint has appeared hundreds of times" (true
   for a subset) — we have not yet separated these two populations.
 - **A 15-minute reproduction claim is true only for the non-LLM numbers.** The LLM-dependent
-  headline numbers (agent classification/triage, judge scores) require either an API key and
-  ~10–15 minutes/~$2–5, or a previously-committed `artifacts/llm_cache/` from a real run. Until
-  one of those exists, this report's Section 2.3 is a prediction, clearly labeled as one — not a
-  result dressed up as one.
+  numbers require either an API key or a previously-committed `artifacts/llm_cache/` from a real
+  run; the latter is what's committed here, and it replays in seconds with `LLM_BACKEND=cached`.
+- **Section 2.3's real numbers are n=5 (n=3 for judge scores, n=5 for judge-calibration QWK) —
+  small enough that reporting them at all needs a warning label, not just a footnote.** This
+  wasn't a choice; it's what a free-tier key's 20-requests-per-day-per-model cap actually allowed
+  before both models hit zero remaining quota (Decision #19). At n=5, one wrong classification
+  moves accuracy by 20 points; at n=3, three drafts scoring 5/5/5 on `grounded` is not evidence the
+  drafter is excellent, it's evidence the sample is too small to have hit a hard case yet — the
+  simple baseline's own precision numbers (e.g. 26% on `other_non_support`) show real cases exist
+  where this would score badly, none of which happened to land in this n=5. **Treat every number in
+  section 2.3 as "the harness produces real numbers, not simulated ones" evidence, not as "the LLM
+  agent is this good" evidence** — those are different claims, and only the first one is supported
+  at this sample size. The QWK of 0.151 is a particularly sharp instance of this: at n=5 it is
+  statistically indistinguishable from noise, not a real read on judge-human agreement (that read
+  needs the full 45-item calibration set, which needs either more days against this key's quota or
+  a paid tier — see section 5).
+- **Some of today's tiny quota budget was spent proving the code worked, not on the reported
+  sample.** Getting the Gemini backend production-ready required live API calls to discover the
+  `additionalProperties` schema rejection and the `thinking_budget` truncation bug (Decision #17)
+  *before* trusting it with the real run — the right engineering call, but it means part of each
+  model's 20-request daily allowance went to correctness testing rather than golden examples. A
+  reader comparing "why only 5 examples" against "20 requests/day ÷ 2 calls/example = 10" should
+  know the arithmetic doesn't quite close, and this is why.
 
 ## 5. What I'd do with one more week
 
-1. **Get a second labeler on ≥50 golden examples** and compute real inter-annotator Cohen's/
-   quadratic-weighted kappa — the single highest-value fix to this project's evidence base (see
-   `LABELING_PROTOCOL.md`).
-2. **Run the LLM agent and judge for real**, then hill-climb the drafter prompt against the
-   3 lowest-scoring rubric criteria, re-measuring on a held-out slice of the golden set so the
-   reported number isn't the one the prompt was tuned against.
-3. **Multi-label intent support** for the ~10% of messages that genuinely raise two issues at once
+1. **Finish the real LLM-agent run to the full 220/45 examples.** This is now the top item,
+   promoted above everything else it used to sit below, because it's blocking on quota rather than
+   on unbuilt code: either enable billing on the Gemini key (free tier hard-caps at 20
+   requests/day/model — Decision #19), spread `make llm-agent` across ~2–3 weeks at ~10
+   examples/day, or switch to `LLM_BACKEND=anthropic` with a paid key, which also restores the
+   originally-designed stronger-tier judge (Decision #18). The harness is ready for any of these —
+   it resumes from cache automatically and no longer loses progress on a quota wall.
+2. **Get a second labeler on ≥50 golden examples** and compute real inter-annotator Cohen's/
+   quadratic-weighted kappa — the highest-value fix to this project's *ground-truth* evidence base,
+   as distinct from #1's *model-output* evidence base (see `LABELING_PROTOCOL.md`).
+3. **Once (1) is done, hill-climb the drafter prompt** against the 3 lowest-scoring rubric criteria
+   on a real 220-example run, re-measuring on a held-out slice of the golden set so the reported
+   number isn't the one the prompt was tuned against.
+4. **Multi-label intent support** for the ~10% of messages that genuinely raise two issues at once
    (failure mode #4) instead of forcing a single primary label.
-4. **Separate "novel semantic match" from "templated recurring complaint"** in the retrieval
-   similarity distribution (the last misleading-number bullet above), likely via near-duplicate
+5. **Separate "novel semantic match" from "templated recurring complaint"** in the retrieval
+   similarity distribution (a section-4 misleading-number bullet), likely via near-duplicate
    clustering of customer openings, to get an honest read on how much of retrieval quality is
    doing real work vs. exploiting repetition.
-5. **A confidence-calibration pass on the LLM classifier itself** (the AURC/risk-coverage
+6. **A confidence-calibration pass on the LLM classifier itself** (the AURC/risk-coverage
    machinery in `eval/metrics.py` already supports this) to set `min_confidence` in
-   `config/config.yaml` from data rather than a starting guess of 0.75.
-6. **Test the taxonomy against a second brand** (AirAsiaSupport or AskPlayStation scored close
+   `config/config.yaml` from data rather than a starting guess of 0.75 — needs (1) done first to
+   have enough LLM-classifier confidence scores to calibrate against.
+7. **Test the taxonomy against a second brand** (AirAsiaSupport or AskPlayStation scored close
    behind Hulu in the learnability survey) to see which decisions here are Hulu-specific and which
    generalize — right now that's an open question, not a claim either way.

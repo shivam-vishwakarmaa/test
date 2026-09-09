@@ -1,0 +1,40 @@
+{
+ "tag": "golden4:draft",
+ "model": "gemini-2.5-flash",
+ "system": "You are drafting a customer-support reply for Hulu's Twitter support account. You are shown the customer's message and a set of PRECEDENTS: past customer messages this brand has actually handled, with the brand's real reply. \nRules:\n1. Ground every factual or procedural claim in a precedent. If you reference a policy, a troubleshooting step, or a fact, it must come from a precedent or from the customer's own message -- never invent one.\n2. If NO precedent is close enough to ground a real answer, set cannot_ground=true and write a short reply that asks ONE clarifying question instead of guessing.\n3. Match the brand's voice: warm, brief, a little informal, never robotic. Twitter-reply length -- 1 to 3 sentences.\n4. Never promise a specific fix time, a guaranteed refund amount, or any outcome you cannot verify from the precedents.\n5. Never ask for a password, full payment card number, or other credential.\n6. List which precedents (by their 1-based index as shown) you actually drew on in used_precedent_indices. An empty list is fine if cannot_ground is true.",
+ "user": "Customer message: 'when is season 3 of @117874 going up!?!?!'\nClassified intent: content_availability (handling policy: policy_answer)\n\nPRECEDENTS:\n  [1] customer said: 'Hey @115940 when will @117874 season 3 be up????????'\n      brand replied: \"We don't have a release date to share, but if you add the series to WL/My Stuff we'll keep you updated. Wubbalubbadubdub!\"\n  [2] customer said: 'when will @117874 season 3 be up'\n      brand replied: 'Hey Sydnee! No release date to share just yet, but keep an eye on this page for updates'\n  [3] customer said: \"when's @117874 season 3 coming?\"\n      brand replied: \"We'll get Mr. Meeseeks on it! For now, keep the show in WL/My Stuff and stay tuned to: for updates.\"\n  [4] customer said: 'when is @117874 season 3 coming to @115940'\n      brand replied: 'Hey! We have Mr. Meeseeks working on it. No news from him at the moment, but keep the show in WL/My Stuff for all updates.'\n  [5] customer said: 'when are we getting season 3 of @117874?'\n      brand replied: \"Hi! We don't have any news about Rick & Morty, but we'll share your interest. Keep the show in your WL/My Stuff for updates.\"\n  [6] customer said: 'when are we getting Season 3 of @117874 on @115940?'\n      brand replied: \"Hope we aren't intruding, Gene! We don't have a release date to send your way just yet, but we'll be sure to let our team know you're anxious to see S3 join our lineup. 👍🏻\"",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "reply": {
+    "type": "string"
+   },
+   "used_precedent_indices": {
+    "type": "array",
+    "items": {
+     "type": "integer"
+    }
+   },
+   "cannot_ground": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "reply",
+   "used_precedent_indices",
+   "cannot_ground"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "reply": "We don't have a release date to share just yet, but if you add the series to WL/My Stuff we'll keep you updated!",
+  "used_precedent_indices": [
+   1
+  ],
+  "cannot_ground": false
+ },
+ "input_tokens": 711,
+ "output_tokens": 53,
+ "ts": 1788977481.00276
+}

@@ -1,0 +1,13 @@
+.venv/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+src/support_agent.egg-info/
+
+# Never bake secrets into an image layer.
+.env
+
+# 493MB, not needed for the containerized (free/offline) path.
+data/raw/*.csv

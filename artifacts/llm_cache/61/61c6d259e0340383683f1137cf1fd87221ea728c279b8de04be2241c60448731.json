@@ -1,0 +1,60 @@
+{
+ "tag": "cal:cal_75_real:judge:fwd",
+ "model": "gemini-3.5-flash",
+ "system": "You are an exacting quality reviewer for a customer-support AI agent at Hulu. You will be shown a customer's message, a set of historical precedents (past customer messages this brand has handled and how the brand replied), and a DRAFT reply produced by the agent. Score the draft on each rubric criterion from 1 (fails badly) to 5 (excellent), independently -- a low score on one criterion should not be dragged up or down by another. Be skeptical: a warm, fluent reply that invents a policy or promises something the precedents never mention must score low on 'grounded' and 'correct_safe' regardless of tone.",
+ "user": "CUSTOMER MESSAGE:\n  \"you better fix my account @115940 can't log in or sign up why whyyyyyy !!!\"\n\nRETRIEVED PRECEDENTS (what the agent was grounded on):\n  (no precedents retrieved)\n\nAGENT'S DRAFT REPLY:\n  \"Sorry to hear you were having trouble! Still need help? If so, chat with us and we'll get this sorted ASAP!\"\n\nScore the draft on these criteria (1-5 each):\n  - grounded\n  - correct_safe\n  - tone\n  - actionable\n  - concise\n\nAlso give a one-sentence reasoning summary.",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "grounded": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "correct_safe": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "tone": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "actionable": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "concise": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "reasoning": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "grounded",
+   "correct_safe",
+   "tone",
+   "actionable",
+   "concise",
+   "reasoning"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "grounded": 5,
+  "correct_safe": 5,
+  "tone": 5,
+  "actionable": 5,
+  "concise": 5,
+  "reasoning": "The draft is excellent: it safely and politely acknowledges the customer's frustration, offers a clear next step to resolve the login issue via chat, and remains concise without hallucinating any unsupported policies."
+ },
+ "input_tokens": 271,
+ "output_tokens": 94,
+ "ts": 1788977539.8206108
+}

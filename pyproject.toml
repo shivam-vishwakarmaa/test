@@ -12,8 +12,27 @@ dependencies = [
     "numpy>=1.26",
     "scikit-learn>=1.3",
     "PyYAML>=6.0",
+    "python-dotenv>=1.0",
     "anthropic>=0.40",
+    "google-genai>=1.0",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+# E501 (line length): several files carry long regex/keyword patterns
+# (support_agent/taxonomy/weak_labels.py) and long f-string report lines that
+# are more readable unbroken than wrapped -- enforced by review, not CI.
+# E402 (import not at top): every script does `sys.path.insert(...)` before
+# its `support_agent.*` imports so `python scripts/foo.py` works without
+# `pip install -e .` -- that ordering is deliberate, not an oversight.
+ignore = ["E501", "E402"]

@@ -27,7 +27,6 @@ from __future__ import annotations
 import argparse
 import json
 import random
-import re
 from collections import Counter, defaultdict
 
 from support_agent.taxonomy.weak_labels import COMPILED, weak_label
@@ -55,7 +54,7 @@ def n_rule_matches(text: str) -> int:
 
 def sample(cases_path: str, seed: int, out_path: str) -> None:
     rng = random.Random(seed)
-    cases = [json.loads(l) for l in open(cases_path, encoding="utf-8")]
+    cases = [json.loads(line) for line in open(cases_path, encoding="utf-8")]
     by_stratum: dict[str, list[dict]] = defaultdict(list)
     for c in cases:
         c["_weak_label"] = weak_label(c["customer_text"])

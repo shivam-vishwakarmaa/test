@@ -26,3 +26,6 @@ src/support_agent.egg-info/
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets -- never commit. Copy .env.example -> .env and fill in locally.
+.env

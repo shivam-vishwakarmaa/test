@@ -13,7 +13,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from support_agent.data.threads import UnionFind
-from support_agent.eval.judge import quadratic_weighted_kappa, cohens_kappa
+from support_agent.eval.judge import cohens_kappa, quadratic_weighted_kappa
 from support_agent.eval.metrics import aurc, risk_coverage_curve, triage_report
 from support_agent.taxonomy.weak_labels import weak_label
 

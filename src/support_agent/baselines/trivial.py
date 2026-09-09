@@ -43,7 +43,9 @@ class TrivialReplier:
         # Group near-duplicate openings (first 6 words) to find the brand's
         # single most repeated canned opening -- a fair "what the brand already
         # does most of the time" reference reply.
-        key = lambda r: " ".join(r.split()[:6]).lower()
+        def key(r: str) -> str:
+            return " ".join(r.split()[:6]).lower()
+
         counts = Counter(key(r) for r in brand_replies if r.strip())
         top_key, _ = counts.most_common(1)[0]
         for r in brand_replies:
@@ -72,9 +74,9 @@ if __name__ == "__main__":
     ap.add_argument("--weak-labels", default="data/interim/hulu_weak_labels.jsonl")
     args = ap.parse_args()
 
-    cases = [json.loads(l) for l in open(args.cases, encoding="utf-8")]
-    weak = {json.loads(l)["case_id"]: json.loads(l)["weak_label"]
-            for l in open(args.weak_labels, encoding="utf-8")}
+    cases = [json.loads(line) for line in open(args.cases, encoding="utf-8")]
+    weak = {json.loads(line)["case_id"]: json.loads(line)["weak_label"]
+            for line in open(args.weak_labels, encoding="utf-8")}
     intents = [weak[c["case_id"]] for c in cases if c["case_id"] in weak]
 
     clf = TrivialClassifier.fit(intents)

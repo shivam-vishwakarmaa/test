@@ -103,7 +103,6 @@ def simple_triage(intents: list[str], handling_by_intent: dict[str, str]) -> lis
 if __name__ == "__main__":
     import argparse
 
-    import yaml
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--cases", default="data/interim/hulu_support_cases.jsonl")
@@ -111,17 +110,17 @@ if __name__ == "__main__":
     ap.add_argument("--golden", default="data/golden/golden_v1.jsonl")
     args = ap.parse_args()
 
-    cases = [json.loads(l) for l in open(args.cases, encoding="utf-8")]
+    cases = [json.loads(line) for line in open(args.cases, encoding="utf-8")]
     weak = {}
-    for l in open(args.weak_labels, encoding="utf-8"):
-        r = json.loads(l)
+    for line in open(args.weak_labels, encoding="utf-8"):
+        r = json.loads(line)
         weak[r["case_id"]] = r["weak_label"]
 
     texts = [c["customer_text"] for c in cases if c["case_id"] in weak]
     labels = [weak[c["case_id"]] for c in cases if c["case_id"] in weak]
     clf = SimpleClassifier.fit(texts, labels)
 
-    golden = [json.loads(l) for l in open(args.golden, encoding="utf-8")]
+    golden = [json.loads(line) for line in open(args.golden, encoding="utf-8")]
     g_texts = [g["customer_text"] for g in golden]
     g_gold = [g["gold_intent"] for g in golden]
     preds, confs = clf.predict_proba_top(g_texts)

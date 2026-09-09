@@ -1,0 +1,211 @@
+{
+ "n_golden": 220,
+ "n_completed": 5,
+ "classification": {
+  "accuracy": 0.6,
+  "macro_f1": 0.45,
+  "n": 5,
+  "per_class": {
+   "account_access": {
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "support": 2
+   },
+   "billing_payment": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 1
+   },
+   "cancel_refund": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 1
+   },
+   "content_availability": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1
+   }
+  }
+ },
+ "triage": {
+  "n": 5,
+  "tp": 4,
+  "fp": 1,
+  "fn": 0,
+  "tn": 0,
+  "auto_send_rate": 0.0,
+  "unsafe_auto_rate": 0.0,
+  "escalate_recall": 1.0,
+  "escalate_precision": 0.8
+ },
+ "usage": {
+  "calls": 0,
+  "cache_hits": 10,
+  "cost_usd": 0.0
+ },
+ "per_example": [
+  {
+   "golden_id": 1,
+   "case_id": 345978,
+   "customer_text": "for some reason Hulu isn;t signed in on my roku ad it won't let me try to sign in",
+   "gold_intent": "account_access",
+   "pred_intent": "account_access",
+   "pred_confidence": 1,
+   "pred_flags": [
+    "needs_account_data"
+   ],
+   "gold_escalate": true,
+   "pred_escalate": true,
+   "triage_reasons": [
+    "intent 'account_access' is on the never-auto list",
+    "taxonomy handling policy for 'account_access' is 'escalate'"
+   ],
+   "draft": "Sorry for the trouble! We'd like to help. Can you tell us if you've tried any troubleshooting steps yet?",
+   "cannot_ground": false,
+   "n_precedents_used": 1,
+   "judge_scores": {
+    "grounded": 5.0,
+    "correct_safe": 5.0,
+    "tone": 5.0,
+    "actionable": 4.5,
+    "concise": 5.0
+   },
+   "judge_order_sensitivity": {
+    "grounded": 0,
+    "correct_safe": 0,
+    "tone": 0,
+    "actionable": 1,
+    "concise": 0
+   },
+   "judge_reasoning": "The agent's draft is polite, concise, safe, and aligns well with the general troubleshooting and helpful tone established in the retrieved precedents."
+  },
+  {
+   "golden_id": 2,
+   "case_id": 1467280,
+   "customer_text": "could you please help with a free trial issue? Been trying to get help for a few days.",
+   "gold_intent": "billing_payment",
+   "pred_intent": "account_access",
+   "pred_confidence": 0.9,
+   "pred_flags": [
+    "repeat_contact",
+    "needs_account_data"
+   ],
+   "gold_escalate": true,
+   "pred_escalate": true,
+   "triage_reasons": [
+    "intent 'account_access' is on the never-auto list",
+    "taxonomy handling policy for 'account_access' is 'escalate'"
+   ],
+   "draft": "Sorry to hear you're having trouble with your free trial! Please give us a call at the number listed on our Help Center page so we can take a look.",
+   "cannot_ground": false,
+   "n_precedents_used": 3,
+   "judge_scores": {
+    "grounded": 5.0,
+    "correct_safe": 5.0,
+    "tone": 5.0,
+    "actionable": 5.0,
+    "concise": 5.0
+   },
+   "judge_order_sensitivity": {
+    "grounded": 0,
+    "correct_safe": 0,
+    "tone": 0,
+    "actionable": 0,
+    "concise": 0
+   },
+   "judge_reasoning": "The draft is perfectly grounded in the precedents which suggest calling customer service for unresolved free trial issues, and it is polite, concise, and actionable."
+  },
+  {
+   "golden_id": 3,
+   "case_id": 2337023,
+   "customer_text": "I just subscribed to Spotify Premium for Students + Hulu, but I'm having trouble linking my accounts. Help please?",
+   "gold_intent": "account_access",
+   "pred_intent": "account_access",
+   "pred_confidence": 1,
+   "pred_flags": [
+    "needs_account_data"
+   ],
+   "gold_escalate": true,
+   "pred_escalate": true,
+   "triage_reasons": [
+    "intent 'account_access' is on the never-auto list",
+    "taxonomy handling policy for 'account_access' is 'escalate'"
+   ],
+   "draft": "Oh no! We'd love to help. Please reach out to us via chat here: with the email address and ZIP on file so we can locate your account and sort this out!",
+   "cannot_ground": false,
+   "n_precedents_used": 2,
+   "judge_scores": {
+    "grounded": 5.0,
+    "correct_safe": 5.0,
+    "tone": 5.0,
+    "actionable": 5.0,
+    "concise": 5.0
+   },
+   "judge_order_sensitivity": {
+    "grounded": 0,
+    "correct_safe": 0,
+    "tone": 0,
+    "actionable": 0,
+    "concise": 0
+   },
+   "judge_reasoning": "The draft is perfectly grounded in the provided precedents (specifically matching the solutions in precedents 3 and 4), maintains a helpful and polite tone, and provides clear, actionable next steps for the customer."
+  },
+  {
+   "golden_id": 4,
+   "case_id": 716401,
+   "customer_text": "when is season 3 of @117874 going up!?!?!",
+   "gold_intent": "content_availability",
+   "pred_intent": "content_availability",
+   "pred_confidence": 1,
+   "pred_flags": [],
+   "gold_escalate": false,
+   "pred_escalate": true,
+   "triage_reasons": [
+    "only 1 precedent(s) used, below minimum 3"
+   ],
+   "draft": "We don't have a release date to share just yet, but if you add the series to WL/My Stuff we'll keep you updated!",
+   "cannot_ground": false,
+   "n_precedents_used": 1
+  },
+  {
+   "golden_id": 5,
+   "case_id": 2948734,
+   "customer_text": "I cancelled my hulu account a few months ago, but I am still getting charged. I cannot seem to find any support email, so please help.",
+   "gold_intent": "cancel_refund",
+   "pred_intent": "billing_payment",
+   "pred_confidence": 1,
+   "pred_flags": [
+    "needs_account_data"
+   ],
+   "gold_escalate": true,
+   "pred_escalate": true,
+   "triage_reasons": [
+    "intent 'billing_payment' is on the never-auto list",
+    "taxonomy handling policy for 'billing_payment' is 'escalate'"
+   ],
+   "draft": "Sorry to hear about the unexpected charges! We'd be happy to take a closer look at this for you. Please reach out to us here: [link to support page or phone number].",
+   "cannot_ground": false,
+   "n_precedents_used": 5
+  }
+ ],
+ "judge_mean_scores": {
+  "grounded": 5.0,
+  "correct_safe": 5.0,
+  "tone": 5.0,
+  "actionable": 4.833333333333333,
+  "concise": 5.0
+ },
+ "judge_order_sensitivity": {
+  "grounded": 0.0,
+  "correct_safe": 0.0,
+  "tone": 0.0,
+  "actionable": 0.3333333333333333,
+  "concise": 0.0
+ },
+ "judge_n_scored": 3
+}

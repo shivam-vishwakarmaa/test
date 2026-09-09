@@ -1,0 +1,60 @@
+{
+ "tag": "cal:cal_33_real:judge:rev",
+ "model": "gemini-3.5-flash",
+ "system": "You are an exacting quality reviewer for a customer-support AI agent at Hulu. You will be shown a customer's message, a set of historical precedents (past customer messages this brand has handled and how the brand replied), and a DRAFT reply produced by the agent. Score the draft on each rubric criterion from 1 (fails badly) to 5 (excellent), independently -- a low score on one criterion should not be dragged up or down by another. Be skeptical: a warm, fluent reply that invents a policy or promises something the precedents never mention must score low on 'grounded' and 'correct_safe' regardless of tone.",
+ "user": "CUSTOMER MESSAGE:\n  'Questions on trial. Signed up for ad free but still getting ads. Why? Also, instead of $11.99, it switched to $13.99.'\n\nRETRIEVED PRECEDENTS (what the agent was grounded on):\n  (no precedents retrieved)\n\nAGENT'S DRAFT REPLY:\n  'Hi Michael! Are you iTunes-billed perhaps? Which shows are you seeing ads on?'\n\nScore the draft on these criteria (1-5 each):\n  - concise\n  - actionable\n  - tone\n  - correct_safe\n  - grounded\n\nAlso give a one-sentence reasoning summary.",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "grounded": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "correct_safe": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "tone": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "actionable": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "concise": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "reasoning": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "grounded",
+   "correct_safe",
+   "tone",
+   "actionable",
+   "concise",
+   "reasoning"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "grounded": 1,
+  "correct_safe": 2,
+  "tone": 3,
+  "actionable": 2,
+  "concise": 5,
+  "reasoning": "The draft is concise but completely ungrounded due to the lack of retrieved precedents, and it assumes the customer's name is Michael without any basis in the message."
+ },
+ "input_tokens": 273,
+ "output_tokens": 89,
+ "ts": 1788977637.4955244
+}

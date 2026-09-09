@@ -3,8 +3,9 @@
 judge-vs-human agreement (quadratic-weighted kappa per rubric criterion).
 
 This is the "evidence of how well your judge agrees with a human" deliverable.
-Needs ANTHROPIC_API_KEY (or a populated artifacts/llm_cache/). Cost: a few cents
-(45 items x 2 orderings x 1 judge call).
+Needs GEMINI_API_KEY (default backend) or ANTHROPIC_API_KEY, or a populated
+artifacts/llm_cache/. Cost: at most a few cents (45 items x 2 orderings x 1
+judge call); $0 on this submission's free-tier Gemini key.
 
 Usage: python scripts/run_judge_calibration.py
 """
@@ -17,14 +18,15 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-import yaml
+from dotenv import load_dotenv
 
 from support_agent.config import load_config
 from support_agent.eval.judge import RUBRIC_CRITERIA, judge_human_agreement, judge_reply
-from support_agent.llm.client import CacheMiss, client_from_config
+from support_agent.llm.client import CacheMiss, QuotaExhausted, client_from_config
 
 
 def main():
+    load_dotenv()  # picks up GEMINI_API_KEY / ANTHROPIC_API_KEY from .env if present
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="config/config.yaml")
     ap.add_argument("--calibration", default="data/golden/judge_calibration.json")
@@ -42,8 +44,12 @@ def main():
     human_scores_by_crit = {c: [] for c in RUBRIC_CRITERIA}
     per_item = []
     n_miss = 0
+    n_error = 0
+    quota_hit = False
 
     for it in items:
+        if quota_hit:
+            break
         try:
             jr = judge_reply(client, judge_model, it["customer_text"], [], it["draft"],
                               tag=f"cal:{it['id']}", double_score=True)
@@ -51,6 +57,14 @@ def main():
             n_miss += 1
             if n_miss == 1:
                 print(f"CACHE MISS: {e}")
+            continue
+        except QuotaExhausted as e:
+            print(f"\nSTOPPING at item {it['id']}: {e}\n")
+            quota_hit = True
+            continue
+        except RuntimeError as e:
+            n_error += 1
+            print(f"  [error on item {it['id']}, skipping]: {e}")
             continue
         scores = jr.scores
         for c in RUBRIC_CRITERIA:
@@ -61,9 +75,17 @@ def main():
 
     if n_miss:
         print(f"\n{n_miss}/{len(items)} calibration items have no cached judge response.")
-        print("Run with ANTHROPIC_API_KEY set to populate the cache, then re-run.")
+        print("Run with GEMINI_API_KEY set (LLM_BACKEND=gemini) to populate the cache, then re-run.")
         if n_miss == len(items):
             return
+    if n_error:
+        print(f"\n{n_error}/{len(items)} items failed with a non-quota error and were skipped.")
+    if quota_hit:
+        print(f"{len(items) - len(per_item) - n_miss - n_error}/{len(items)} items were never "
+              "attempted (quota exhausted before reaching them).")
+    if not per_item:
+        print("\nno calibration items were scored -- nothing to report.")
+        return
 
     agreement = judge_human_agreement(judge_scores_by_crit, human_scores_by_crit)
     print(f"\njudge-vs-human agreement over {len(per_item)} calibration items:")

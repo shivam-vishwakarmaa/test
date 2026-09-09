@@ -122,7 +122,7 @@ def build_index(
     exclude_deflections: bool,
     cache_dir: str,
 ) -> PrecedentIndex:
-    cases = [json.loads(l) for l in open(cases_path, encoding="utf-8")]
+    cases = [json.loads(line) for line in open(cases_path, encoding="utf-8")]
     if exclude_deflections:
         cases = [c for c in cases if not _is_deflection_reply(c["brand_reply"], min_reply_words)]
 

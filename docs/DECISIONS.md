@@ -162,8 +162,88 @@ report.
 
 (Committed cases/weak-labels/embedding-cache → `make baselines`, <1 minute,
 no key, vs. raw 493MB CSV download + Ollama embedding from scratch, or the
-real LLM agent/judge run, ~$2–5.)
-The trivial and simple baselines and every non-LLM metric in the report are
-produced by the fast path and are true today, independent of anyone's API
-key. This decision is what makes it honest to say "here are real, verified
-numbers" in the README rather than "here is a pipeline that should work."
+real LLM agent/judge run.) The trivial and simple baselines and every
+non-LLM metric in the report are produced by the fast path and are true
+today, independent of anyone's API key. This decision is what makes it
+honest to say "here are real, verified numbers" in the README rather than
+"here is a pipeline that should work."
+
+### 16. The real-run LLM backend is Gemini (`google-genai`, the current SDK), not the deprecated `google-generativeai`.
+
+A `GEMINI_API_KEY` was supplied for this submission specifically to produce
+real numbers rather than leave Section 2.3 a prediction. `google-generativeai`
+(the package an earlier draft of the Gemini backend used) prints an
+unconditional deprecation notice on import ("All support for the
+`google.generativeai` package has ended") -- shipping a "production ready"
+integration on a dead SDK would be the wrong call the moment a better one is
+one `pip install` away. `google-genai` also gives native `response_schema`
+enforcement (see #17) instead of a text-instruction-and-hope approach. The
+Anthropic backend (the codebase's original design target) remains fully
+supported and is what `make llm-agent-anthropic` uses.
+
+### 17. Gemini's `response_schema` needed two fixes discovered by testing against the live API before trusting it with a 220-example run, not by reading docs alone.
+
+(1) It rejects the JSON-Schema keyword `additionalProperties` outright with
+an HTTP 400 -- every schema in this repo carries that keyword for the
+Anthropic backend, so `support_agent/llm/client.py::_strip_unsupported_schema_keys`
+recursively strips it (and `$schema`) for Gemini calls rather than
+maintaining a second, parallel set of schemas. (2) Gemini 2.5/3.5 "thinking"
+models spend part of `max_output_tokens` on an invisible reasoning trace by
+default; at this codebase's token budgets (1024) that silently truncates the
+JSON output mid-object -- confirmed directly: the identical judge-schema
+request returned valid JSON with `thinking_budget=0` and an unparseable
+truncated response with thinking left on default. Every Gemini call now sets
+`thinking_budget=0` explicitly. Both of these were caught by three rounds of
+live API testing (`/tmp/genai_*_test.py`, not committed) before the real run,
+specifically so the 220-example batch wouldn't fail out midway on a schema or
+truncation bug discovered the expensive way.
+
+### 18. The judge model is a weaker bias-mitigation pairing than designed, and that's stated plainly rather than fixed by relabeling.
+
+Decision #10 argues for a judge that is both a DIFFERENT model AND A
+STRONGER TIER than the drafter, to fight self-enhancement bias. On Gemini,
+this submission's API key returns `429 RESOURCE_EXHAUSTED` with **zero
+quota** (not a rate limit -- an actual zero) on every pro-tier model tried
+(`gemini-2.5-pro`, `gemini-3.1-pro-preview`), which is how a free-tier
+AI-Studio key without billing enabled behaves. The judge here is
+`gemini-3.5-flash` scoring `gemini-2.5-flash`'s drafts: a different model
+generation, but the same provider and the same flash tier -- weaker
+self-enhancement-bias protection than the Anthropic Haiku/Opus pairing this
+codebase was originally built around. This is recorded as a known limitation
+of *this run*, not of the design; `LLM_BACKEND=anthropic` restores the
+originally-designed pairing for anyone with an Anthropic key.
+
+### 19. Discovered the hard way: this Gemini free tier caps each model at 20 requests PER DAY, not per minute -- and the harness now degrades instead of crashing when it hits that wall.
+
+The first full run of `scripts/run_llm_agent.py` died with an unhandled
+`RuntimeError` after 4 retries against `429 RESOURCE_EXHAUSTED`, having
+completed only a handful of the 220 golden examples -- and because the
+original script only caught `CacheMiss`, that crash would have thrown away
+every already-completed example's result along with it. Reading the actual
+error body (not just the status code) showed `quotaId:
+GenerateRequestsPerDayPerProjectPerModel-FreeTier, quotaValue: 20` -- a
+**daily**, not per-minute, cap, separately enforced per model. Retrying
+(what the existing backoff logic did) cannot succeed again until the quota
+resets, so `_call_gemini` now raises a distinct `QuotaExhausted` the instant
+it detects `"PerDay"` in the error body, and both `run_llm_agent.py` and
+`run_judge_calibration.py` catch it specifically: stop calling the model
+immediately (no point burning `max_retries` x backoff on every remaining
+item for an identical failure), but keep and report whatever already
+succeeded, and keep the cache. **Real outcome of this submission's run:**
+5/220 golden examples fully classified+drafted (`gemini-2.5-flash`), 3 of
+those 5 also judged (`gemini-3.5-flash`), and 5/45 judge-calibration items
+scored, before each model's daily cap hit zero -- some of that day's 20-call
+budget per model was itself spent on the live API testing in Decision #17,
+which is an honest, if slightly ironic, contributor to why the real sample
+is this small. See REPORT.md sections 2.3 and 4 for how this is reported: as
+a real, small, honestly-labeled sample layered on top of the two full-scale
+free baselines, not as a disguised 220-example result.
+
+### 20. API keys live in a git-ignored `.env`, loaded via `python-dotenv`; a committed `.env.example` documents what's needed per backend.
+
+Never in `config/config.yaml` (which is committed and diffed in every PR) and
+never passed as a literal in a script argument (which ends up in shell
+history and process listings). `load_dotenv()` is called inside each
+script's `main()`, not at import time, so importing `support_agent.*` as a
+library never has the side effect of mutating `os.environ`.
+

@@ -3,9 +3,15 @@ pandas>=2.0
 numpy>=1.26
 scikit-learn>=1.3
 PyYAML>=6.0
+python-dotenv>=1.0
 
 # LLM
 anthropic>=0.40
+google-genai>=1.0   # current SDK; NOT google-generativeai, which is end-of-life
 
 # Only needed if you don't have Ollama and want the fully-offline TF-IDF
 # embedding fallback -- already covered by scikit-learn above.
+
+# Dev / CI
+pytest>=8.0
+ruff>=0.6

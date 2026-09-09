@@ -81,7 +81,7 @@ if __name__ == "__main__":
     ap.add_argument("--out", default="data/interim/hulu_weak_labels.jsonl")
     args = ap.parse_args()
 
-    rows = [json.loads(l) for l in open(args.cases, encoding="utf-8")]
+    rows = [json.loads(line) for line in open(args.cases, encoding="utf-8")]
     counts: collections.Counter[str] = collections.Counter()
     with open(args.out, "w", encoding="utf-8") as fh:
         for r in rows:

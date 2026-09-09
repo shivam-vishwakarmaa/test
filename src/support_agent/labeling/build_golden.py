@@ -24,7 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import Counter, defaultdict
+from collections import Counter
 
 FORCE_ESCALATE_FLAGS = {"angry", "churn_risk"}
 
@@ -38,7 +38,7 @@ def load_batches(paths: list[str]) -> dict[str, dict]:
 
 
 def build(candidates_path: str, batch_paths: list[str], out_path: str) -> None:
-    candidates = [json.loads(l) for l in open(candidates_path, encoding="utf-8")]
+    candidates = [json.loads(line) for line in open(candidates_path, encoding="utf-8")]
     labels = load_batches(batch_paths)
 
     missing = [c["golden_id"] for c in candidates if str(c["golden_id"]) not in labels]
@@ -93,7 +93,7 @@ def build(candidates_path: str, batch_paths: list[str], out_path: str) -> None:
     print(f"\ngold escalate=True: {esc_n}/{n} = {esc_n/n:.1%}")
 
     intent_counts = Counter(r["gold_intent"] for r in rows)
-    print(f"\ngold intent distribution:")
+    print("\ngold intent distribution:")
     for cls, cnt in intent_counts.most_common():
         print(f"  {cls:<22}{cnt:>4}  {cnt/n:.1%}")
 

@@ -1,0 +1,60 @@
+{
+ "tag": "golden3:judge:fwd",
+ "model": "gemini-3.5-flash",
+ "system": "You are an exacting quality reviewer for a customer-support AI agent at Hulu. You will be shown a customer's message, a set of historical precedents (past customer messages this brand has handled and how the brand replied), and a DRAFT reply produced by the agent. Score the draft on each rubric criterion from 1 (fails badly) to 5 (excellent), independently -- a low score on one criterion should not be dragged up or down by another. Be skeptical: a warm, fluent reply that invents a policy or promises something the precedents never mention must score low on 'grounded' and 'correct_safe' regardless of tone.",
+ "user": "CUSTOMER MESSAGE:\n  \"I just subscribed to Spotify Premium for Students + Hulu, but I'm having trouble linking my accounts. Help please?\"\n\nRETRIEVED PRECEDENTS (what the agent was grounded on):\n  [1] customer said: 'having an issue with linking my spotify student account with my current Hulu account'\n      brand replied: \"Oh no! These steps typically help: If not, we'd love to further assist here\"\n  [2] customer said: \"I signed up for spotify premium +hulu for students and I can't connect my accounts\"\n      brand replied: \"If these: don't help connect them, we recommend reaching out to Spotify Support for further assistance.\"\n  [3] customer said: 'Hi! I had an issue while trying to connect my student Spotify premium account with my hulu account. Can you help?'\n      brand replied: \"We'd love to help, Sara! Please reach out via chat here: with the email address and ZIP on file.\"\n  [4] customer said: \"I'm having trouble logging into my hulu account that is connected to my Spotify account. Spotify said contact you to link them\"\n      brand replied: \"Oh no! We'd love to help. Call/chat with us here: so we can locate your account and sort this out!\"\n  [5] customer said: \"I can't connect my spotify premium account to my hulu account\"\n      brand replied: \"Uh oh! If these steps: don't help, please contact us by phone or chat here\"\n  [6] customer said: \"I can't get my student Spotify account to link up with Hulu, what do I do?\"\n      brand replied: \"Hi, Amanda! Are the emails on both accounts the same? We'd recommend checking out: for a bit more info.\"\n\nAGENT'S DRAFT REPLY:\n  \"Oh no! We'd love to help. Please reach out to us via chat here: with the email address and ZIP on file so we can locate your account and sort this out!\"\n\nScore the draft on these criteria (1-5 each):\n  - grounded\n  - correct_safe\n  - tone\n  - actionable\n  - concise\n\nAlso give a one-sentence reasoning summary.",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "grounded": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "correct_safe": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "tone": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "actionable": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "concise": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 5
+   },
+   "reasoning": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "grounded",
+   "correct_safe",
+   "tone",
+   "actionable",
+   "concise",
+   "reasoning"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "grounded": 5,
+  "correct_safe": 5,
+  "tone": 5,
+  "actionable": 5,
+  "concise": 5,
+  "reasoning": "The draft is perfectly grounded in the provided precedents (specifically matching the solutions in precedents 3 and 4), maintains a helpful and polite tone, and provides clear, actionable next steps for the customer."
+ },
+ "input_tokens": 626,
+ "output_tokens": 95,
+ "ts": 1788977448.3772657
+}

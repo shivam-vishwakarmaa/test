@@ -9,6 +9,9 @@ silently returning something different from what produced the reported numbers.
 
 Backends
 --------
+gemini    : real API calls via the current `google-genai` SDK (needs
+            GEMINI_API_KEY). Default backend for this submission -- see
+            Decision #16 in docs/DECISIONS.md. Writes to the cache.
 anthropic : real API calls (needs ANTHROPIC_API_KEY). Writes to the cache.
 cached    : replay only. No network. Raises CacheMiss on an unseen request.
 ollama    : local generative model, for people who want zero API spend.
@@ -22,17 +25,41 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
-# USD per 1M tokens, from the Anthropic pricing table (cached 2026-06-24).
+# USD per 1M tokens (input, output). Sources noted per row; entries left at
+# (0.0, 0.0) mean "not hard-coded" rather than "free" -- see the comment below.
 PRICING = {
+    # Anthropic pricing table, cached 2026-06-24.
     "claude-opus-5": (5.00, 25.00),
     "claude-sonnet-5": (2.00, 10.00),
     "claude-haiku-4-5": (1.00, 5.00),
     "claude-opus-4-8": (5.00, 25.00),
+    # Gemini: deliberately left at (0.0, 0.0) rather than a guessed number.
+    # This project's GEMINI_API_KEY is a free-tier AI Studio key (confirmed by
+    # a 429 RESOURCE_EXHAUSTED on every pro-tier model it was tried against --
+    # see Decision #18), so the real run's cost was $0 in practice. Hardcoding
+    # a list price for a paid tier this key never touched would misrepresent
+    # what this report's numbers actually cost to produce. Token counts are
+    # still tracked in full (`Usage.per_model`) so a reader on a paid key can
+    # apply the current published rate themselves.
+    "gemini-2.5-flash": (0.0, 0.0),
+    "gemini-3.5-flash": (0.0, 0.0),
 }
 
 
 class CacheMiss(RuntimeError):
     """Raised when backend='cached' is asked for a request it has never seen."""
+
+
+class QuotaExhausted(RuntimeError):
+    """Raised when a backend reports a DAILY (not per-minute) quota is used up.
+
+    Distinguished from a plain per-item RuntimeError because the right
+    response is different: a transient/per-item failure should be logged and
+    skipped so the batch continues; a daily quota hit means every subsequent
+    call to this model will fail the same way for the rest of the day, so a
+    caller iterating a batch should stop immediately rather than burning
+    `max_retries` x backoff on every remaining item for no benefit (this bit
+    a live 220-example run during development -- see Decision #18)."""
 
 
 @dataclass
@@ -141,18 +168,24 @@ class LLMClient:
             raise CacheMiss(
                 "No cached response for tag=" + repr(tag) + " model=" + model
                 + " key=" + key[:12] + ".\nThis request was never run. Either re-run with "
-                "LLM_BACKEND=anthropic (costs money), or check that config/config.yaml "
-                "matches the one used to build artifacts/llm_cache -- a changed prompt "
-                "changes the cache key."
+                "LLM_BACKEND=gemini or LLM_BACKEND=anthropic (needs the matching API key), or "
+                "check that config/config.yaml matches the one used to build artifacts/llm_cache "
+                "-- a changed prompt changes the cache key."
             )
 
         if self.backend == "anthropic":
             parsed, in_tok, out_tok = self._call_anthropic(
                 system, user, schema, model, temperature, max_tokens
             )
+        elif self.backend == "gemini":
+            parsed, in_tok, out_tok = self._call_gemini(
+                system, user, schema, model, temperature, max_tokens
+            )
         elif self.backend == "ollama":
-            parsed, in_tok, out_tok = self._call_ollama(system, user, schema, max_tokens)
-            model = "ollama:" + self.ollama_model
+            parsed, in_tok, out_tok = self._call_ollama(
+                system, user, schema, model, temperature, max_tokens
+            )
+            model = "ollama:" + model
         else:
             raise ValueError("unknown llm backend " + repr(self.backend))
 
@@ -217,36 +250,183 @@ class LLMClient:
             "anthropic call failed after " + str(self.max_retries) + " attempts: " + str(last)
         )
 
-    def _call_ollama(
-        self, system: str, user: str, schema: dict, max_tokens: int
+    def _call_gemini(
+        self, system: str, user: str, schema: dict, model: str,
+        temperature: float, max_tokens: int,
     ) -> tuple[dict, int, int]:
+        """Uses `google-genai` (the current, maintained SDK) with the API's
+        native `response_schema` enforcement -- not a "please return JSON"
+        text instruction. Two things this method exists to get right, both
+        found by testing against the live API before this was trusted with a
+        220-example run (see Decision #17):
+
+        1. `response_schema` must have `additionalProperties` stripped
+           (recursively): Gemini's schema dialect is an OpenAPI subset that
+           rejects that JSON-Schema keyword outright with a 400, even though
+           every schema in this repo carries it for the Anthropic backend.
+        2. `thinking_budget=0` is mandatory, not an optimization. Gemini
+           2.5/3.5 "thinking" models spend part of `max_output_tokens` on an
+           invisible reasoning trace by default; at this codebase's token
+           budgets that reasoning silently eats the JSON output and produces
+           an unparseable truncated response. Classification/drafting/judging
+           here don't need visible chain-of-thought (the schema already has
+           an explicit `rationale`/`reasoning` field for that), so thinking
+           is switched off entirely rather than budgeted around.
+        """
+        from google.genai import errors as genai_errors
+        from google.genai import types as genai_types
+
+        if "GEMINI_API_KEY" not in os.environ:
+            raise RuntimeError(
+                "GEMINI_API_KEY environment variable is required for backend='gemini' "
+                "(set it in .env -- see .env.example)"
+            )
+        client = self._gemini_client()
+        clean_schema = _strip_unsupported_schema_keys(schema)
+
+        last: Exception | None = None
+        for attempt in range(self.max_retries):
+            try:
+                resp = client.models.generate_content(
+                    model=model,
+                    contents=user,
+                    config=genai_types.GenerateContentConfig(
+                        system_instruction=system,
+                        temperature=temperature,
+                        max_output_tokens=max_tokens,
+                        response_mime_type="application/json",
+                        response_schema=clean_schema,
+                        thinking_config=genai_types.ThinkingConfig(thinking_budget=0),
+                        # No tools are ever passed, so automatic function calling has
+                        # nothing to do here -- disabling it just silences the SDK's
+                        # unconditional "consider using Chat instead" advisory log line.
+                        automatic_function_calling=genai_types.AutomaticFunctionCallingConfig(disable=True),
+                    ),
+                )
+                if not resp.candidates:
+                    raise RuntimeError(f"gemini returned no candidates: {resp.prompt_feedback}")
+                parsed = _fill_schema_defaults(json.loads(resp.text), schema)
+                usage = resp.usage_metadata
+                return parsed, usage.prompt_token_count or 0, usage.candidates_token_count or 0
+            except genai_errors.ServerError as exc:
+                last = exc  # 5xx: transient, worth retrying
+                time.sleep(min(2 ** attempt, 30))
+            except genai_errors.ClientError as exc:
+                last = exc
+                if exc.code == 429:
+                    if "PerDay" in str(exc):  # daily quota, not a per-minute rate limit -- retrying is futile
+                        raise QuotaExhausted(
+                            f"gemini backend hit a DAILY quota limit on model={model!r}: {exc}\n"
+                            "Retrying will not help until the quota resets (or a paid tier is enabled). "
+                            "See docs/DECISIONS.md #18."
+                        ) from exc
+                    time.sleep(min(2 ** attempt, 30))  # per-minute rate limit: worth backing off and retrying
+                else:  # 400/403/404 etc: a real bug (bad schema, bad model name) -- retrying won't help
+                    raise RuntimeError(f"gemini rejected the request (non-retryable): {exc}") from exc
+            except json.JSONDecodeError as exc:
+                last = exc
+                time.sleep(1)
+        raise RuntimeError(
+            "gemini call failed after " + str(self.max_retries) + " attempts: " + str(last)
+        )
+
+    def _gemini_client(self):
+        if self._client is None:
+            from google import genai
+            self._client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        return self._client
+
+    def _call_ollama(
+        self, system: str, user: str, schema: dict, model: str,
+        temperature: float, max_tokens: int,
+    ) -> tuple[dict, int, int]:
+        import urllib.error
         import urllib.request
 
+        model_name = model[7:] if model.startswith("ollama:") else model
         payload = json.dumps({
-            "model": self.ollama_model,
+            "model": model_name,
             "prompt": user,
             "system": system,
             "stream": False,
-            "format": schema,           # Ollama supports JSON-schema constrained output
-            "options": {"temperature": 0.0, "num_predict": max_tokens},
+            "format": schema,  # Ollama supports JSON-schema-constrained output directly
+            "options": {"temperature": temperature, "num_predict": max_tokens},
         }).encode()
         req = urllib.request.Request(
             self.ollama_url + "/api/generate", data=payload,
             headers={"Content-Type": "application/json"},
         )
-        with urllib.request.urlopen(req, timeout=self.timeout_s) as resp:
-            data = json.loads(resp.read())
-        return (
-            json.loads(data["response"]),
-            data.get("prompt_eval_count", 0),
-            data.get("eval_count", 0),
+
+        last: Exception | None = None
+        for attempt in range(self.max_retries):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout_s) as resp:
+                    data = json.loads(resp.read())
+                parsed = _fill_schema_defaults(_parse_possibly_fenced_json(data["response"]), schema)
+                return parsed, data.get("prompt_eval_count", 0), data.get("eval_count", 0)
+            except (urllib.error.URLError, TimeoutError) as exc:
+                last = exc
+                time.sleep(min(2 ** attempt, 30))
+            except json.JSONDecodeError as exc:
+                last = exc
+                time.sleep(1)
+        raise RuntimeError(
+            "ollama call failed after " + str(self.max_retries) + " attempts "
+            "(is `ollama serve` running at " + self.ollama_url + "?): " + str(last)
         )
+
+
+def _strip_unsupported_schema_keys(schema: Any) -> Any:
+    """Recursively drop JSON-Schema keywords Gemini's `response_schema`
+    rejects (`additionalProperties`, `$schema`, ...). Every schema in this
+    codebase is authored once, for the Anthropic `json_schema` output format;
+    this keeps it that way instead of maintaining a parallel Gemini copy."""
+    _DROP = {"additionalProperties", "$schema"}
+    if isinstance(schema, dict):
+        return {
+            k: _strip_unsupported_schema_keys(v)
+            for k, v in schema.items()
+            if k not in _DROP
+        }
+    if isinstance(schema, list):
+        return [_strip_unsupported_schema_keys(v) for v in schema]
+    return schema
+
+
+def _parse_possibly_fenced_json(text: str) -> dict:
+    """Local/open-weight models (via Ollama) sometimes wrap JSON in a
+    markdown code fence despite being asked not to; the hosted backends
+    (Anthropic's json_schema mode, Gemini's response_schema) never do."""
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1] if "\n" in text else text[3:]
+        if text.endswith("```"):
+            text = text[: -3]
+        text = text.strip()
+    return json.loads(text)
+
+
+def _fill_schema_defaults(parsed: dict, schema: dict) -> dict:
+    """Defensive backstop for backends without a hard schema-conformance
+    guarantee (Ollama's `format` param is best-effort; a truncated Gemini
+    response could in principle still omit a field): fill any missing
+    `required` key with a type-appropriate zero value rather than letting a
+    downstream `KeyError` crash a 220-example batch run over one bad item."""
+    _DEFAULTS = {"array": [], "string": "", "boolean": False, "number": 0.0, "integer": 0}
+    for req in schema.get("required", []):
+        if req not in parsed:
+            prop_type = schema.get("properties", {}).get(req, {}).get("type", "string")
+            parsed[req] = _DEFAULTS.get(prop_type, "")
+    return parsed
 
 
 def client_from_config(cfg) -> LLMClient:
     return LLMClient(
-        backend=cfg.get_path("llm.backend", "cached"),
-        cache_dir=cfg.get_path("llm.cache_dir", "artifacts/llm_cache"),
-        max_retries=int(cfg.get_path("llm.max_retries", 4)),
-        timeout_s=float(cfg.get_path("llm.timeout_s", 120)),
+        backend=cfg["llm"]["backend"],
+        cache_dir=cfg["llm"]["cache_dir"],
+        max_retries=int(cfg["llm"].get("max_retries", 4)),
+        timeout_s=float(cfg["llm"].get("timeout_s", 120)),
+        ollama_url=cfg["llm"].get("ollama_url", "http://localhost:11434"),
+        ollama_model=cfg["llm"].get("ollama_model", "qwen2.5:3b"),
     )
+

@@ -1,0 +1,41 @@
+{
+ "tag": "golden3:draft",
+ "model": "gemini-2.5-flash",
+ "system": "You are drafting a customer-support reply for Hulu's Twitter support account. You are shown the customer's message and a set of PRECEDENTS: past customer messages this brand has actually handled, with the brand's real reply. \nRules:\n1. Ground every factual or procedural claim in a precedent. If you reference a policy, a troubleshooting step, or a fact, it must come from a precedent or from the customer's own message -- never invent one.\n2. If NO precedent is close enough to ground a real answer, set cannot_ground=true and write a short reply that asks ONE clarifying question instead of guessing.\n3. Match the brand's voice: warm, brief, a little informal, never robotic. Twitter-reply length -- 1 to 3 sentences.\n4. Never promise a specific fix time, a guaranteed refund amount, or any outcome you cannot verify from the precedents.\n5. Never ask for a password, full payment card number, or other credential.\n6. List which precedents (by their 1-based index as shown) you actually drew on in used_precedent_indices. An empty list is fine if cannot_ground is true.",
+ "user": "Customer message: \"I just subscribed to Spotify Premium for Students + Hulu, but I'm having trouble linking my accounts. Help please?\"\nClassified intent: account_access (handling policy: escalate)\n\nPRECEDENTS:\n  [1] customer said: 'having an issue with linking my spotify student account with my current Hulu account'\n      brand replied: \"Oh no! These steps typically help: If not, we'd love to further assist here\"\n  [2] customer said: \"I signed up for spotify premium +hulu for students and I can't connect my accounts\"\n      brand replied: \"If these: don't help connect them, we recommend reaching out to Spotify Support for further assistance.\"\n  [3] customer said: 'Hi! I had an issue while trying to connect my student Spotify premium account with my hulu account. Can you help?'\n      brand replied: \"We'd love to help, Sara! Please reach out via chat here: with the email address and ZIP on file.\"\n  [4] customer said: \"I'm having trouble logging into my hulu account that is connected to my Spotify account. Spotify said contact you to link them\"\n      brand replied: \"Oh no! We'd love to help. Call/chat with us here: so we can locate your account and sort this out!\"\n  [5] customer said: \"I can't connect my spotify premium account to my hulu account\"\n      brand replied: \"Uh oh! If these steps: don't help, please contact us by phone or chat here\"\n  [6] customer said: \"I can't get my student Spotify account to link up with Hulu, what do I do?\"\n      brand replied: \"Hi, Amanda! Are the emails on both accounts the same? We'd recommend checking out: for a bit more info.\"",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "reply": {
+    "type": "string"
+   },
+   "used_precedent_indices": {
+    "type": "array",
+    "items": {
+     "type": "integer"
+    }
+   },
+   "cannot_ground": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "reply",
+   "used_precedent_indices",
+   "cannot_ground"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "reply": "Oh no! We'd love to help. Please reach out to us via chat here: with the email address and ZIP on file so we can locate your account and sort this out!",
+  "used_precedent_indices": [
+   3,
+   4
+  ],
+  "cannot_ground": false
+ },
+ "input_tokens": 653,
+ "output_tokens": 63,
+ "ts": 1788977386.8292081
+}

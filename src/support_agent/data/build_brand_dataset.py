@@ -10,7 +10,7 @@ import os
 
 import pandas as pd
 
-from .threads import assign_conversations, is_brand_handle, load_raw
+from .threads import assign_conversations, load_raw
 
 
 def extract(csv_path: str, brands: list[str], out_dir: str, nrows: int | None = None) -> dict[str, int]:

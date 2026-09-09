@@ -1,9 +1,16 @@
-.PHONY: setup download data index baselines llm-agent judge-calibration all-free clean smoke
+.PHONY: setup download data index baselines llm-agent judge-calibration all-free clean smoke test lint
 
 PY := python
 
 setup:
 	$(PY) -m pip install -r requirements.txt
+	$(PY) -m pip install -e .
+
+test:
+	$(PY) -m pytest tests/ -v
+
+lint:
+	$(PY) -m ruff check src/ scripts/ tests/
 
 # Only needed if you want to rebuild data/interim/*.jsonl from scratch. The
 # fast reproduction path below does NOT need this -- hulu_support_cases.jsonl
@@ -33,14 +40,21 @@ index:
 baselines: index
 	$(PY) scripts/run_baselines.py
 
-# --- optional: the LLM agent + judge (needs ANTHROPIC_API_KEY; ~$2-5, ~10-15 min) ---
-# config/config.yaml defaults llm.backend to 'cached' (safe: never spends money unless asked),
-# so these targets set LLM_BACKEND=anthropic explicitly rather than relying on ANTHROPIC_API_KEY
-# alone to switch modes.
+# --- optional: the LLM agent + judge (needs GEMINI_API_KEY in .env; $0-5, ~10-15 min) ---
+# config/config.yaml defaults llm.backend to 'cached' (safe: never spends money/quota
+# unless asked), so these targets set LLM_BACKEND=gemini explicitly rather than relying
+# on a key being present alone to switch modes.
 llm-agent:
-	LLM_BACKEND=anthropic $(PY) scripts/run_llm_agent.py
+	LLM_BACKEND=gemini $(PY) scripts/run_llm_agent.py
 
 judge-calibration:
+	LLM_BACKEND=gemini $(PY) scripts/run_judge_calibration.py
+
+# Same, but on the originally-designed Anthropic Haiku/Opus pairing (needs ANTHROPIC_API_KEY).
+llm-agent-anthropic:
+	LLM_BACKEND=anthropic $(PY) scripts/run_llm_agent.py
+
+judge-calibration-anthropic:
 	LLM_BACKEND=anthropic $(PY) scripts/run_judge_calibration.py
 
 # One command replaying already-committed results: no key, no cost, no wait.

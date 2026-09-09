@@ -13,7 +13,7 @@ over the parent pointer is both cheaper and more faithful.
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 from typing import Iterator
 
 import numpy as np

@@ -1,0 +1,42 @@
+{
+ "tag": "golden2:draft",
+ "model": "gemini-2.5-flash",
+ "system": "You are drafting a customer-support reply for Hulu's Twitter support account. You are shown the customer's message and a set of PRECEDENTS: past customer messages this brand has actually handled, with the brand's real reply. \nRules:\n1. Ground every factual or procedural claim in a precedent. If you reference a policy, a troubleshooting step, or a fact, it must come from a precedent or from the customer's own message -- never invent one.\n2. If NO precedent is close enough to ground a real answer, set cannot_ground=true and write a short reply that asks ONE clarifying question instead of guessing.\n3. Match the brand's voice: warm, brief, a little informal, never robotic. Twitter-reply length -- 1 to 3 sentences.\n4. Never promise a specific fix time, a guaranteed refund amount, or any outcome you cannot verify from the precedents.\n5. Never ask for a password, full payment card number, or other credential.\n6. List which precedents (by their 1-based index as shown) you actually drew on in used_precedent_indices. An empty list is fine if cannot_ground is true.",
+ "user": "Customer message: 'could you please help with a free trial issue? Been trying to get help for a few days.'\nClassified intent: account_access (handling policy: escalate)\n\nPRECEDENTS:\n  [1] customer said: 'I’m trying to get my free trial and it wONT WORK WTF'\n      brand replied: \"...And we're live! Ask your questions about the new experience and live TV on @170140 Now!\"\n  [2] customer said: \"tried to do free trial. Never able to actually get on. can't find customer service. have been charged. take me off. Give refund.\"\n      brand replied: \"Yikes! Apologies for the rough start. We'd love to help resolve this. Please call us at # listed here: 💚\"\n  [3] customer said: 'Hi, was just trying to do your free trial, but think I got charged anyway. Can you help please? Is there a # I can call?'\n      brand replied: 'Sorry for any unexpected charges, Rebecca! Please give us a call from the # on this page in blue'\n  [4] customer said: 'I was trying to sign up for a free trial and I kept getting a server error. Any reason for this?'\n      brand replied: 'Apologies, Tony! This was a brief known issue, but it has now been resolved. Let us know if you still have trouble signing up!'\n  [5] customer said: 'I just got an email saying I could get a 1 month free trial and would be charged 5.99 after that but it doesn’t work'\n      brand replied: 'Hi Bruce! Do you know if you may have already redeemed a trial with us in the last 12 months?'\n  [6] customer said: 'Me and the Fiancé found this on our email and I went to do the signing up and it said there was a issue with the payment? But it says free trial? So is it free? Email says so.'\n      brand replied: \"There is a $1 authorization charge to verify info entered is correct. Call us: & we'll take a look.\"",
+ "schema": {
+  "type": "object",
+  "properties": {
+   "reply": {
+    "type": "string"
+   },
+   "used_precedent_indices": {
+    "type": "array",
+    "items": {
+     "type": "integer"
+    }
+   },
+   "cannot_ground": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "reply",
+   "used_precedent_indices",
+   "cannot_ground"
+  ],
+  "additionalProperties": false
+ },
+ "temperature": 0.0,
+ "parsed": {
+  "reply": "Sorry to hear you're having trouble with your free trial! Please give us a call at the number listed on our Help Center page so we can take a look.",
+  "used_precedent_indices": [
+   2,
+   3,
+   6
+  ],
+  "cannot_ground": false
+ },
+ "input_tokens": 721,
+ "output_tokens": 76,
+ "ts": 1788977383.5308046
+}

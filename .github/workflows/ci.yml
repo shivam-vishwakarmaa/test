@@ -1,0 +1,49 @@
+name: CI
+
+# Runs on every push/PR to main. Deliberately does NOT call any LLM API --
+# no secret is available to a fork's PR run, and the point of this workflow is
+# to keep the free, offline reproduction path (README "under 15 minutes, no
+# API key" claim) honest on every commit, not to spend money on every push.
+# The LLM-dependent numbers are reproduced locally and their output committed
+# to artifacts/llm_cache/ -- see docs/DECISIONS.md #14.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-test-baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: Lint (ruff)
+        run: python -m ruff check src/ scripts/ tests/
+
+      - name: Unit tests
+        run: python -m pytest tests/ -v
+
+      - name: Rebuild retrieval index (from committed embedding cache -- no network)
+        run: >
+          python -m support_agent.retrieval.index
+          --cases data/interim/hulu_support_cases.jsonl
+          --out-prefix artifacts/precedent_index
+
+      - name: Reproduce the free baseline numbers
+        run: python scripts/run_baselines.py
+
+      - name: Replay committed LLM-agent cache (no API key, no network)
+        run: |
+          LLM_BACKEND=cached python scripts/run_llm_agent.py
+          LLM_BACKEND=cached python scripts/run_judge_calibration.py
