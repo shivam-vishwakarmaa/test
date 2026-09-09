@@ -1,0 +1,28 @@
+# Raw dataset -- 493MB, downloaded on demand (see README). Never commit.
+data/raw/*.csv
+
+# Intermediate, per-brand raw conversation JSONL (pre-cleaning). Regenerated
+# from the raw CSV by `support_agent.data.build_brand_dataset` in the optional
+# full-rebuild path; NOT needed for the fast reproduction path, which uses the
+# committed *_cases.jsonl / *_weak_labels.jsonl / embedding cache directly.
+data/interim/hulu_support.jsonl
+
+# Regenerated instantly from the committed embedding cache (see `make index`).
+artifacts/precedent_index.*
+
+# artifacts/llm_cache/ IS tracked deliberately: once populated by a real run
+# (`ANTHROPIC_API_KEY=... python scripts/run_llm_agent.py`), committing it is
+# what lets everyone else reproduce the LLM headline numbers with LLM_BACKEND=cached
+# and zero API cost. Do not ignore it.
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+src/support_agent.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db

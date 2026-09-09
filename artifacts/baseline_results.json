@@ -1,0 +1,4581 @@
+{
+ "n_golden": 220,
+ "trivial_triage_always_escalate": {
+  "n": 220,
+  "tp": 85,
+  "fp": 135,
+  "fn": 0,
+  "tn": 0,
+  "auto_send_rate": 0.0,
+  "unsafe_auto_rate": 0.0,
+  "escalate_recall": 1.0,
+  "escalate_precision": 0.38636363636363635
+ },
+ "trivial_triage_always_auto": {
+  "n": 220,
+  "tp": 0,
+  "fp": 0,
+  "fn": 85,
+  "tn": 135,
+  "auto_send_rate": 1.0,
+  "unsafe_auto_rate": 0.38636363636363635,
+  "escalate_recall": 0.0,
+  "escalate_precision": NaN
+ },
+ "trivial_classification": {
+  "accuracy": 0.07272727272727272,
+  "macro_f1": 0.013559322033898305,
+  "n": 220,
+  "per_class": {
+   "account_access": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 26
+   },
+   "ads_experience": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+   },
+   "app_ui_feedback": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 22
+   },
+   "billing_payment": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 17
+   },
+   "cancel_refund": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 19
+   },
+   "content_availability": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 32
+   },
+   "how_to_feature": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 9
+   },
+   "live_tv_blackout": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 12
+   },
+   "other_non_support": {
+    "precision": 0.07272727272727272,
+    "recall": 1.0,
+    "f1": 0.13559322033898305,
+    "support": 16
+   },
+   "playback_error": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 47
+   }
+  }
+ },
+ "trivial_majority_intent": "other_non_support",
+ "trivial_canned_reply": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+ "trivial_mean_lexical_grounding": 0.0,
+ "simple_classifier_aurc": 0.14163714751838613,
+ "simple_classifier_risk_coverage_curve": [
+  [
+   0.004545454545454545,
+   0.0,
+   0.9995183426548425
+  ],
+  [
+   0.00909090909090909,
+   0.0,
+   0.9989611011645138
+  ],
+  [
+   0.013636363636363636,
+   0.0,
+   0.9972623882610617
+  ],
+  [
+   0.01818181818181818,
+   0.0,
+   0.9963198880344855
+  ],
+  [
+   0.022727272727272728,
+   0.0,
+   0.9949105763700116
+  ],
+  [
+   0.02727272727272727,
+   0.0,
+   0.9886131154470285
+  ],
+  [
+   0.031818181818181815,
+   0.0,
+   0.9858991071828646
+  ],
+  [
+   0.03636363636363636,
+   0.0,
+   0.9848293958111429
+  ],
+  [
+   0.04090909090909091,
+   0.0,
+   0.984206479691305
+  ],
+  [
+   0.045454545454545456,
+   0.0,
+   0.9828395954938685
+  ],
+  [
+   0.05,
+   0.0,
+   0.9824526461219626
+  ],
+  [
+   0.05454545454545454,
+   0.0,
+   0.9792580765016939
+  ],
+  [
+   0.05909090909090909,
+   0.0,
+   0.974553354144655
+  ],
+  [
+   0.06363636363636363,
+   0.0,
+   0.9732554475674432
+  ],
+  [
+   0.06818181818181818,
+   0.0,
+   0.969955504703766
+  ],
+  [
+   0.07272727272727272,
+   0.0,
+   0.9687901272852462
+  ],
+  [
+   0.07727272727272727,
+   0.0,
+   0.9660976415529217
+  ],
+  [
+   0.08181818181818182,
+   0.0,
+   0.965564550496869
+  ],
+  [
+   0.08636363636363636,
+   0.0,
+   0.9649905314784337
+  ],
+  [
+   0.09090909090909091,
+   0.0,
+   0.9634407305521354
+  ],
+  [
+   0.09545454545454546,
+   0.0,
+   0.9634207563767001
+  ],
+  [
+   0.1,
+   0.0,
+   0.9631986775975012
+  ],
+  [
+   0.10454545454545454,
+   0.0,
+   0.9631642598997905
+  ],
+  [
+   0.10909090909090909,
+   0.0,
+   0.9612941104888839
+  ],
+  [
+   0.11363636363636363,
+   0.0,
+   0.959138075633794
+  ],
+  [
+   0.11818181818181818,
+   0.0,
+   0.9582300355283883
+  ],
+  [
+   0.12272727272727273,
+   0.0,
+   0.9581797674541757
+  ],
+  [
+   0.12727272727272726,
+   0.0,
+   0.9545891497499451
+  ],
+  [
+   0.1318181818181818,
+   0.0,
+   0.9545270046419136
+  ],
+  [
+   0.13636363636363635,
+   0.0,
+   0.950972967837479
+  ],
+  [
+   0.1409090909090909,
+   0.0,
+   0.9508207000629779
+  ],
+  [
+   0.14545454545454545,
+   0.0,
+   0.950328930447135
+  ],
+  [
+   0.15,
+   0.030303030303030304,
+   0.9497610475998448
+  ],
+  [
+   0.15454545454545454,
+   0.029411764705882353,
+   0.9481999657260803
+  ],
+  [
+   0.1590909090909091,
+   0.02857142857142857,
+   0.9472672277970869
+  ],
+  [
+   0.16363636363636364,
+   0.027777777777777776,
+   0.9436085403737107
+  ],
+  [
+   0.16818181818181818,
+   0.05405405405405406,
+   0.9433216983744616
+  ],
+  [
+   0.17272727272727273,
+   0.05263157894736842,
+   0.9406994191627389
+  ],
+  [
+   0.17727272727272728,
+   0.05128205128205128,
+   0.9399646129902665
+  ],
+  [
+   0.18181818181818182,
+   0.05,
+   0.939529190318081
+  ],
+  [
+   0.18636363636363637,
+   0.04878048780487805,
+   0.933264132093523
+  ],
+  [
+   0.19090909090909092,
+   0.047619047619047616,
+   0.9330933890257814
+  ],
+  [
+   0.19545454545454546,
+   0.046511627906976744,
+   0.9320106728331388
+  ],
+  [
+   0.2,
+   0.045454545454545456,
+   0.929256382961904
+  ],
+  [
+   0.20454545454545456,
+   0.044444444444444446,
+   0.9280575774189189
+  ],
+  [
+   0.20909090909090908,
+   0.043478260869565216,
+   0.9272992718907874
+  ],
+  [
+   0.21363636363636362,
+   0.0425531914893617,
+   0.9270226922612163
+  ],
+  [
+   0.21818181818181817,
+   0.041666666666666664,
+   0.924431699299544
+  ],
+  [
+   0.22272727272727272,
+   0.04081632653061224,
+   0.9185562750987161
+  ],
+  [
+   0.22727272727272727,
+   0.04,
+   0.917948956204361
+  ],
+  [
+   0.2318181818181818,
+   0.0392156862745098,
+   0.9158089109888252
+  ],
+  [
+   0.23636363636363636,
+   0.038461538461538464,
+   0.915686888686854
+  ],
+  [
+   0.2409090909090909,
+   0.03773584905660377,
+   0.9150587044573351
+  ],
+  [
+   0.24545454545454545,
+   0.037037037037037035,
+   0.914564342873164
+  ],
+  [
+   0.25,
+   0.03636363636363636,
+   0.912660840604255
+  ],
+  [
+   0.2545454545454545,
+   0.03571428571428571,
+   0.9121224490409313
+  ],
+  [
+   0.2590909090909091,
+   0.03508771929824561,
+   0.9083618870667954
+  ],
+  [
+   0.2636363636363636,
+   0.034482758620689655,
+   0.906400226198887
+  ],
+  [
+   0.2681818181818182,
+   0.03389830508474576,
+   0.9017094387766758
+  ],
+  [
+   0.2727272727272727,
+   0.03333333333333333,
+   0.9011872898086053
+  ],
+  [
+   0.2772727272727273,
+   0.03278688524590164,
+   0.898882543161712
+  ],
+  [
+   0.2818181818181818,
+   0.03225806451612903,
+   0.8938266900697781
+  ],
+  [
+   0.2863636363636364,
+   0.031746031746031744,
+   0.8937993831112045
+  ],
+  [
+   0.2909090909090909,
+   0.03125,
+   0.8923430554093477
+  ],
+  [
+   0.29545454545454547,
+   0.03076923076923077,
+   0.8910118381576995
+  ],
+  [
+   0.3,
+   0.030303030303030304,
+   0.8891434820342522
+  ],
+  [
+   0.30454545454545456,
+   0.04477611940298507,
+   0.8854989657181795
+  ],
+  [
+   0.3090909090909091,
+   0.04411764705882353,
+   0.8850046763244634
+  ],
+  [
+   0.31363636363636366,
+   0.043478260869565216,
+   0.8849251378297494
+  ],
+  [
+   0.3181818181818182,
+   0.04285714285714286,
+   0.884351704744851
+  ],
+  [
+   0.32272727272727275,
+   0.04225352112676056,
+   0.8838341698250014
+  ],
+  [
+   0.32727272727272727,
+   0.041666666666666664,
+   0.8836587924285361
+  ],
+  [
+   0.33181818181818185,
+   0.0547945205479452,
+   0.8835606952008832
+  ],
+  [
+   0.33636363636363636,
+   0.06756756756756757,
+   0.8835594625251216
+  ],
+  [
+   0.3409090909090909,
+   0.06666666666666667,
+   0.883423185065842
+  ],
+  [
+   0.34545454545454546,
+   0.07894736842105263,
+   0.8824266516278504
+  ],
+  [
+   0.35,
+   0.07792207792207792,
+   0.8809780888520986
+  ],
+  [
+   0.35454545454545455,
+   0.08974358974358974,
+   0.8808865405338524
+  ],
+  [
+   0.35909090909090907,
+   0.08860759493670886,
+   0.8764847394489851
+  ],
+  [
+   0.36363636363636365,
+   0.0875,
+   0.8763686004318106
+  ],
+  [
+   0.36818181818181817,
+   0.08641975308641975,
+   0.8761420317281574
+  ],
+  [
+   0.37272727272727274,
+   0.08536585365853659,
+   0.8758056418886168
+  ],
+  [
+   0.37727272727272726,
+   0.08433734939759036,
+   0.8749634131726807
+  ],
+  [
+   0.38181818181818183,
+   0.08333333333333333,
+   0.8741640690564517
+  ],
+  [
+   0.38636363636363635,
+   0.08235294117647059,
+   0.8702497897991738
+  ],
+  [
+   0.39090909090909093,
+   0.08139534883720931,
+   0.8683513735386774
+  ],
+  [
+   0.39545454545454545,
+   0.09195402298850575,
+   0.8683295324239033
+  ],
+  [
+   0.4,
+   0.10227272727272728,
+   0.8679332750586932
+  ],
+  [
+   0.40454545454545454,
+   0.10112359550561797,
+   0.8677641374974444
+  ],
+  [
+   0.4090909090909091,
+   0.1,
+   0.8636906987780908
+  ],
+  [
+   0.41363636363636364,
+   0.10989010989010989,
+   0.8636175712265353
+  ],
+  [
+   0.41818181818181815,
+   0.11956521739130435,
+   0.8627756854154921
+  ],
+  [
+   0.42272727272727273,
+   0.12903225806451613,
+   0.8618131621069685
+  ],
+  [
+   0.42727272727272725,
+   0.1276595744680851,
+   0.8576362891211788
+  ],
+  [
+   0.4318181818181818,
+   0.1368421052631579,
+   0.8557099874194568
+  ],
+  [
+   0.43636363636363634,
+   0.13541666666666666,
+   0.852846257172539
+  ],
+  [
+   0.4409090909090909,
+   0.13402061855670103,
+   0.8525185868301569
+  ],
+  [
+   0.44545454545454544,
+   0.1326530612244898,
+   0.8510927067880475
+  ],
+  [
+   0.45,
+   0.13131313131313133,
+   0.8505520762009363
+  ],
+  [
+   0.45454545454545453,
+   0.13,
+   0.8485679350893016
+  ],
+  [
+   0.4590909090909091,
+   0.13861386138613863,
+   0.8464873427953492
+  ],
+  [
+   0.4636363636363636,
+   0.13725490196078433,
+   0.8455315227591217
+  ],
+  [
+   0.4681818181818182,
+   0.13592233009708737,
+   0.8427052650993366
+  ],
+  [
+   0.4727272727272727,
+   0.1346153846153846,
+   0.8411985502896969
+  ],
+  [
+   0.4772727272727273,
+   0.14285714285714285,
+   0.8396420122224073
+  ],
+  [
+   0.4818181818181818,
+   0.14150943396226415,
+   0.838743003749143
+  ],
+  [
+   0.4863636363636364,
+   0.14953271028037382,
+   0.8370042489552151
+  ],
+  [
+   0.4909090909090909,
+   0.14814814814814814,
+   0.8346761621961251
+  ],
+  [
+   0.4954545454545455,
+   0.14678899082568808,
+   0.8335685978380134
+  ],
+  [
+   0.5,
+   0.14545454545454545,
+   0.8324276359780258
+  ],
+  [
+   0.5045454545454545,
+   0.14414414414414414,
+   0.8295355658530262
+  ],
+  [
+   0.509090909090909,
+   0.14285714285714285,
+   0.8285077819555717
+  ],
+  [
+   0.5136363636363637,
+   0.1415929203539823,
+   0.8277815265837049
+  ],
+  [
+   0.5181818181818182,
+   0.14035087719298245,
+   0.825985704344244
+  ],
+  [
+   0.5227272727272727,
+   0.1391304347826087,
+   0.8203294232971898
+  ],
+  [
+   0.5272727272727272,
+   0.13793103448275862,
+   0.816864954220085
+  ],
+  [
+   0.5318181818181819,
+   0.1452991452991453,
+   0.8090746986565194
+  ],
+  [
+   0.5363636363636364,
+   0.1440677966101695,
+   0.8047403924333222
+  ],
+  [
+   0.5409090909090909,
+   0.15126050420168066,
+   0.8014269716119347
+  ],
+  [
+   0.5454545454545454,
+   0.15,
+   0.7962183165427204
+  ],
+  [
+   0.55,
+   0.15702479338842976,
+   0.7939079384318003
+  ],
+  [
+   0.5545454545454546,
+   0.16393442622950818,
+   0.7922361679870438
+  ],
+  [
+   0.5590909090909091,
+   0.17073170731707318,
+   0.7909787487736336
+  ],
+  [
+   0.5636363636363636,
+   0.1774193548387097,
+   0.787752091462995
+  ],
+  [
+   0.5681818181818182,
+   0.176,
+   0.7862558764194104
+  ],
+  [
+   0.5727272727272728,
+   0.1746031746031746,
+   0.7847813361382266
+  ],
+  [
+   0.5772727272727273,
+   0.1732283464566929,
+   0.784385523799823
+  ],
+  [
+   0.5818181818181818,
+   0.171875,
+   0.7820082735409263
+  ],
+  [
+   0.5863636363636363,
+   0.17054263565891473,
+   0.7769418449370754
+  ],
+  [
+   0.5909090909090909,
+   0.17692307692307693,
+   0.7730860346070234
+  ],
+  [
+   0.5954545454545455,
+   0.183206106870229,
+   0.7663134007190407
+  ],
+  [
+   0.6,
+   0.18181818181818182,
+   0.7659920048664765
+  ],
+  [
+   0.6045454545454545,
+   0.18045112781954886,
+   0.7637502673236539
+  ],
+  [
+   0.6090909090909091,
+   0.1791044776119403,
+   0.7625465703125823
+  ],
+  [
+   0.6136363636363636,
+   0.17777777777777778,
+   0.7605802016196452
+  ],
+  [
+   0.6181818181818182,
+   0.18382352941176472,
+   0.7562772429197214
+  ],
+  [
+   0.6227272727272727,
+   0.1897810218978102,
+   0.754922286097403
+  ],
+  [
+   0.6272727272727273,
+   0.1956521739130435,
+   0.7540010754221361
+  ],
+  [
+   0.6318181818181818,
+   0.19424460431654678,
+   0.7495711368576781
+  ],
+  [
+   0.6363636363636364,
+   0.19285714285714287,
+   0.7457787031122112
+  ],
+  [
+   0.6409090909090909,
+   0.19148936170212766,
+   0.7444518215879239
+  ],
+  [
+   0.6454545454545455,
+   0.19718309859154928,
+   0.7428413168692349
+  ],
+  [
+   0.65,
+   0.20279720279720279,
+   0.7424350493457731
+  ],
+  [
+   0.6545454545454545,
+   0.2013888888888889,
+   0.739706437030112
+  ],
+  [
+   0.6590909090909091,
+   0.2,
+   0.7388254547530239
+  ],
+  [
+   0.6636363636363637,
+   0.19863013698630136,
+   0.7378791382902119
+  ],
+  [
+   0.6681818181818182,
+   0.19727891156462585,
+   0.7362921605958443
+  ],
+  [
+   0.6727272727272727,
+   0.20270270270270271,
+   0.7333189470548136
+  ],
+  [
+   0.6772727272727272,
+   0.2080536912751678,
+   0.7287870558993299
+  ],
+  [
+   0.6818181818181818,
+   0.20666666666666667,
+   0.7251944605621644
+  ],
+  [
+   0.6863636363636364,
+   0.2119205298013245,
+   0.7245437654650073
+  ],
+  [
+   0.6909090909090909,
+   0.21052631578947367,
+   0.7237526393478326
+  ],
+  [
+   0.6954545454545454,
+   0.21568627450980393,
+   0.7227847832031896
+  ],
+  [
+   0.7,
+   0.22077922077922077,
+   0.7221230668673807
+  ],
+  [
+   0.7045454545454546,
+   0.21935483870967742,
+   0.7174674430520277
+  ],
+  [
+   0.7090909090909091,
+   0.21794871794871795,
+   0.7169951659802994
+  ],
+  [
+   0.7136363636363636,
+   0.21656050955414013,
+   0.7169636380070027
+  ],
+  [
+   0.7181818181818181,
+   0.21518987341772153,
+   0.7133831182327486
+  ],
+  [
+   0.7227272727272728,
+   0.22012578616352202,
+   0.7084161368438884
+  ],
+  [
+   0.7272727272727273,
+   0.225,
+   0.706900565665937
+  ],
+  [
+   0.7318181818181818,
+   0.2236024844720497,
+   0.6984552991251091
+  ],
+  [
+   0.7363636363636363,
+   0.22839506172839505,
+   0.6931924871661741
+  ],
+  [
+   0.740909090909091,
+   0.2331288343558282,
+   0.6892661734215763
+  ],
+  [
+   0.7454545454545455,
+   0.23170731707317074,
+   0.6827992236244639
+  ],
+  [
+   0.75,
+   0.23636363636363636,
+   0.6797490925262394
+  ],
+  [
+   0.7545454545454545,
+   0.23493975903614459,
+   0.6786849921941337
+  ],
+  [
+   0.759090909090909,
+   0.23353293413173654,
+   0.6723418315787371
+  ],
+  [
+   0.7636363636363637,
+   0.23214285714285715,
+   0.6692891030724831
+  ],
+  [
+   0.7681818181818182,
+   0.23668639053254437,
+   0.669108067103496
+  ],
+  [
+   0.7727272727272727,
+   0.2411764705882353,
+   0.6671944091553915
+  ],
+  [
+   0.7772727272727272,
+   0.24561403508771928,
+   0.6563206261697676
+  ],
+  [
+   0.7818181818181819,
+   0.2441860465116279,
+   0.6497916231228805
+  ],
+  [
+   0.7863636363636364,
+   0.24855491329479767,
+   0.6471489476214227
+  ],
+  [
+   0.7909090909090909,
+   0.25287356321839083,
+   0.6461306772496109
+  ],
+  [
+   0.7954545454545454,
+   0.25142857142857145,
+   0.6414291443131022
+  ],
+  [
+   0.8,
+   0.25,
+   0.6404257945808495
+  ],
+  [
+   0.8045454545454546,
+   0.2542372881355932,
+   0.639594927128554
+  ],
+  [
+   0.8090909090909091,
+   0.25842696629213485,
+   0.6385203411178486
+  ],
+  [
+   0.8136363636363636,
+   0.2569832402234637,
+   0.6382059919633246
+  ],
+  [
+   0.8181818181818182,
+   0.2611111111111111,
+   0.627373927405959
+  ],
+  [
+   0.8227272727272728,
+   0.2596685082872928,
+   0.6246384080725542
+  ],
+  [
+   0.8272727272727273,
+   0.25824175824175827,
+   0.6095411124475313
+  ],
+  [
+   0.8318181818181818,
+   0.26229508196721313,
+   0.6072803008207704
+  ],
+  [
+   0.8363636363636363,
+   0.2608695652173913,
+   0.597347979628352
+  ],
+  [
+   0.8409090909090909,
+   0.2648648648648649,
+   0.5881459708920028
+  ],
+  [
+   0.8454545454545455,
+   0.26344086021505375,
+   0.5870512975811055
+  ],
+  [
+   0.85,
+   0.2620320855614973,
+   0.5831229438098711
+  ],
+  [
+   0.8545454545454545,
+   0.26063829787234044,
+   0.5819696973415184
+  ],
+  [
+   0.8590909090909091,
+   0.25925925925925924,
+   0.5808789207032934
+  ],
+  [
+   0.8636363636363636,
+   0.2631578947368421,
+   0.5731050622117043
+  ],
+  [
+   0.8681818181818182,
+   0.2617801047120419,
+   0.5608526214365396
+  ],
+  [
+   0.8727272727272727,
+   0.265625,
+   0.5591101202333522
+  ],
+  [
+   0.8772727272727273,
+   0.2694300518134715,
+   0.5584528038766735
+  ],
+  [
+   0.8818181818181818,
+   0.27319587628865977,
+   0.5556033897038848
+  ],
+  [
+   0.8863636363636364,
+   0.27692307692307694,
+   0.5554319925307826
+  ],
+  [
+   0.8909090909090909,
+   0.28061224489795916,
+   0.5534398071554648
+  ],
+  [
+   0.8954545454545455,
+   0.28426395939086296,
+   0.5530849709560433
+  ],
+  [
+   0.9,
+   0.2878787878787879,
+   0.5477040075552476
+  ],
+  [
+   0.9045454545454545,
+   0.2914572864321608,
+   0.5439353579411497
+  ],
+  [
+   0.9090909090909091,
+   0.295,
+   0.5436850435305051
+  ],
+  [
+   0.9136363636363637,
+   0.2935323383084577,
+   0.5394315800250946
+  ],
+  [
+   0.9181818181818182,
+   0.29207920792079206,
+   0.5361817877998277
+  ],
+  [
+   0.9227272727272727,
+   0.2955665024630542,
+   0.5358308032317946
+  ],
+  [
+   0.9272727272727272,
+   0.29901960784313725,
+   0.5337351764073538
+  ],
+  [
+   0.9318181818181818,
+   0.3024390243902439,
+   0.514547997195601
+  ],
+  [
+   0.9363636363636364,
+   0.30097087378640774,
+   0.5034984352647552
+  ],
+  [
+   0.9409090909090909,
+   0.2995169082125604,
+   0.4943236077908838
+  ],
+  [
+   0.9454545454545454,
+   0.2980769230769231,
+   0.4495367400939714
+  ],
+  [
+   0.95,
+   0.3014354066985646,
+   0.436407870579605
+  ],
+  [
+   0.9545454545454546,
+   0.3,
+   0.43323096856425725
+  ],
+  [
+   0.9590909090909091,
+   0.3033175355450237,
+   0.42677076597583535
+  ],
+  [
+   0.9636363636363636,
+   0.30660377358490565,
+   0.4139291731195288
+  ],
+  [
+   0.9681818181818181,
+   0.3051643192488263,
+   0.4100725800009618
+  ],
+  [
+   0.9727272727272728,
+   0.308411214953271,
+   0.40997847600548504
+  ],
+  [
+   0.9772727272727273,
+   0.3116279069767442,
+   0.4098772390808326
+  ],
+  [
+   0.9818181818181818,
+   0.3148148148148148,
+   0.39273954960881274
+  ],
+  [
+   0.9863636363636363,
+   0.31336405529953915,
+   0.38321015341580034
+  ],
+  [
+   0.990909090909091,
+   0.3119266055045872,
+   0.3440679409910802
+  ],
+  [
+   0.9954545454545455,
+   0.3105022831050228,
+   0.32766176876784436
+  ],
+  [
+   1.0,
+   0.31363636363636366,
+   0.31368041089366394
+  ]
+ ],
+ "simple_classification": {
+  "accuracy": 0.6863636363636364,
+  "macro_f1": 0.679255415605281,
+  "n": 220,
+  "per_class": {
+   "account_access": {
+    "precision": 0.8695652173913043,
+    "recall": 0.7692307692307693,
+    "f1": 0.8163265306122449,
+    "support": 26
+   },
+   "ads_experience": {
+    "precision": 0.7619047619047619,
+    "recall": 0.8,
+    "f1": 0.7804878048780488,
+    "support": 20
+   },
+   "app_ui_feedback": {
+    "precision": 0.8666666666666667,
+    "recall": 0.5909090909090909,
+    "f1": 0.7027027027027029,
+    "support": 22
+   },
+   "billing_payment": {
+    "precision": 0.6363636363636364,
+    "recall": 0.8235294117647058,
+    "f1": 0.717948717948718,
+    "support": 17
+   },
+   "cancel_refund": {
+    "precision": 0.75,
+    "recall": 0.7894736842105263,
+    "f1": 0.7692307692307692,
+    "support": 19
+   },
+   "content_availability": {
+    "precision": 0.76,
+    "recall": 0.59375,
+    "f1": 0.6666666666666666,
+    "support": 32
+   },
+   "how_to_feature": {
+    "precision": 0.38095238095238093,
+    "recall": 0.8888888888888888,
+    "f1": 0.5333333333333333,
+    "support": 9
+   },
+   "live_tv_blackout": {
+    "precision": 0.875,
+    "recall": 0.5833333333333334,
+    "f1": 0.7000000000000001,
+    "support": 12
+   },
+   "other_non_support": {
+    "precision": 0.25806451612903225,
+    "recall": 0.5,
+    "f1": 0.3404255319148936,
+    "support": 16
+   },
+   "playback_error": {
+    "precision": 0.9117647058823529,
+    "recall": 0.6595744680851063,
+    "f1": 0.7654320987654322,
+    "support": 47
+   }
+  }
+ },
+ "simple_mean_confidence": 0.78200284304203,
+ "simple_nn_mean_top1_similarity": 0.8173019165342504,
+ "simple_nn_self_leakage": 0,
+ "simple_triage": {
+  "n": 220,
+  "tp": 57,
+  "fp": 8,
+  "fn": 28,
+  "tn": 127,
+  "auto_send_rate": 0.7045454545454546,
+  "unsafe_auto_rate": 0.12727272727272726,
+  "escalate_recall": 0.6705882352941176,
+  "escalate_precision": 0.8769230769230769
+ },
+ "per_example": [
+  {
+   "golden_id": 1,
+   "case_id": 345978,
+   "customer_text": "for some reason Hulu isn;t signed in on my roku ad it won't let me try to sign in",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.9508207000629779,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay, Kayla! Still need help? Let's take a moment to work through: & keep us posted!",
+   "nn_similarity": 0.8512676358222961,
+   "nn_source_case_id": 42828
+  },
+  {
+   "golden_id": 2,
+   "case_id": 1467280,
+   "customer_text": "could you please help with a free trial issue? Been trying to get help for a few days.",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.9582300355283883,
+   "simple_escalate": true,
+   "nn_draft": "...And we're live! Ask your questions about the new experience and live TV on @170140 Now!",
+   "nn_similarity": 0.8446446061134338,
+   "nn_source_case_id": 813676
+  },
+  {
+   "golden_id": 3,
+   "case_id": 2337023,
+   "customer_text": "I just subscribed to Spotify Premium for Students + Hulu, but I'm having trouble linking my accounts. Help please?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5554319925307826,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! These steps typically help: If not, we'd love to further assist here",
+   "nn_similarity": 0.8973901867866516,
+   "nn_source_case_id": 2160356
+  },
+  {
+   "golden_id": 4,
+   "case_id": 716401,
+   "customer_text": "when is season 3 of @117874 going up!?!?!",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.984206479691305,
+   "simple_escalate": false,
+   "nn_draft": "We don't have a release date to share, but if you add the series to WL/My Stuff we'll keep you updated. Wubbalubbadubdub!",
+   "nn_similarity": 0.9447762966156006,
+   "nn_source_case_id": 1209916
+  },
+  {
+   "golden_id": 5,
+   "case_id": 2948734,
+   "customer_text": "I cancelled my hulu account a few months ago, but I am still getting charged. I cannot seem to find any support email, so please help.",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.7424350493457731,
+   "simple_escalate": true,
+   "nn_draft": "We would be too in your shoes, so we'd love to take a closer look at everything on our end! 📞 or 💬",
+   "nn_similarity": 0.883622944355011,
+   "nn_source_case_id": 648211
+  },
+  {
+   "golden_id": 6,
+   "case_id": 60606,
+   "customer_text": "The Bridge (SE) s3e1 has subtitle issues. Subs start way too early, during the commercial break at 5 min. Rewound, same issue.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.5358308032317946,
+   "simple_escalate": false,
+   "nn_draft": "Thanks for reporting, David! We'd be happy to take a look. Would you be able to provide a timestamp or screen shot example?",
+   "nn_similarity": 0.7260096073150635,
+   "nn_source_case_id": 1008864
+  },
+  {
+   "golden_id": 7,
+   "case_id": 1797047,
+   "customer_text": "Why doesn't this work? Help please!",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7169951659802994,
+   "simple_escalate": false,
+   "nn_draft": "Uh oh! It looks like things aren't loading... Let's start fresh! Try: If no luck, @ us your device.",
+   "nn_similarity": 0.6760787963867188,
+   "nn_source_case_id": 693777
+  },
+  {
+   "golden_id": 8,
+   "case_id": 2584458,
+   "customer_text": "what's up with live? Freezing every 10 seconds. Not my network",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8891434820342522,
+   "simple_escalate": false,
+   "nn_draft": "So sorry for the trouble! We experienced an issue this weekend that affected live playback. Are you still running into this?",
+   "nn_similarity": 0.8127293586730957,
+   "nn_source_case_id": 2681527
+  },
+  {
+   "golden_id": 9,
+   "case_id": 1093633,
+   "customer_text": "Since when does gender affect my television preferences? Pretty sexist. Please stop asking this on your signup.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.6563206261697676,
+   "simple_escalate": true,
+   "nn_draft": "Thanks for your feedback, Penny. We understand your concern and will be introducing changes to this in the near future.",
+   "nn_similarity": 0.784174382686615,
+   "nn_source_case_id": 2369912
+  },
+  {
+   "golden_id": 10,
+   "case_id": 1937826,
+   "customer_text": "I've been trying out @115940 Live (beta version) and although it has glitches, it could be a solid substitute for cable tv. I'm liking it.",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.4098772390808326,
+   "simple_escalate": false,
+   "nn_draft": "That's not that experience we like to hear about, Dr. Funk. Is this on a certain network? Let's try",
+   "nn_similarity": 0.8462660908699036,
+   "nn_source_case_id": 2070990
+  },
+  {
+   "golden_id": 11,
+   "case_id": 2329710,
+   "customer_text": "Would be nice if @hulu_support updated their Windows 10 app because I still can't get subtitles to work ☹️",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.3440679409910802,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the trouble, Austin! Which device do you use? if you try a quick reboot of your device+modem, any improvement?",
+   "nn_similarity": 0.8147752285003662,
+   "nn_source_case_id": 2753105
+  },
+  {
+   "golden_id": 12,
+   "case_id": 2817393,
+   "customer_text": "The buffering is off the charts tonight guys. Live TV sucking balls.",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8576362891211788,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! 😭 Let's try: Call or chat if not resolved (",
+   "nn_similarity": 0.9069573879241943,
+   "nn_source_case_id": 2095331
+  },
+  {
+   "golden_id": 13,
+   "case_id": 1483867,
+   "customer_text": "guys I just upgraded to your live service and now literally every channel is \"not available in my area.\" What's happening?",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9687901272852462,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Which device do you use+which channels are missing? Do any of them appear as on-demand only: ?",
+   "nn_similarity": 0.867304801940918,
+   "nn_source_case_id": 2711420
+  },
+  {
+   "golden_id": 14,
+   "case_id": 374074,
+   "customer_text": "your live streaming free trial submission just returns error pages after entering @115993 credentials #fail",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.8824266516278504,
+   "simple_escalate": true,
+   "nn_draft": "Sorry! We experienced a known issue, but the issue was fixed: Thanks for bearing with us!",
+   "nn_similarity": 0.7277330160140991,
+   "nn_source_case_id": 2498965
+  },
+  {
+   "golden_id": 15,
+   "case_id": 779158,
+   "customer_text": "hello! I have a charge of $11.99 on my statement and don’t have Hulu. Wondering who signed us up? Thanks!",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.8324276359780258,
+   "simple_escalate": true,
+   "nn_draft": "We'd be happy to take a closer look into this for you. Chat with us: so we can take a closer look.",
+   "nn_similarity": 0.8219290971755981,
+   "nn_source_case_id": 1059154
+  },
+  {
+   "golden_id": 16,
+   "case_id": 360030,
+   "customer_text": "I restored my purchase sub on website but app still says no sub found and won’t let me log in - please help",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8702497897991738,
+   "simple_escalate": true,
+   "nn_draft": "Sorry to hear about the trouble! So we can dig in deeper and take a look from our end, please call us",
+   "nn_similarity": 0.7594934701919556,
+   "nn_source_case_id": 2979353
+  },
+  {
+   "golden_id": 17,
+   "case_id": 365032,
+   "customer_text": "Attn: @115940 your Boy Meets World subtitles spell Shawn’s name “Sean.”",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.706900565665937,
+   "simple_escalate": false,
+   "nn_draft": "Thanks for pointing that out! Our team has corrected that typo. If you notice any others, don't hesitate to tweet us. 💚",
+   "nn_similarity": 0.6888667345046997,
+   "nn_source_case_id": 2592804
+  },
+  {
+   "golden_id": 18,
+   "case_id": 652287,
+   "customer_text": "Worst thing #1 about @115940. Some commercials freeze & have to be restart. Then it restarts before the commercial so it can happen again 😒",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7909787487736336,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Is this on a Samsung device? Please call us/chat so we can collect some details",
+   "nn_similarity": 0.8790023326873779,
+   "nn_source_case_id": 266658
+  },
+  {
+   "golden_id": 19,
+   "case_id": 1038363,
+   "customer_text": "what is wrong with Hulu ??? I cancelled my account and you Hulu still charged me ! I been calling and emailing and no reply!!",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8636906987780908,
+   "simple_escalate": true,
+   "nn_draft": "Sorry to hear about the unexpected charge! For assistance with this, please reach out to us here",
+   "nn_similarity": 0.8862980604171753,
+   "nn_source_case_id": 1466643
+  },
+  {
+   "golden_id": 20,
+   "case_id": 652280,
+   "customer_text": "Hi, I'd like to sign up for the student plan through Spotify. Please help, thanks.",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.912660840604255,
+   "simple_escalate": true,
+   "nn_draft": "Hi Will! This promo is run directly through Spotify, so you may need to reach out there but we're happy to answer questions.",
+   "nn_similarity": 0.8029816150665283,
+   "nn_source_case_id": 2381530
+  },
+  {
+   "golden_id": 21,
+   "case_id": 238657,
+   "customer_text": "new roku app is terrible! What happened to 8 sec rwnd? Why is my menu always \"loading\". Done! Time to cancel. Not worth it.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8809780888520986,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the trouble! Are you still encountering loading trouble? Try: Let us know how it goes!",
+   "nn_similarity": 0.8689963817596436,
+   "nn_source_case_id": 2209423
+  },
+  {
+   "golden_id": 22,
+   "case_id": 2688663,
+   "customer_text": "When the weekend is so close you can almost touch it... #FridayFeeling",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5819696973415184,
+   "simple_escalate": false,
+   "nn_draft": "We'll share the feedback for future releases! For now, add the series to your WL/MS so you don't miss new eps—every Tuesday!",
+   "nn_similarity": 0.6877113580703735,
+   "nn_source_case_id": 703591
+  },
+  {
+   "golden_id": 23,
+   "case_id": 450307,
+   "customer_text": "why did hulu skip season 18 of SVU? please fix @115940",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7084161368438884,
+   "simple_escalate": false,
+   "nn_draft": "Apologies for any frustration, Andrea! We no longer have the rights to the full season 18. We'll share your interest with Benson.",
+   "nn_similarity": 0.9040324687957764,
+   "nn_source_case_id": 1594510
+  },
+  {
+   "golden_id": 24,
+   "case_id": 2695237,
+   "customer_text": "Shout out to @115940 for giving me 2 months of my money back because I cancelled, but they continued to auto charge me. You've saved me a morning of screaming \"Justice!\" over $24...",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8854989657181795,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for any frustration! We can't make any guarantees, but if you reach back out: we'd be happy to see if we have any options available for you.",
+   "nn_similarity": 0.7910448312759399,
+   "nn_source_case_id": 457262
+  },
+  {
+   "golden_id": 25,
+   "case_id": 261502,
+   "customer_text": "When @115940 auto renews during a hurricane, email them shortly after, and don't respond to your request for refund.",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8910118381576995,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! We're sorry for any trouble—but glad you were able to put things on hold. For any refund requests, please work w/ PayPal.",
+   "nn_similarity": 0.7258511185646057,
+   "nn_source_case_id": 1294830
+  },
+  {
+   "golden_id": 26,
+   "case_id": 2214715,
+   "customer_text": "Topeka Ks having playback issues and login issues since 8:45pm last night. What’s going on? Grrrrr",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.7962183165427204,
+   "simple_escalate": true,
+   "nn_draft": "Aw man! Which device is affected by this behavior? We'd love to fix this! To start off, try running through",
+   "nn_similarity": 0.7134644389152527,
+   "nn_source_case_id": 1518603
+  },
+  {
+   "golden_id": 27,
+   "case_id": 176266,
+   "customer_text": "We are thinking of cutting the cable and returning. I understand that Hulu with Live TV has commercials on the Live content. Is there another charge beyond the $39.99 to have the rest of your library commercial free?",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.5808789207032934,
+   "simple_escalate": true,
+   "nn_draft": "Hi Mike! When you subscribe to Hulu with Live TV, you also get full access to our On-Demand Library",
+   "nn_similarity": 0.7971858978271484,
+   "nn_source_case_id": 54657
+  },
+  {
+   "golden_id": 28,
+   "case_id": 309090,
+   "customer_text": "the subtitle font is better! But now on the PS4 app I keep having to turn subtitles off and on again before they show up",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8618131621069685,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Check out these tips: As for CC, you can adjust the formatting from your accessibility settings.",
+   "nn_similarity": 0.7755554914474487,
+   "nn_source_case_id": 1408749
+  },
+  {
+   "golden_id": 29,
+   "case_id": 2306915,
+   "customer_text": "Hi @hulu_support. Is there a way to block ads? As a Jewish woman, being forced to watch Mel Gibson in the #DaddysHome2 ads is offensive.",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.7562772429197214,
+   "simple_escalate": false,
+   "nn_draft": "We're very sensitive to concerns like yours, Bex. We've been looking into your report on our end since you tweeted this. (1/2)",
+   "nn_similarity": 0.8031114935874939,
+   "nn_source_case_id": 433572
+  },
+  {
+   "golden_id": 30,
+   "case_id": 2606396,
+   "customer_text": "Oh good god @115940 live sucks. Glitches at the worst times",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.43323096856425725,
+   "simple_escalate": false,
+   "nn_draft": "We'd love to help! Which device are you using to stream? Any errors? To start, try these steps",
+   "nn_similarity": 0.8215207457542419,
+   "nn_source_case_id": 2337296
+  },
+  {
+   "golden_id": 31,
+   "case_id": 2501463,
+   "customer_text": "When are you going to switch back to the old format? I know I can’t be the only person ready to cancel my account since it’s so hard to browse. I’ve even been unaware my show has been on for weeks because I can’t see my favorites anymore. This is awful.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8464873427953492,
+   "simple_escalate": true,
+   "nn_draft": "We'd hate to see you go! We're here to help, so please let us know the specific issues you're having and the device in use.",
+   "nn_similarity": 0.776523768901825,
+   "nn_source_case_id": 1747240
+  },
+  {
+   "golden_id": 32,
+   "case_id": 901981,
+   "customer_text": "Hey @115940, you should fix your Roku app so it doesn't have a black overlay covering the entire image for 5 whole seconds after you hit play. It's extremely annoying! 😡 And it's even more annoying when playing after pausing!",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.436407870579605,
+   "simple_escalate": false,
+   "nn_draft": "We'll share your feedback with our team! In the meantime, press the back button (<--) to make the dimmer go away sooner on your Roku.",
+   "nn_similarity": 0.8336084485054016,
+   "nn_source_case_id": 1480850
+  },
+  {
+   "golden_id": 33,
+   "case_id": 893691,
+   "customer_text": "Questions on trial. Signed up for ad free but still getting ads. Why? Also, instead of $11.99, it switched to $13.99.",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.8396420122224073,
+   "simple_escalate": false,
+   "nn_draft": "That shouldn't be the case which means you ran into: Let us know if you continue to have any trouble.",
+   "nn_similarity": 0.7785742878913879,
+   "nn_source_case_id": 994994
+  },
+  {
+   "golden_id": 34,
+   "case_id": 1508352,
+   "customer_text": "Now that you've resolved the Live TV issue, every non-love episode I try to watch errors out. Playback error. Please fix!",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.9545270046419136,
+   "simple_escalate": false,
+   "nn_draft": "Please accept our apologies, Jeff! What device are you using? For playback errors, let's try",
+   "nn_similarity": 0.83026123046875,
+   "nn_source_case_id": 1350384
+  },
+  {
+   "golden_id": 35,
+   "case_id": 2098973,
+   "customer_text": "can u please refund my 11.99 that was charged today? I meant to cancel before today but completely forgot.",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9634407305521354,
+   "simple_escalate": true,
+   "nn_draft": "Apologies for the delay! Please contact: and have handy the cancellation email. We'll sort this out! ✅",
+   "nn_similarity": 0.7988858222961426,
+   "nn_source_case_id": 1584206
+  },
+  {
+   "golden_id": 36,
+   "case_id": 1596383,
+   "customer_text": "Dear @115940 YOU SUCK for not fixing this Roku fiasco. It’s been at least 2 months with no viable solution. Can i have my money back?",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8758056418886168,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! What kind of trouble have you been having? Try: and Any luck?",
+   "nn_similarity": 0.8328098058700562,
+   "nn_source_case_id": 237592
+  },
+  {
+   "golden_id": 37,
+   "case_id": 895442,
+   "customer_text": "How do I watch the new episodes of Freakish because I don't have it on TV since I live in England and I cant pay for it either.",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.6404257945808495,
+   "simple_escalate": false,
+   "nn_draft": "Sorry Josh! At this time, Hulu is only available within the U.S. We're happy to pass along your interest in Hulu to our team here!",
+   "nn_similarity": 0.9055123329162598,
+   "nn_source_case_id": 2292339
+  },
+  {
+   "golden_id": 38,
+   "case_id": 2657308,
+   "customer_text": "trying to set my home location won't work",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.969955504703766,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! If no luck connecting your Android here: please reach out: for help. ✅",
+   "nn_similarity": 0.8405793905258179,
+   "nn_source_case_id": 1253952
+  },
+  {
+   "golden_id": 39,
+   "case_id": 1454910,
+   "customer_text": "we are getting charged double for the last two months, it's getting frustrating considering we only use it once in awhile. Help please",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.7169636380070027,
+   "simple_escalate": true,
+   "nn_draft": "Yikes! That shouldn't be the case. Please reach us here for help: We'll get this sorted out! ✅",
+   "nn_similarity": 0.8244574666023254,
+   "nn_source_case_id": 740611
+  },
+  {
+   "golden_id": 40,
+   "case_id": 41883,
+   "customer_text": "i have error code 500 and cannot login. what's up with this?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8510927067880475,
+   "simple_escalate": true,
+   "nn_draft": "Sorry to hear about this! Try: If no improvement, chat w/ us here for 1:1 support.",
+   "nn_similarity": 0.879822850227356,
+   "nn_source_case_id": 1159795
+  },
+  {
+   "golden_id": 41,
+   "case_id": 1744513,
+   "customer_text": "how long does it take you people to add season 3 of Rick and Morty? I'm cancelling my subscription on Monday bc you're useless.",
+   "gold_intent": "content_availability",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.7922361679870438,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay! We offer S3 on Hulu with Live TV! Our base plans typically have access after it fully airs on TV. ✅",
+   "nn_similarity": 0.8955176472663879,
+   "nn_source_case_id": 1183491
+  },
+  {
+   "golden_id": 42,
+   "case_id": 2807219,
+   "customer_text": "Dear Hulu: Please get rid of the new interface. The new interface is TRASH! Thank you for your prompt attention to this matter. Long Time Customer #hulu #newinterface #epicfail",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.950328930447135,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear you're not a fan, Mike! 😔 We're always open to improvement ideas & encourage sharing here",
+   "nn_similarity": 0.897689700126648,
+   "nn_source_case_id": 649446
+  },
+  {
+   "golden_id": 43,
+   "case_id": 2209390,
+   "customer_text": "Steaming on Samsung ku6300. I do notice that when I stream on the same tv via chromecast it comes thru in 4:3, but when using the TV’s native Hulu app I have no option to change from 16:9 as the TV’s “picture size” menu option is grayed out. Weird.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.669108067103496,
+   "simple_escalate": true,
+   "nn_draft": "We can! What brand is your smart TV, and what show are you viewing? Once we have those details we'll take a closer look. 👀",
+   "nn_similarity": 0.7311183214187622,
+   "nn_source_case_id": 2440298
+  },
+  {
+   "golden_id": 44,
+   "case_id": 2180302,
+   "customer_text": "ur customer phone service FUCKING SUCKS. If i wasnt calling to cancel my account im glad i am now bc yall just annoying",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8763686004318106,
+   "simple_escalate": true,
+   "nn_draft": "Apologies for the wait! Just to confirm, were you able to check for any app updates and go through",
+   "nn_similarity": 0.8317486047744751,
+   "nn_source_case_id": 1038688
+  },
+  {
+   "golden_id": 45,
+   "case_id": 774904,
+   "customer_text": "hi! Any idea why this is showing up on all of shows I click on all of a sudden? I never had ads before (no commercial plan)",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.8938266900697781,
+   "simple_escalate": false,
+   "nn_draft": "Apologies for any frustration, Ronnie! We definitely want to check on this for you. Please contact",
+   "nn_similarity": 0.8092392086982727,
+   "nn_source_case_id": 2544727
+  },
+  {
+   "golden_id": 46,
+   "case_id": 2815085,
+   "customer_text": "Hey @hulu_support, it would be great to watch a 22 minute episode of something without 4-8 connection errors (not an exaggeration). WTH. And don’t refer me to your support page - done all that, your app still just sucks.",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6827992236244639,
+   "simple_escalate": false,
+   "nn_draft": "Noooo! Give us another chance to make things right! 😢 What device are you using? When does this connection error pop up?",
+   "nn_similarity": 0.8762969374656677,
+   "nn_source_case_id": 1154303
+  },
+  {
+   "golden_id": 47,
+   "case_id": 2357652,
+   "customer_text": ".@115940 how many times can you show me the same ad in one episode",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.825985704344244,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any ad-related frustration! We have a limited # of adverts on each show but this could help.",
+   "nn_similarity": 0.8604000806808472,
+   "nn_source_case_id": 2181624
+  },
+  {
+   "golden_id": 48,
+   "case_id": 2140206,
+   "customer_text": "Seriously @115940 what is the deal with your UI? Why would you want to see a dark overlay for 4 seconds every time you hit play/pause?!",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8557099874194568,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any frustration or trouble, Phaedra! You might find this helpful: We'll pass along your feedback while we continue working to make improvements ( You can join the conversation at",
+   "nn_similarity": 0.7710127830505371,
+   "nn_source_case_id": 655275
+  },
+  {
+   "golden_id": 49,
+   "case_id": 219416,
+   "customer_text": "This is the description for tomorrow’s @168333 Newcastle EPL match. See any problems with the description. Telemundo?",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7237526393478326,
+   "simple_escalate": false,
+   "nn_draft": "Apologies! When you (+) the game, do you see the proper network listed under the content title? We'll continue sharing the feedback.",
+   "nn_similarity": 0.7477622628211975,
+   "nn_source_case_id": 1235219
+  },
+  {
+   "golden_id": 50,
+   "case_id": 2320316,
+   "customer_text": ": If possible, could you add the TV show The Sentinel? 😎",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.5608526214365396,
+   "simple_escalate": false,
+   "nn_draft": "Hiya, Colby! We're always looking expand our library. While we can't make any promises, we'd love to share your request! 💚",
+   "nn_similarity": 0.7170286178588867,
+   "nn_source_case_id": 2421713
+  },
+  {
+   "golden_id": 51,
+   "case_id": 1637003,
+   "customer_text": "I didn't know that \"Limited commercial plan\" means \"infinite commercial plan\"",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.9824526461219626,
+   "simple_escalate": false,
+   "nn_draft": "Hey there. Ad load will vary by show/network, but we'll share your feedback! For more info/options",
+   "nn_similarity": 0.7546566128730774,
+   "nn_source_case_id": 2151391
+  },
+  {
+   "golden_id": 52,
+   "case_id": 2809776,
+   "customer_text": "The new menu is harder to find what I want I do not like this look. @115940 @hulu_support",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.9121224490409313,
+   "simple_escalate": false,
+   "nn_draft": "Hi, Jen! No plans to roll-back, but requested changes are coming: We'll share the request!",
+   "nn_similarity": 0.8396731615066528,
+   "nn_source_case_id": 2232104
+  },
+  {
+   "golden_id": 53,
+   "case_id": 875531,
+   "customer_text": "I pay for the ad free service!",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.939529190318081,
+   "simple_escalate": false,
+   "nn_draft": "We're sorry to hear about the trouble! If this continues after: follow up here",
+   "nn_similarity": 0.7960280776023865,
+   "nn_source_case_id": 270476
+  },
+  {
+   "golden_id": 54,
+   "case_id": 1466643,
+   "customer_text": "when you cancelled your account 3 days ago and still got charged yesterday 🙃 gimme my money back. @hulu_support",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.965564550496869,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for any frustrations, Rena! Give us a call: and we'd be happy to get this sorted out for you.",
+   "nn_similarity": 0.9050604104995728,
+   "nn_source_case_id": 400652
+  },
+  {
+   "golden_id": 55,
+   "case_id": 1759446,
+   "customer_text": "Hulu App is junk. I watch less than 30 seconds, video goes blank green and audio continues. This happens every show/movie.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.38321015341580034,
+   "simple_escalate": false,
+   "nn_draft": "So sorry! We're investigating an issue with our Samsung app, but in the meantime, give these a try",
+   "nn_similarity": 0.8282973766326904,
+   "nn_source_case_id": 1087108
+  },
+  {
+   "golden_id": 56,
+   "case_id": 1483280,
+   "customer_text": "You know it would be nice if @115940 app stopped booting out of the app while I'm watching something",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5337351764073538,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Which device is this on? Do things crash at a particular point of playback? Try: Any better?",
+   "nn_similarity": 0.820181131362915,
+   "nn_source_case_id": 2488111
+  },
+  {
+   "golden_id": 57,
+   "case_id": 760759,
+   "customer_text": "how do I sign up for my free hulu that comes with my Spotify subscription?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8761420317281574,
+   "simple_escalate": true,
+   "nn_draft": "Hey CJ! Check out this page: for details on how to sign up. Let us know if you have any questions!",
+   "nn_similarity": 0.8741517663002014,
+   "nn_source_case_id": 388172
+  },
+  {
+   "golden_id": 58,
+   "case_id": 2908433,
+   "customer_text": "hi I am having issues with my account and your chat feature appears to be down and there are long waits via phone support...",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5439353579411497,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear about the trouble! Are you receiving any errors? Let us know more details about the issue at hand so we can help!",
+   "nn_similarity": 0.8669769763946533,
+   "nn_source_case_id": 1806120
+  },
+  {
+   "golden_id": 59,
+   "case_id": 2373579,
+   "customer_text": "How do I remove this share icon when watching in a browser? It should only be visible when the player controls are and not through the whole show, very distracting and unnecessary.",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.5591101202333522,
+   "simple_escalate": false,
+   "nn_draft": "There isn't an option to disable this, but pressing back button will remove the overlay from the screen. We'll share the feedback!",
+   "nn_similarity": 0.677561342716217,
+   "nn_source_case_id": 778032
+  },
+  {
+   "golden_id": 60,
+   "case_id": 366344,
+   "customer_text": "My advice...Don’t start a “free trial” w/ @115940. You get billed upfront then they can’t help you if stream through 3rd party. @hulu_support",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.9634207563767001,
+   "simple_escalate": true,
+   "nn_draft": "Yikes! 😟 Did you sign up with the same email address it was sent to? Call/chat and we'll take a look",
+   "nn_similarity": 0.8785258531570435,
+   "nn_source_case_id": 886860
+  },
+  {
+   "golden_id": 61,
+   "case_id": 635458,
+   "customer_text": "Where did CNN go?!",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7540010754221361,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the trouble! Sounds like you were affected by: We're happy to report this issue is resolved.",
+   "nn_similarity": 0.8813262581825256,
+   "nn_source_case_id": 646506
+  },
+  {
+   "golden_id": 62,
+   "case_id": 1637255,
+   "customer_text": "Trying to Remove Cinemax, But the Website keeps telling me to Contact \"Viewer Experience\".",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.5477040075552476,
+   "simple_escalate": false,
+   "nn_draft": "Hey! We'd love to take a look at your account to see what we can do. Reach out by phone/chat here",
+   "nn_similarity": 0.7323688268661499,
+   "nn_source_case_id": 2608328
+  },
+  {
+   "golden_id": 63,
+   "case_id": 1239622,
+   "customer_text": "is starting to get on my nerves with every show freezing after the #google ads. Super freaking annoying. I can’t watch ANYTHING 😑😡",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6786849921941337,
+   "simple_escalate": false,
+   "nn_draft": "Apologies! We're looking into this behavior. When you have a chance, please reach out to us here",
+   "nn_similarity": 0.8734225034713745,
+   "nn_source_case_id": 1741499
+  },
+  {
+   "golden_id": 64,
+   "case_id": 2223080,
+   "customer_text": "of course no refund for service that no longer works properly good bye hulu",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8850046763244634,
+   "simple_escalate": true,
+   "nn_draft": "Hi! We're able to stream to military personnel on U.S. bases. Contact us here: to look at your options.",
+   "nn_similarity": 0.8239551782608032,
+   "nn_source_case_id": 1043028
+  },
+  {
+   "golden_id": 65,
+   "case_id": 2434140,
+   "customer_text": "So #MarvelsRunaways comes out tomorrow and neither my mom or brother remembers the Hulu password so I can't use it. 😑",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.7862558764194104,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! We'd love to help out. Try: For additional assistance, reach us ➡️ 👍",
+   "nn_similarity": 0.7427466511726379,
+   "nn_source_case_id": 401957
+  },
+  {
+   "golden_id": 66,
+   "case_id": 199030,
+   "customer_text": "I have a question how come one moment I am watching a movie and when it ends it ended up disappearing from the search bar like",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5584528038766735,
+   "simple_escalate": false,
+   "nn_draft": "Thank you for sharing the video with us! We've passed it along to our team to take a closer look into from our end.",
+   "nn_similarity": 0.7172264456748962,
+   "nn_source_case_id": 152708
+  },
+  {
+   "golden_id": 67,
+   "case_id": 337222,
+   "customer_text": "just re-upped subscription. When I click the app on my @16392 TV I get user session expired and won't let me login",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.915686888686854,
+   "simple_escalate": true,
+   "nn_draft": "Apologies for the trouble! Give us a call at the number listed here: and we'll look into this. 👍🏻",
+   "nn_similarity": 0.7521698474884033,
+   "nn_source_case_id": 1249055
+  },
+  {
+   "golden_id": 68,
+   "case_id": 1237927,
+   "customer_text": "World Series just cut out on the live service, said not available in my area (Indy), and now it's disappeared from the menu!",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9649905314784337,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! We ran into issues last night, but it was resolved: Thanks for bearing with us!",
+   "nn_similarity": 0.799484133720398,
+   "nn_source_case_id": 2495341
+  },
+  {
+   "golden_id": 69,
+   "case_id": 2098827,
+   "customer_text": "With the newer FireTV Hulu layout, how do I access my Showtime add-on without having to search for it every time?",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8203294232971898,
+   "simple_escalate": false,
+   "nn_draft": "Hey, Clay! Plan changes can be made on your account page: from a PC. Let us know if you have trouble!",
+   "nn_similarity": 0.7151116132736206,
+   "nn_source_case_id": 1740643
+  },
+  {
+   "golden_id": 70,
+   "case_id": 1069160,
+   "customer_text": "Nothing better then trying to watch @115940 and it plays commercials and then freezes with 1 second left.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6984552991251091,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Let's see what we can do to get you back to streaming smoothly. What device is this? Please try: ✅",
+   "nn_similarity": 0.9070097208023071,
+   "nn_source_case_id": 2690181
+  },
+  {
+   "golden_id": 71,
+   "case_id": 2919749,
+   "customer_text": "I'm trying to update my credit card information and all I get is a spinning circle, I've tried 3 browsers across two computers with and without adblock and still get the same.",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.784385523799823,
+   "simple_escalate": true,
+   "nn_draft": "In order to verify new new billing info we process a standard pre-authorization hold but it will immediately reverse. 👍🏽",
+   "nn_similarity": 0.7071380019187927,
+   "nn_source_case_id": 1141387
+  },
+  {
+   "golden_id": 72,
+   "case_id": 1105050,
+   "customer_text": "Spoke to @115940 weeks ago about getting a refund and still haven’t gotten it. Y’all sure know how to double charge me though ...",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8923430554093477,
+   "simple_escalate": true,
+   "nn_draft": "Yikes! What trouble are you coming across? Are you unable to login? If it's tech related, which device are you using?",
+   "nn_similarity": 0.7920147180557251,
+   "nn_source_case_id": 959495
+  },
+  {
+   "golden_id": 73,
+   "case_id": 1401942,
+   "customer_text": "Wait wait WAIT. @115940 has gotten so bad they now do FIVE ads at a time!? Wtf is that 🤣",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7174674430520277,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any trouble! Our ad load is typically lighter than cable's. Ad length varies from show to show due to many factors.",
+   "nn_similarity": 0.8562650084495544,
+   "nn_source_case_id": 1202172
+  },
+  {
+   "golden_id": 74,
+   "case_id": 965981,
+   "customer_text": "Tried the @115940 live TV app, which is impossible to navigate and find local channels. Switched back to @115946 immediately.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.9017094387766758,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear this, Lesley! Which device do you use+are all channels affected? For now, please try out",
+   "nn_similarity": 0.8175133466720581,
+   "nn_source_case_id": 2157324
+  },
+  {
+   "golden_id": 75,
+   "case_id": 1637257,
+   "customer_text": "you better fix my account @115940 can't log in or sign up why whyyyyyy !!!",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.9963198880344855,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! Still having trouble? Is it saying your password is incorrect? Try: and call if no change.",
+   "nn_similarity": 0.8426732420921326,
+   "nn_source_case_id": 2381520
+  },
+  {
+   "golden_id": 76,
+   "case_id": 92912,
+   "customer_text": "when will the rest of season 5 of rica famous Latina be available for viewing? we've been on episode 30 for over a week now. @115940",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9158089109888252,
+   "simple_escalate": false,
+   "nn_draft": "Hi there! We only have rights to past seasons of Vikings so we'll likely be able to add it sometime before a new season airs on TV. Add the show to your WL/My Stuff for all updates.",
+   "nn_similarity": 0.7949157357215881,
+   "nn_source_case_id": 505714
+  },
+  {
+   "golden_id": 77,
+   "case_id": 311426,
+   "customer_text": "You've ignored all user feedback since May about the horrible UI update. Thousands of votes on @82156. No response?",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8937993831112045,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! You should have been given a transfer prompt. Call/chat and we'll dig into this further together",
+   "nn_similarity": 0.7365455031394958,
+   "nn_source_case_id": 923657
+  },
+  {
+   "golden_id": 78,
+   "case_id": 3174,
+   "customer_text": "Hi i was charged for a subscription and didn't sign up for it",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.883423185065842,
+   "simple_escalate": true,
+   "nn_draft": "Uh oh! Give us a call at the number listed at the bottom of this page: so we can get this sorted. 💚",
+   "nn_similarity": 0.7948681712150574,
+   "nn_source_case_id": 810650
+  },
+  {
+   "golden_id": 79,
+   "case_id": 2508474,
+   "customer_text": "Hey @115940 there is no planet where #Colossal is a comedy and wow it's not what I was hoping to watch yikes. Please fix, thanks!",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6246384080725542,
+   "simple_escalate": false,
+   "nn_draft": "Hiya! You may be happy to know that you can watch Harley, Deadshot, and the rest of the Suicide Squad through the HBO Add-on.",
+   "nn_similarity": 0.689502477645874,
+   "nn_source_case_id": 1237094
+  },
+  {
+   "golden_id": 80,
+   "case_id": 817918,
+   "customer_text": "when are y'all gonna make shows available to download for offline veiwing? @115940",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.838743003749143,
+   "simple_escalate": false,
+   "nn_draft": "Thanks for sharing that suggestion with us, Erick! We'll gladly pass your input along to the right people here at Hulu HQ. 👌🏼",
+   "nn_similarity": 0.8996875286102295,
+   "nn_source_case_id": 2785274
+  },
+  {
+   "golden_id": 81,
+   "case_id": 1018722,
+   "customer_text": "I don’t have time for 4 commercials every 4 minutes. How can I disappear them?",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.7428413168692349,
+   "simple_escalate": false,
+   "nn_draft": "Hey Franky! If you prefer no interruptions, we have a No Commercials plan you might enjoy",
+   "nn_similarity": 0.7828383445739746,
+   "nn_source_case_id": 2331261
+  },
+  {
+   "golden_id": 82,
+   "case_id": 2625463,
+   "customer_text": "did Hulu live just crash? Watching on a Roku 3 and kicked me out and cannot log back on. Cannot log in on iOS either",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.917948956204361,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay, Kayla! Still need help? Let's take a moment to work through: & keep us posted!",
+   "nn_similarity": 0.8585562705993652,
+   "nn_source_case_id": 42828
+  },
+  {
+   "golden_id": 83,
+   "case_id": 43861,
+   "customer_text": "I keep getting this error message? Anything I can do to fix it? @100806",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.9631986775975012,
+   "simple_escalate": false,
+   "nn_draft": "Yikes! That's no good. Is this with all shows? Give these steps a try to get back on track",
+   "nn_similarity": 0.8769220113754272,
+   "nn_source_case_id": 850286
+  },
+  {
+   "golden_id": 84,
+   "case_id": 175259,
+   "customer_text": "i’m trying to cancel my spotify/ hulu bundle membership in order to upgrade to the hulu membership without ads but i CANT FIGURE IT OUT",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.6471489476214227,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! If you're unable to add the No Commercial plan here: please contact: ✅",
+   "nn_similarity": 0.8082541823387146,
+   "nn_source_case_id": 207894
+  },
+  {
+   "golden_id": 85,
+   "case_id": 272806,
+   "customer_text": "why does it take so long to get assistance? It doesn’t take y’all that long to charge my account🤔🤔🤔",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.7939079384318003,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay, Claire! We're glad to hear she was able to help out. Let us know if we can assist further!",
+   "nn_similarity": 0.720470666885376,
+   "nn_source_case_id": 260188
+  },
+  {
+   "golden_id": 86,
+   "case_id": 2369883,
+   "customer_text": "what’s the deal with SNL latest episode posted first on YouTube before it’s posted on Hulu? Both have commercials but one is free, guess which one I choose? Fix this or I’m gone!",
+   "gold_intent": "content_availability",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.6385203411178486,
+   "simple_escalate": false,
+   "nn_draft": "Hey Ashton! If you haven't already, you can catch the latest episode of SNL here: Happy streaming!",
+   "nn_similarity": 0.7609739303588867,
+   "nn_source_case_id": 2377719
+  },
+  {
+   "golden_id": 87,
+   "case_id": 1039694,
+   "customer_text": "whys @115940 telling me i need to sign up for a subscription, but I already have one?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.933264132093523,
+   "simple_escalate": true,
+   "nn_draft": "Sorry about that! Give us a ping or a ring and we'll be able to investigate this report on our end",
+   "nn_similarity": 0.8372315168380737,
+   "nn_source_case_id": 2730684
+  },
+  {
+   "golden_id": 88,
+   "case_id": 1469682,
+   "customer_text": "any ideas why there’s no sound for abc on Hulu live? I can only hear the music not talking.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.39273954960881274,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Sorry for any trouble, Amy. Please try: to help reset and refresh things. If that's no help, follow up to confirm the device you're on, the network with no sound, and what state/zip you're currently in. We'll take it from there!",
+   "nn_similarity": 0.8241149187088013,
+   "nn_source_case_id": 2958810
+  },
+  {
+   "golden_id": 89,
+   "case_id": 2123496,
+   "customer_text": "is season 4 of teen titans go only viewable on devices compatible with hulu live?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7251944605621644,
+   "simple_escalate": false,
+   "nn_draft": "Your TV and phone may be on the new experience whereas on site we're still in beta. Check it out",
+   "nn_similarity": 0.7813272476196289,
+   "nn_source_case_id": 1431669
+  },
+  {
+   "golden_id": 90,
+   "case_id": 2455563,
+   "customer_text": "what is going with nbc in Denver, can’t watch this is us and couldn’t watch Sunday night football",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.40997847600548504,
+   "simple_escalate": false,
+   "nn_draft": "Hi! So sorry for the trouble. Our team is investigating issues with NBC live streams. We're working to have a fix ASAP!",
+   "nn_similarity": 0.8097913861274719,
+   "nn_source_case_id": 2516263
+  },
+  {
+   "golden_id": 91,
+   "case_id": 2675831,
+   "customer_text": "what are you watching RHOBH? I can’t get season 7 on @115940 I need to see what this Dorit is about and her hated hubby.",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.6414291443131022,
+   "simple_escalate": false,
+   "nn_draft": "Hi! We don't have a date to share just yet, but keep an eye out for the latest season just before the next starts airing.",
+   "nn_similarity": 0.8062551021575928,
+   "nn_source_case_id": 1443606
+  },
+  {
+   "golden_id": 92,
+   "case_id": 43872,
+   "customer_text": "hi- Hulu currently not working for me. Can’t log in on Roku or online. What to do?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.924431699299544,
+   "simple_escalate": true,
+   "nn_draft": "Apologies, Darla! This was a known issue that has now been resolved. Let us know if we can help further with anything!",
+   "nn_similarity": 0.8636835813522339,
+   "nn_source_case_id": 346886
+  },
+  {
+   "golden_id": 93,
+   "case_id": 1685015,
+   "customer_text": "ok,I seriously want a refund if I can’t use my account. This has been a problem alllll day!",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9581797674541757,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! We'd hate to lose you. For help cancelling, call the number in blue here: We'll sort this out",
+   "nn_similarity": 0.7754889726638794,
+   "nn_source_case_id": 1362965
+  },
+  {
+   "golden_id": 94,
+   "case_id": 2378839,
+   "customer_text": "Will the current season of @180004 be on @115940 soon?? I’ve finished season 3 and miss @12994 @92511 & @92926 already! 😩😩😩#bingefest #obsessed #yassssss",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.8427052650993366,
+   "simple_escalate": false,
+   "nn_draft": "We have S3, did you mean S4? No info currently, but add to WL/My Stuff and keep an 👀 on: #YasQueen",
+   "nn_similarity": 0.8835467100143433,
+   "nn_source_case_id": 2654874
+  },
+  {
+   "golden_id": 95,
+   "case_id": 2754549,
+   "customer_text": "hello, I cancelled my subscription in August yet I still got charged apparently every month since then. Please reverse the charges!",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9011872898086053,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay and unexpected charge, Christine! We'd love to take care of this via phone or chat",
+   "nn_similarity": 0.8752446174621582,
+   "nn_source_case_id": 2626105
+  },
+  {
+   "golden_id": 96,
+   "case_id": 1244877,
+   "customer_text": "I literally made a twitter to ask you to please change the hulu format to something that isnt terrible. Please change it back, please?",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5530849709560433,
+   "simple_escalate": false,
+   "nn_draft": "Apologies, Nicole! We make improvements from feedback posted here: We would love to hear your input.",
+   "nn_similarity": 0.8321921825408936,
+   "nn_source_case_id": 1043051
+  },
+  {
+   "golden_id": 97,
+   "case_id": 2832086,
+   "customer_text": "you really need to change up your commercials. You play the SAME ONE every commercial break 😡",
+   "gold_intent": "ads_experience",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.9858991071828646,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear those ads are playing like a broken record on repeat! To mix things up a bit, try: 👍",
+   "nn_similarity": 0.7764706015586853,
+   "nn_source_case_id": 1168114
+  },
+  {
+   "golden_id": 98,
+   "case_id": 59936,
+   "customer_text": ".@115940 who does your subtitles/closed captions? A lot are crazy off on animes, like they aren't even trying to get the words & names right 😐",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8835594625251216,
+   "simple_escalate": false,
+   "nn_draft": "Uh oh! What show/ep are you viewing? Are you able to share a timestamp with us? We'll reach out to have this corrected. 👍🏻",
+   "nn_similarity": 0.7833396792411804,
+   "nn_source_case_id": 2429723
+  },
+  {
+   "golden_id": 99,
+   "case_id": 2896570,
+   "customer_text": "I think it’s kind of silly to have all of the episodes of The Good Doctor, except for 2 and 3 😒😒",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6797490925262394,
+   "simple_escalate": false,
+   "nn_draft": "All eps of The Good Doctor that have aired thus far are available: Let us know if you have trouble!",
+   "nn_similarity": 0.8213716745376587,
+   "nn_source_case_id": 2486139
+  },
+  {
+   "golden_id": 100,
+   "case_id": 1291559,
+   "customer_text": "when is season 3 of freakish coming out ?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9828395954938685,
+   "simple_escalate": false,
+   "nn_draft": "No news to share at the moment but we'll be sure to let our team know you're interested! Thanks for the support of the show.",
+   "nn_similarity": 0.9257086515426636,
+   "nn_source_case_id": 880259
+  },
+  {
+   "golden_id": 101,
+   "case_id": 2923387,
+   "customer_text": "what time frame are we looking at for Rick and Morty Season 3? Like tomorrow? Maybe Saturday? #rickAndMorty",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.739706437030112,
+   "simple_escalate": false,
+   "nn_draft": "S3 of Rick & Morty is currently available on Hulu with Live TV, but on our base plans, we should be expecting it, soon!",
+   "nn_similarity": 0.9115874767303467,
+   "nn_source_case_id": 2295205
+  },
+  {
+   "golden_id": 102,
+   "case_id": 1607310,
+   "customer_text": "you got some splaining to do.. where is empire season 4 episode 5 that aired yesterday? Not seeing it on the app",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7769418449370754,
+   "simple_escalate": false,
+   "nn_draft": "Hey there! No new eps since 10/18, but the Lyons are back this week, on 11/8. We'll have the ep up the day after, so stay tuned! 😎",
+   "nn_similarity": 0.8932679891586304,
+   "nn_source_case_id": 1635573
+  },
+  {
+   "golden_id": 103,
+   "case_id": 2626105,
+   "customer_text": "I cancelled my subscription last month, and was just billed again. I want this charge reversed, please help.",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8836587924285361,
+   "simple_escalate": true,
+   "nn_draft": "We'd love to investigate things a bit further form our side of things, Joe! 😱 Reach out here ASAP",
+   "nn_similarity": 0.8752446174621582,
+   "nn_source_case_id": 2754549
+  },
+  {
+   "golden_id": 104,
+   "case_id": 462088,
+   "customer_text": "I changed my account to Hulu Live Beta no commercials but I’m still experiencing commercials during the episodes. Please help. Thank you",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.8838341698250014,
+   "simple_escalate": false,
+   "nn_draft": "Hi! What are you watching? Network on-demand content for Live TV subs isn't part of the Hulu on-demand library & may contain ads",
+   "nn_similarity": 0.8681091666221619,
+   "nn_source_case_id": 2894825
+  },
+  {
+   "golden_id": 105,
+   "case_id": 272593,
+   "customer_text": "if an app is having issues is it on the developer? The instant replay/rewind button isnt working in the new Hulu",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.32766176876784436,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the frustration! The replay button isn't currently supported, but we'll share the input. Please use⬅️ or ⏪ to rewind.",
+   "nn_similarity": 0.8038472533226013,
+   "nn_source_case_id": 2798981
+  },
+  {
+   "golden_id": 106,
+   "case_id": 1579606,
+   "customer_text": "It seems to be fixed now, maybe just exiting and entering the app did the trick, thanks!!",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5361817877998277,
+   "simple_escalate": false,
+   "nn_draft": "Uh oh! Still having trouble? If so, try: No luck? @ us your device and error specifics. We'll help!",
+   "nn_similarity": 0.7422947883605957,
+   "nn_source_case_id": 1526584
+  },
+  {
+   "golden_id": 107,
+   "case_id": 2967900,
+   "customer_text": "mind explaining why I have an internet connection strong enough to play 6 ads in a row but not strong enough to play the show? On my third try here and 18 played ads in....",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7663134007190407,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Which device are you streaming from? Any specific show(s)? For now, these may help improve",
+   "nn_similarity": 0.7929000854492188,
+   "nn_source_case_id": 1141385
+  },
+  {
+   "golden_id": 108,
+   "case_id": 710876,
+   "customer_text": "why I have been charged 2X by Hulu within 24hrs??? $15.09 and the monthly $7.99 for a FREE TRIAL ... WTF!!! @hulu_support #ripoff",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.9886131154470285,
+   "simple_escalate": true,
+   "nn_draft": "Ah! We can sort this out. Please reach out here: so we can get to the bottom of this ASAP!",
+   "nn_similarity": 0.8407026529312134,
+   "nn_source_case_id": 1287999
+  },
+  {
+   "golden_id": 109,
+   "case_id": 863117,
+   "customer_text": "are you guys going to compensate your customers for the bad service?",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6072803008207704,
+   "simple_escalate": false,
+   "nn_draft": "Hello there! 👋 Apologies for the delay. 😔 Anything in particular you're having trouble with? We'd love to assist! 💚",
+   "nn_similarity": 0.7686424851417542,
+   "nn_source_case_id": 236460
+  },
+  {
+   "golden_id": 110,
+   "case_id": 931738,
+   "customer_text": "I just noticed a charge from you to my card. I canceled months ago and cannot find a phone number to talk to you ppl. Please help me",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.8679332750586932,
+   "simple_escalate": true,
+   "nn_draft": "Not to worry, Dani! We'll sort this out. Give us a call at the # here: and we'll take a 👀 on our end.",
+   "nn_similarity": 0.8071022629737854,
+   "nn_source_case_id": 1198461
+  },
+  {
+   "golden_id": 111,
+   "case_id": 2068727,
+   "customer_text": "God damn it @115940 I have fucking gigabyte internet and you live tv service is freezing every few minutes",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.7820082735409263,
+   "simple_escalate": false,
+   "nn_draft": "Our sincere apologies for this experience, Michael! Please call us/chat us so we can take a closer look",
+   "nn_similarity": 0.8208837509155273,
+   "nn_source_case_id": 2095273
+  },
+  {
+   "golden_id": 112,
+   "case_id": 1213972,
+   "customer_text": "when is younger season 4 going to be on hulu?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9545891497499451,
+   "simple_escalate": false,
+   "nn_draft": "Hi Megan! No release date to share right now, but keep an eye on this page for updates: 😊",
+   "nn_similarity": 0.9619242548942566,
+   "nn_source_case_id": 269292
+  },
+  {
+   "golden_id": 113,
+   "case_id": 12788,
+   "customer_text": "hey. Just upgraded to the live tv subscription but my 3rd gen Apple TV won’t do live....or am I wrong?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.42677076597583535,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! We ran into some trouble, but the game's now up: We'll share the interest in seeing \"Go to Live.\"",
+   "nn_similarity": 0.77960205078125,
+   "nn_source_case_id": 1823995
+  },
+  {
+   "golden_id": 114,
+   "case_id": 961062,
+   "customer_text": "Hulu with Live TV does not work on any of my devices! How do I cancel before I am charged? There is no way to do it that I can see!",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.627373927405959,
+   "simple_escalate": true,
+   "nn_draft": "To remove Live TV from your account, check out: For assistance, give us a 📞",
+   "nn_similarity": 0.882470965385437,
+   "nn_source_case_id": 393819
+  },
+  {
+   "golden_id": 115,
+   "case_id": 2232134,
+   "customer_text": "how come season 9 of Will and Grace is missing from the episode line up on your service? I made it through seasons 1-8 and now I can't fully catch up.",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7625465703125823,
+   "simple_escalate": false,
+   "nn_draft": "We have them Patrick! They are just in an odd spot, due to streaming rights. Check Clips/Extras section",
+   "nn_similarity": 0.8344393968582153,
+   "nn_source_case_id": 2818060
+  },
+  {
+   "golden_id": 116,
+   "case_id": 962530,
+   "customer_text": "why is my account not working? It won’t take the charge and won’t let me watch my shows. Fix your stuff please #hulu",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.6382059919633246,
+   "simple_escalate": true,
+   "nn_draft": "Sorry! 😔 What exact symptoms are you running into? We'll start here: Let us know if things improve!",
+   "nn_similarity": 0.8705050945281982,
+   "nn_source_case_id": 2357620
+  },
+  {
+   "golden_id": 117,
+   "case_id": 2873802,
+   "customer_text": "I’m in Washington state watching espn so why do I keep getting this message???? This is the 3rd time I have not been able to watch a major sporting event. The entire first quarter was available ...",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7287870558993299,
+   "simple_escalate": false,
+   "nn_draft": "Sorry, Donna! There was an issue with the TBS/NLCS feed earlier that has since been resolved",
+   "nn_similarity": 0.7509980201721191,
+   "nn_source_case_id": 1821041
+  },
+  {
+   "golden_id": 118,
+   "case_id": 1171302,
+   "customer_text": "why can't I watch the Charger Raider game on Hulu live? Fix it!",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.31368041089366394,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! Which device do you use+which game? Try a quick reboot of your device+modem/router. Any change after?",
+   "nn_similarity": 0.8418351411819458,
+   "nn_source_case_id": 1157007
+  },
+  {
+   "golden_id": 119,
+   "case_id": 964758,
+   "customer_text": "how can I access my my stuff dvr on the web version of hulu live?",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8683513735386774,
+   "simple_escalate": false,
+   "nn_draft": "Early access to live TV is available on site: We're working to roll out DVR/My Stuff in the future.",
+   "nn_similarity": 0.8297200202941895,
+   "nn_source_case_id": 2251698
+  },
+  {
+   "golden_id": 120,
+   "case_id": 2573317,
+   "customer_text": "Get your shit together @115940 I'm about to cancel if you don't start updating my watchlist. NO SHOWS UPDATED IN A WEEK WTF",
+   "gold_intent": "content_availability",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.754922286097403,
+   "simple_escalate": false,
+   "nn_draft": "Hi! What shows are you looking for? A few (like Empire, SVU, Chicago P.D. etc) didn't air last week due to the World Series.",
+   "nn_similarity": 0.834153950214386,
+   "nn_source_case_id": 1762836
+  },
+  {
+   "golden_id": 121,
+   "case_id": 1372315,
+   "customer_text": "aside from the terrible menus, not being able to actually watch live tv makes Hulu live pretty worthless.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5731050622117043,
+   "simple_escalate": false,
+   "nn_draft": "We'd hate to see you go! Have you tried contacting us via phone/live chat so we can take a closer look: ?",
+   "nn_similarity": 0.8361508250236511,
+   "nn_source_case_id": 1658205
+  },
+  {
+   "golden_id": 122,
+   "case_id": 2973713,
+   "customer_text": "Can Hulu kindly stop turning on subtitles",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8411985502896969,
+   "simple_escalate": false,
+   "nn_draft": "Hey there! You'll find steps here: & here: If you have questions let us know!",
+   "nn_similarity": 0.8356639742851257,
+   "nn_source_case_id": 2214718
+  },
+  {
+   "golden_id": 123,
+   "case_id": 1239614,
+   "customer_text": "wtf?? its keeps shutting off and going back to regular tv!! why the fuck is it doing that?",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5436850435305051,
+   "simple_escalate": false,
+   "nn_draft": "Uh oh! What kind of behavior are you witnessing? What brand is your TV? We'd love to help! Try",
+   "nn_similarity": 0.7557588815689087,
+   "nn_source_case_id": 2209378
+  },
+  {
+   "golden_id": 124,
+   "case_id": 2687141,
+   "customer_text": "Guys... PLEASE FIX THIS!!! It could be your Christmas miracle!",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6095411124475313,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! For account related issues, reach out via phone or chat so we can pull up your account info",
+   "nn_similarity": 0.7319970726966858,
+   "nn_source_case_id": 124668
+  },
+  {
+   "golden_id": 125,
+   "case_id": 559333,
+   "customer_text": "why should I subscribe to live tv when it keeps freezing up and my WiFi speeds are in excess of 100mbs? Not good for live sporting events. Probably going to cancel my trial over this.",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.5034984352647552,
+   "simple_escalate": false,
+   "nn_draft": "That's no good! What device do you use to stream+which channel? If you try a quick device+modem reboot, any change after?",
+   "nn_similarity": 0.8105635643005371,
+   "nn_source_case_id": 1017753
+  },
+  {
+   "golden_id": 126,
+   "case_id": 597226,
+   "customer_text": "Dear @115940, if you’re going to make me sit through 120 seconds of commercials 8 times for a 20 minute episode, at least change them up. I’m basically a spokesperson for the Windows PC.",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.8455315227591217,
+   "simple_escalate": false,
+   "nn_draft": "Hi, Hunter! We hear you. Updating these: from a computer might help mix up the ads you're being served.👍🏽",
+   "nn_similarity": 0.8076508045196533,
+   "nn_source_case_id": 2238744
+  },
+  {
+   "golden_id": 127,
+   "case_id": 1091829,
+   "customer_text": "Dear @115940, that sound the new app makes EVERY TIME you turn it on is too F**king Loud and obnoxiously annoying!! PLEASE STOP IT!",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8741640690564517,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the frustration! While we don't have any specifics to share, we're working on it. For info",
+   "nn_similarity": 0.8728432655334473,
+   "nn_source_case_id": 2771632
+  },
+  {
+   "golden_id": 128,
+   "case_id": 870899,
+   "customer_text": "How do I remove my place of employment from appearing after I make a comment on your site? This info not \"public\" on FB, but is on @115940?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.6671944091553915,
+   "simple_escalate": false,
+   "nn_draft": "Hi! Availability can vary for a number of reasons, and sometimes we do get the rights again later",
+   "nn_similarity": 0.6561130285263062,
+   "nn_source_case_id": 1725613
+  },
+  {
+   "golden_id": 129,
+   "case_id": 996061,
+   "customer_text": "Hey @115940 I pay for the no ad subscription and you're trying to show me ads. What the fuck",
+   "gold_intent": "ads_experience",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.9660976415529217,
+   "simple_escalate": false,
+   "nn_draft": "Ads allow us to keep our base plan at $7.99/month ( Take a peek at: 👍🏻",
+   "nn_similarity": 0.8533995151519775,
+   "nn_source_case_id": 655853
+  },
+  {
+   "golden_id": 130,
+   "case_id": 1112357,
+   "customer_text": "why when I stream@anything else it is perfect. When I stream football it is always buffering. You le service sucks",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6723418315787371,
+   "simple_escalate": false,
+   "nn_draft": "We're so sorry for the trouble! Our team is aware of this issue and we're working to get to the bottom of things so this doesn't happen again: Our sincere apologies for the frustration/inconvenience!",
+   "nn_similarity": 0.8365219235420227,
+   "nn_source_case_id": 591335
+  },
+  {
+   "golden_id": 131,
+   "case_id": 1930513,
+   "customer_text": "it keeps buffering after wbey five minutes and I have to to refresh! And no, it’s not my connection cuz Netflix is working!",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.9150587044573351,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the trouble! Which device are you using? Is all content affected? Be sure to try these steps",
+   "nn_similarity": 0.8489214181900024,
+   "nn_source_case_id": 2577814
+  },
+  {
+   "golden_id": 132,
+   "case_id": 12244,
+   "customer_text": "Pretty neat how @115940’s ‘live’ stream of the ballgame is two batters behind Twitter. 😑",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7730860346070234,
+   "simple_escalate": false,
+   "nn_draft": "Hey, Jacob! Sorry to hear about the delay in streaming the game. We'll pass along this feedback to our devs for review. ✅",
+   "nn_similarity": 0.7904826998710632,
+   "nn_source_case_id": 1267966
+  },
+  {
+   "golden_id": 133,
+   "case_id": 191878,
+   "customer_text": "Most watched new series on Hulu: Buffering... @hulu_support",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6497916231228805,
+   "simple_escalate": false,
+   "nn_draft": "Our sincere apologies for the trouble, Josh! This issue has now been resolved, but we appreciated your patience in the meantime.",
+   "nn_similarity": 0.855827808380127,
+   "nn_source_case_id": 2644851
+  },
+  {
+   "golden_id": 134,
+   "case_id": 260180,
+   "customer_text": "Will Rick and Morty Season 3 be coming out on Hulu, and if so when?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9481999657260803,
+   "simple_escalate": false,
+   "nn_draft": "No set date yet, but we typically get seasons sometime after they complete airing. S3 eps available now w/Live TV add-on!",
+   "nn_similarity": 0.9821081161499023,
+   "nn_source_case_id": 215621
+  },
+  {
+   "golden_id": 135,
+   "case_id": 1218741,
+   "customer_text": "so can you give me the link i need to cancel my subscription? day 2 of an error that this URL is broken/moved",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9280575774189189,
+   "simple_escalate": true,
+   "nn_draft": "For security purposes, we recommend deleting this tweet. It looks like you were able to call to get this taken care of. 👍🏻",
+   "nn_similarity": 0.7482699751853943,
+   "nn_source_case_id": 1246319
+  },
+  {
+   "golden_id": 136,
+   "case_id": 203660,
+   "customer_text": "is it possible to go back to old layout on a Roku for your app? #hatenewone",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.816864954220085,
+   "simple_escalate": false,
+   "nn_draft": "We don't plan to switch back, but we are using viewer feedback to make important updates! Chime in here",
+   "nn_similarity": 0.8562093377113342,
+   "nn_source_case_id": 2123502
+  },
+  {
+   "golden_id": 137,
+   "case_id": 1693150,
+   "customer_text": "why am I seeing ads (commercial breaks) on King of the Hill with no commercials subscription?",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.9989611011645138,
+   "simple_escalate": false,
+   "nn_draft": "Sorry, that looks to be related to: If it continues after a reboot, let us know what browser this is in.",
+   "nn_similarity": 0.7933048009872437,
+   "nn_source_case_id": 775935
+  },
+  {
+   "golden_id": 138,
+   "case_id": 2588494,
+   "customer_text": "NO ONE answers phone at cust service, your chat service DOES NOT WORK, and you’ve been BILLING ME 2X since August. You’re a NIGHTMARE",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.7362921605958443,
+   "simple_escalate": true,
+   "nn_draft": "Our sincerest apologies for the trouble! We've been looking into similar weekend reports and believe the issue is resolved.",
+   "nn_similarity": 0.7526937127113342,
+   "nn_source_case_id": 2569481
+  },
+  {
+   "golden_id": 139,
+   "case_id": 271761,
+   "customer_text": "went to Hulu to log in with my new subscription. Cannot login. I sub'd through Apple TV and can view it there. How to login?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.9972623882610617,
+   "simple_escalate": true,
+   "nn_draft": "Is this while using the TV App? If so, are you able to sign into and stream on our app on iPhone?",
+   "nn_similarity": 0.8376685380935669,
+   "nn_source_case_id": 2373561
+  },
+  {
+   "golden_id": 140,
+   "case_id": 24590,
+   "customer_text": "Please tell me this new interface is a cruel joke that you're playing on your millions of subscribers, and that the old interface will be back soon.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.9185562750987161,
+   "simple_escalate": false,
+   "nn_draft": "Sorry, Leigh! We are constantly making updates based on user feedback, so what would you like to see change in the new interface?",
+   "nn_similarity": 0.8202214241027832,
+   "nn_source_case_id": 2903402
+  },
+  {
+   "golden_id": 141,
+   "case_id": 1841680,
+   "customer_text": "why can’t y’all just release all the episodes like @116602 if i wanted to wait ever week for a new episode I’d just watch regular tv 🙄🙃🙄",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7637502673236539,
+   "simple_escalate": false,
+   "nn_draft": "Hey there! Scheduling varies with our Hulu Originals, but we'll share the interest in seeing this streamlined!",
+   "nn_similarity": 0.8455886840820312,
+   "nn_source_case_id": 2862217
+  },
+  {
+   "golden_id": 142,
+   "case_id": 671156,
+   "customer_text": "I am receiving this error. cdn-2-67ce6732 What's does it mean?",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8277815265837049,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the delay! We had some issues with Live TV two nights ago, but all should be good now. Thanks for bearing with us!",
+   "nn_similarity": 0.8433436155319214,
+   "nn_source_case_id": 2642713
+  },
+  {
+   "golden_id": 143,
+   "case_id": 215685,
+   "customer_text": "your new app is horrible. Doesn’t even work for a second on our Roku TV. Every other app does. Nice work. #cancelingmembership",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8683295324239033,
+   "simple_escalate": false,
+   "nn_draft": "Yikes! Sorry to hear this, Michael. Notice an improvement after applying these troubleshooting tips",
+   "nn_similarity": 0.8379789590835571,
+   "nn_source_case_id": 911614
+  },
+  {
+   "golden_id": 144,
+   "case_id": 1767263,
+   "customer_text": "Can’t remember my @115940 password & I don’t use that email address anymore so no way to get a reset link. Help.",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8749634131726807,
+   "simple_escalate": true,
+   "nn_draft": "Sorry, Alyssa! Try resetting by entering your e-mail here: If no luck, call us from the # on the page.",
+   "nn_similarity": 0.8775627017021179,
+   "nn_source_case_id": 2808896
+  },
+  {
+   "golden_id": 145,
+   "case_id": 2333451,
+   "customer_text": "Can't watch the Patriots v Broncos game. And please don't tell me to try because as soon as I log into my Hulu account on the 3rd party site, it says it's not available in my region. #HelpPLZ",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9330933890257814,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! Is the NBC feed unavailable or are you running into buffering? What device is in use? What's your city & state?",
+   "nn_similarity": 0.82231205701828,
+   "nn_source_case_id": 2333584
+  },
+  {
+   "golden_id": 146,
+   "case_id": 1249271,
+   "customer_text": "The switch from @116602 to @115940 was almost final til I discovered @115940 has commercials 🤦🏽‍♀️",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7388254547530239,
+   "simple_escalate": false,
+   "nn_draft": "Hey Chandler! You will see ads in our base plan, but we do offer a No Commercials option too: 👍🏻",
+   "nn_similarity": 0.85015869140625,
+   "nn_source_case_id": 901948
+  },
+  {
+   "golden_id": 147,
+   "case_id": 2775341,
+   "customer_text": "I’ve tried real hard to like the new app but it’s just not good. It’s a chore to try and find anything to watch especially if I don’t know what I’m looking for and just want to search through genres. It’s making me use the app less and less.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8505520762009363,
+   "simple_escalate": false,
+   "nn_draft": "We're sorry to hear about your frustration! We're working on making enhancements, so we'll be sure to share your feedback.",
+   "nn_similarity": 0.8255919814109802,
+   "nn_source_case_id": 2715128
+  },
+  {
+   "golden_id": 148,
+   "case_id": 260184,
+   "customer_text": "I cannot access my hulu on my smart tv it says authentication error. I also cannot get to my account it says 500 error.",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.7245437654650073,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear about the trouble, Suda! If you're able to login elsewhere with the info, reach out",
+   "nn_similarity": 0.8351486921310425,
+   "nn_source_case_id": 2145384
+  },
+  {
+   "golden_id": 149,
+   "case_id": 1559935,
+   "customer_text": "I can't get past 1:34:30 in Clear and Present Danger. What gives?",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.4495367400939714,
+   "simple_escalate": false,
+   "nn_draft": "Thanks for bringing this to our attention! We've reached out to our team for more insight on the correct genre.",
+   "nn_similarity": 0.6683870553970337,
+   "nn_source_case_id": 53908
+  },
+  {
+   "golden_id": 150,
+   "case_id": 2979353,
+   "customer_text": "trying to subscribe and the app keeps telling me to restore purchase I keep trying !!! If this triple charges me I’m gonna be mad",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.597347979628352,
+   "simple_escalate": true,
+   "nn_draft": "Sorry for the delay! Please call us from the # on this page so may better assist",
+   "nn_similarity": 0.7888282537460327,
+   "nn_source_case_id": 1243143
+  },
+  {
+   "golden_id": 151,
+   "case_id": 975308,
+   "customer_text": "what’s up you little shit how many times do I have to cancel my subscription before u stop charging me",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9270226922612163,
+   "simple_escalate": true,
+   "nn_draft": "We're ready to help! Please grab your billing statement and call us at this #: We'll take it from there!",
+   "nn_similarity": 0.8276081085205078,
+   "nn_source_case_id": 756698
+  },
+  {
+   "golden_id": 152,
+   "case_id": 2711420,
+   "customer_text": "why are several live channels not available in my area...annoying",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.974553354144655,
+   "simple_escalate": false,
+   "nn_draft": "Sorry, Cam! We're currently investigating this and we appreciate you bearing w/us. For now, try",
+   "nn_similarity": 0.867304801940918,
+   "nn_source_case_id": 1483867
+  },
+  {
+   "golden_id": 153,
+   "case_id": 646503,
+   "customer_text": "how can I dm you guys about a log in issue I’m having",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8764847394489851,
+   "simple_escalate": true,
+   "nn_draft": "Hi! Our team would love to help. Reach out via phone or chat here: when you have a moment! 💚",
+   "nn_similarity": 0.7899054884910583,
+   "nn_source_case_id": 256004
+  },
+  {
+   "golden_id": 154,
+   "case_id": 366826,
+   "customer_text": "do you have email support? What’s your email",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8285077819555717,
+   "simple_escalate": false,
+   "nn_draft": "Hi Dani. For more immediate support, we do kindly ask contacting us via phone or live chat (both available 24/7).",
+   "nn_similarity": 0.8611618280410767,
+   "nn_source_case_id": 2076177
+  },
+  {
+   "golden_id": 155,
+   "case_id": 1572055,
+   "customer_text": "Does @115940 have any plans to launch in the UK or anywhere else outside of the USA? Would love to pay for & access all that fab US content!",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9631642598997905,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the frustration, Rob! Hulu is a US-based streaming service at this time, but we'll share your request to see us in 🇬🇧.",
+   "nn_similarity": 0.7377043962478638,
+   "nn_source_case_id": 635462
+  },
+  {
+   "golden_id": 156,
+   "case_id": 775194,
+   "customer_text": "Stop having ads pop up before my new episode starts. @115940 like why do I pay 11.99 a month when y’all wanna start having ads.",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.5534398071554648,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! We try to keep ad load reasonable, but this will vary by show and network. For details/options",
+   "nn_similarity": 0.8790351152420044,
+   "nn_source_case_id": 409958
+  },
+  {
+   "golden_id": 157,
+   "case_id": 191869,
+   "customer_text": "#HuluLive @hulu_support needs to work on some of there buffering issues for there live channels",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.906400226198887,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! We want to help, Adam. Which device is this occurring on? Any specific network? For now, try",
+   "nn_similarity": 0.8906219005584717,
+   "nn_source_case_id": 1521080
+  },
+  {
+   "golden_id": 158,
+   "case_id": 773729,
+   "customer_text": "You can't add content to @115940 via the web anymore. The shows you save to Watchlist don't show up on the Roku. How is this possible @hulu_support?",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8627756854154921,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Those details sounds like a known issue we're investigating. Please reach out here for help: ✅",
+   "nn_similarity": 0.8221966028213501,
+   "nn_source_case_id": 243513
+  },
+  {
+   "golden_id": 159,
+   "case_id": 2921357,
+   "customer_text": "How after all this time has @115940 not figured out what a horrible UX choice it is to let the same ad show over and over again?",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7457787031122112,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any frustrations! Ad load varies, but if you'd prefer we do offer a commercial-free plan",
+   "nn_similarity": 0.7933081388473511,
+   "nn_source_case_id": 1401942
+  },
+  {
+   "golden_id": 160,
+   "case_id": 2503635,
+   "customer_text": ", your new app for Roku is terrible. It's difficult to find shows and more than 1 or 2 eps of a show once it's found, and programs start playing before they're chosen, a la Netflix. Form should follow function.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8849251378297494,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear you aren't a fan! Anything specific you'd like changed? You may find this guide helpful",
+   "nn_similarity": 0.8773266077041626,
+   "nn_source_case_id": 1306644
+  },
+  {
+   "golden_id": 161,
+   "case_id": 2772754,
+   "customer_text": "Sooo where’s the last week episode of @71164 & @429555 ?? @115940 @106739",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6892661734215763,
+   "simple_escalate": false,
+   "nn_draft": "Thanks for writing us! Star & the girls were on vacation this week. Fear not, as they'll be back w/ a new ep Nov. 1! 💚👍",
+   "nn_similarity": 0.8749563097953796,
+   "nn_source_case_id": 1330581
+  },
+  {
+   "golden_id": 162,
+   "case_id": 2637786,
+   "customer_text": "just had the nicest and easiest call with on your workers... problem was resolved quick and fast. Thank to him 😊",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5831229438098711,
+   "simple_escalate": false,
+   "nn_draft": "Yaaas! Mind DMing us your email address and ZIP Code so we can pass along the feedback to his manager? 💖",
+   "nn_similarity": 0.7094824314117432,
+   "nn_source_case_id": 2504654
+  },
+  {
+   "golden_id": 163,
+   "case_id": 714571,
+   "customer_text": "new Hulu app on roku ultra says “loading” when a shows finishes. Old Hulu app worked fine. Tried all faq tips not working.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.7659920048664765,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! Is this on a Samsung? If so, we're looking into it. Call us/chat us so we can collect details",
+   "nn_similarity": 0.8378947377204895,
+   "nn_source_case_id": 2196287
+  },
+  {
+   "golden_id": 164,
+   "case_id": 372051,
+   "customer_text": "Why don’t you have season 2 of queen sugar on @115940 ?? QTNA ??!!!",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.959138075633794,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to keep you from the Bordelon's! We're able to stream past seasons from the show so make sure it's in Watchlist/My Stuff.",
+   "nn_similarity": 0.9336698055267334,
+   "nn_source_case_id": 1410134
+  },
+  {
+   "golden_id": 165,
+   "case_id": 540822,
+   "customer_text": "HOW DO I TURN THIS TALKIN HOE OFF!!!?!?!?!? Oh my gahhhhd she insufferable.",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.9612941104888839,
+   "simple_escalate": false,
+   "nn_draft": "Hi! It sounds like VoiceOver is enabled. Check out: and let us know if you have any trouble!",
+   "nn_similarity": 0.6703574657440186,
+   "nn_source_case_id": 1678954
+  },
+  {
+   "golden_id": 166,
+   "case_id": 418931,
+   "customer_text": "I'm getting frequent connection error messages only from hulu. No issues w/ other streaming services.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.9083618870667954,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Try the steps for your device here: If no improvement, reach out here",
+   "nn_similarity": 0.8370426297187805,
+   "nn_source_case_id": 854964
+  },
+  {
+   "golden_id": 167,
+   "case_id": 2727902,
+   "customer_text": "Where is Season 18 of Law & Order SVU? Hulu currently has Seasons 1-17 and then Season 19 but no 18. Any idea what is behind this? I've missed the last three seasons (17-19) and this really messes up my binge-watching catch up! #LawAndOrderSVU",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.7221230668673807,
+   "simple_escalate": false,
+   "nn_draft": "Hi Mike! Now that S19 has started, we no longer have the rights to stream S18, but we'll share your interest with our team!",
+   "nn_similarity": 0.9250406622886658,
+   "nn_source_case_id": 2369918
+  },
+  {
+   "golden_id": 168,
+   "case_id": 1249036,
+   "customer_text": "Don’t get Hulu’s tv service it’s poor quality and buffers all the time @115940 I’m glad this is a free trial",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.8014269716119347,
+   "simple_escalate": true,
+   "nn_draft": "We're here to help! What device are you running into this on? Have you tried working through",
+   "nn_similarity": 0.8465981483459473,
+   "nn_source_case_id": 1928571
+  },
+  {
+   "golden_id": 169,
+   "case_id": 557416,
+   "customer_text": "Can @115940 or @116602 add Laguna beach & the hills please 🙏🏻",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.639594927128554,
+   "simple_escalate": false,
+   "nn_draft": "Hey! Hulu here. 👋🏽 No word if we'll get the rights yet, but we'll let our content team know you're ready for Bad Girls Club!",
+   "nn_similarity": 0.7273441553115845,
+   "nn_source_case_id": 2509998
+  },
+  {
+   "golden_id": 170,
+   "case_id": 1564642,
+   "customer_text": "whenever I watch Future Man it lags horribly, but all other shows are fine. Any idea why?? So sad because we love Future Man",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.4943236077908838,
+   "simple_escalate": false,
+   "nn_draft": "Apologies! You should be able to view the series. Try powering down devices for 1-2 minutes. Do the eps populate afterwards?",
+   "nn_similarity": 0.7619356513023376,
+   "nn_source_case_id": 2446989
+  },
+  {
+   "golden_id": 171,
+   "case_id": 2119883,
+   "customer_text": "literally can't watch a show because the first ad is a @122986 one & it freezes every single time.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8485679350893016,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Apologies, Allyssa. What device are you using? Does this occur during all content? Start with",
+   "nn_similarity": 0.8425577878952026,
+   "nn_source_case_id": 1069160
+  },
+  {
+   "golden_id": 172,
+   "case_id": 2209406,
+   "customer_text": "Hey Hulu, will the Nintendo Switch app be available in Europe also?",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5556033897038848,
+   "simple_escalate": false,
+   "nn_draft": "We currently don't have international streaming rights, but we'll absolutely express your interest in seeing Hulu in 🇵🇭.",
+   "nn_similarity": 0.7666646838188171,
+   "nn_source_case_id": 2248612
+  },
+  {
+   "golden_id": 173,
+   "case_id": 408323,
+   "customer_text": "rebooted modem, router (234Mbps) & devices (xb1 - hardlined, pc or android). Your shows pause often or error tv subscription.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.7495711368576781,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Let's try this: Call/chat if not resolved (",
+   "nn_similarity": 0.7768319845199585,
+   "nn_source_case_id": 1711824
+  },
+  {
+   "golden_id": 174,
+   "case_id": 467828,
+   "customer_text": "I'm trying to use my Roku streaming stick at my friend's house and it's asking me to set it as my home location. What the fuck. I can only use a streaming stick at home?!",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.8295355658530262,
+   "simple_escalate": true,
+   "nn_draft": "Apologies, Amy! Our team is looking into this behavior. Please follow up with us here: whenever you have a moment to spare.",
+   "nn_similarity": 0.7730394601821899,
+   "nn_source_case_id": 460315
+  },
+  {
+   "golden_id": 175,
+   "case_id": 997509,
+   "customer_text": "Testing TV streaming services. @117014 Vue has better video quality than @130108, but requires Flash. Goodbye. @115940 Live TV next…",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.5881459708920028,
+   "simple_escalate": false,
+   "nn_draft": "Sorry, Tim! We ran into an issue with Live TV last night, but it’s now fixed",
+   "nn_similarity": 0.7984854578971863,
+   "nn_source_case_id": 2498737
+  },
+  {
+   "golden_id": 176,
+   "case_id": 2100342,
+   "customer_text": "your live TV service is trash. I pass speed test, hard wire my connection and reinstalled my app. It stops to buffer every 30 seconds.",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.884351704744851,
+   "simple_escalate": false,
+   "nn_draft": "Hey Zachary we have put some changes in place since your original tweet. Are you still experiencing the same issues?",
+   "nn_similarity": 0.8583674430847168,
+   "nn_source_case_id": 2606383
+  },
+  {
+   "golden_id": 177,
+   "case_id": 775198,
+   "customer_text": "I have a subscription that is Ad-Free - why is your platform still trying to show ads to me?",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.9320106728331388,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! It sounds like this was related to: If this continues, let us know what device you're using.",
+   "nn_similarity": 0.8232364058494568,
+   "nn_source_case_id": 996061
+  },
+  {
+   "golden_id": 178,
+   "case_id": 2912946,
+   "customer_text": "So, @115940 - you’re taking It’s Always Sunny in Philadelphia from Netflix. Fair enough. But when are you going to launch a service in the UK so I can continue to watch one of the greatest comedies ever made?!",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.950972967837479,
+   "simple_escalate": false,
+   "nn_draft": "Hey! We're currently a U.S.-only streaming service. We'll share your interest in seeing us in the UK in the future. 🇬🇧",
+   "nn_similarity": 0.7867610454559326,
+   "nn_source_case_id": 2098893
+  },
+  {
+   "golden_id": 179,
+   "case_id": 2251741,
+   "customer_text": "your new UI is awful on the firestick. May have to drop hulu...this isn't worth the aggravation",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.9272992718907874,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! There isn't a way to roll back, but let us know how we can help. For navigation assistance, see",
+   "nn_similarity": 0.8412721753120422,
+   "nn_source_case_id": 777772
+  },
+  {
+   "golden_id": 180,
+   "case_id": 1425899,
+   "customer_text": "Dear @115940, I would like to reiterate that your new Roku interface is garbage. I want my watchlist back get this stupid lineup out of here!",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.787752091462995,
+   "simple_escalate": false,
+   "nn_draft": "We can help! For navigation tips: Also, check out My Stuff for your favs",
+   "nn_similarity": 0.8706687688827515,
+   "nn_source_case_id": 1272957
+  },
+  {
+   "golden_id": 181,
+   "case_id": 2338144,
+   "customer_text": "How can I get a refund for a charged monthly subscription, I'd like to cancel my plan",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9995183426548425,
+   "simple_escalate": true,
+   "nn_draft": "We're sorry to hear about the unexpected charge! Please reach out: so we can take a look for you!",
+   "nn_similarity": 0.8032494783401489,
+   "nn_source_case_id": 2905271
+  },
+  {
+   "golden_id": 182,
+   "case_id": 1469690,
+   "customer_text": "when I try to play an episode it says to either retry or cancel watching due to some kinda error, plz halp",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.7378791382902119,
+   "simple_escalate": false,
+   "nn_draft": "Still having trouble? Which device are you using? What error are you seeing? We want to help! 1st try",
+   "nn_similarity": 0.8337423205375671,
+   "nn_source_case_id": 2088
+  },
+  {
+   "golden_id": 183,
+   "case_id": 1345223,
+   "customer_text": "Any plans to offer 60fps sports? I'm a current Vue user and this is the only feature holding me back from trying Hulu",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.5870512975811055,
+   "simple_escalate": false,
+   "nn_draft": "We don't have any news to share at the moment, but we can assure you that your feedback/requests are not going unnoticed!",
+   "nn_similarity": 0.7880580425262451,
+   "nn_source_case_id": 2635645
+  },
+  {
+   "golden_id": 184,
+   "case_id": 2775339,
+   "customer_text": "with Hulu live tv, if a game is being broadcast on FoxSportsNorth, will it be available to stream through a device as well? Curious about local blackout restrictions...",
+   "gold_intent": "live_tv_blackout",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9406994191627389,
+   "simple_escalate": false,
+   "nn_draft": "It sure does! Check out this pg for NFL on Hulu info: To check available networks",
+   "nn_similarity": 0.7891727685928345,
+   "nn_source_case_id": 2316470
+  },
+  {
+   "golden_id": 185,
+   "case_id": 1112691,
+   "customer_text": "How do I get rid of the super loud start up chime on a @116439",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.9472672277970869,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any frustration! We're always looking for ways to improve, we'll be sure to share your feedback with our team. 👍🏽",
+   "nn_similarity": 0.7997372150421143,
+   "nn_source_case_id": 1362959
+  },
+  {
+   "golden_id": 186,
+   "case_id": 123938,
+   "customer_text": "Hulu needs some better targeted commercials I mean the Victoria Secret one has a puppy, but lingerie isn't my thing, I wear men's boxer briefs",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7133831182327486,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any ad-related frustrations! If you're interested we offer a commercial-free plan",
+   "nn_similarity": 0.7981029748916626,
+   "nn_source_case_id": 2857570
+  },
+  {
+   "golden_id": 187,
+   "case_id": 778032,
+   "customer_text": "Watching on Roku, when I press play a semi-transparent page covers the content for a few seconds. How do I turn this off?",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8808865405338524,
+   "simple_escalate": false,
+   "nn_draft": "We'll definitely share the feedback, Aaron! For now, hitting the back arrow on your remote will remove the overlay. 👍🏻",
+   "nn_similarity": 0.7695796489715576,
+   "nn_source_case_id": 901981
+  },
+  {
+   "golden_id": 188,
+   "case_id": 2263687,
+   "customer_text": "I️ like @115940 live, or Hulu enhances, or whatever it’s called. But, they need so ui work. Holler at me, I️ got suggestions. Serio.",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.7605802016196452,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the delay! We've just replied to your tweet here Please let us know how we can help or improve.",
+   "nn_similarity": 0.829707145690918,
+   "nn_source_case_id": 1582755
+  },
+  {
+   "golden_id": 189,
+   "case_id": 898342,
+   "customer_text": "Okay @hulu_support @115940 you guys are the best. They gave me my money back! Thanks, guys. It's why I'll never turn you off lol ♡",
+   "gold_intent": "other_non_support",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8636175712265353,
+   "simple_escalate": true,
+   "nn_draft": "We're so sorry for the initial delay, but we're so glad to hear you were able to connect and get things resolved! 💚",
+   "nn_similarity": 0.8563141226768494,
+   "nn_source_case_id": 2123510
+  },
+  {
+   "golden_id": 190,
+   "case_id": 2497836,
+   "customer_text": "You fucking suck. I try to cancel, u give me free month, I still have to update my card, still nothing works even free trial. Fuck off",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.9497610475998448,
+   "simple_escalate": true,
+   "nn_draft": "We'd love to help! Please give us a call at the phone number listed at the bottom of this link",
+   "nn_similarity": 0.7664944529533386,
+   "nn_source_case_id": 1560058
+  },
+  {
+   "golden_id": 191,
+   "case_id": 5424,
+   "customer_text": "the Hulu app logged me out, & when I try to log in, I get \"An error occurred. Please try again later\" & I know the login",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.9949105763700116,
+   "simple_escalate": true,
+   "nn_draft": "We're sorry to hear about the trouble, Chelsea! What device/browser are you using? Start with",
+   "nn_similarity": 0.907827615737915,
+   "nn_source_case_id": 811891
+  },
+  {
+   "golden_id": 192,
+   "case_id": 765187,
+   "customer_text": "trying out your beta live stream to watch the Cubs game. Terrible idea. Buffering every few minutes. Annoying!",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8525185868301569,
+   "simple_escalate": false,
+   "nn_draft": "Hey Jon! We apologize for striking out on our end last night. We'll be taking steps to avoid issues like this moving forward.",
+   "nn_similarity": 0.861721396446228,
+   "nn_source_case_id": 1999271
+  },
+  {
+   "golden_id": 193,
+   "case_id": 2481677,
+   "customer_text": "live stream is still horrible. Customer service was no help. Still want my money back....",
+   "gold_intent": "cancel_refund",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.9399646129902665,
+   "simple_escalate": true,
+   "nn_draft": "We're sorry to hear of the trouble. We'd like to take a look from our end. Please contact: for help! ✅",
+   "nn_similarity": 0.8228756189346313,
+   "nn_source_case_id": 1010321
+  },
+  {
+   "golden_id": 194,
+   "case_id": 215649,
+   "customer_text": "why is it that ever since you launched that annoying new interface, it’s almost impossible to get that stream/chromecast icon?",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "app_ui_feedback",
+   "simple_confidence": 0.8677641374974444,
+   "simple_escalate": false,
+   "nn_draft": "Yikes! We're sorry to hear this. 😢 For loading trouble, try: Check out: as well!",
+   "nn_similarity": 0.8033204078674316,
+   "nn_source_case_id": 215653
+  },
+  {
+   "golden_id": 195,
+   "case_id": 2617217,
+   "customer_text": "I'm considering switching to Hulu with Live TV and noticed that it comes with the limited commercials plan of the streaming library. I currently have the No Commercials plan... is there a Hulu with Live TV option that includes that?",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.8346761621961251,
+   "simple_escalate": false,
+   "nn_draft": "It sure is! For a full list of supported Rokus: You can include No Commercials+Live TV for $43.99/month",
+   "nn_similarity": 0.8500430583953857,
+   "nn_source_case_id": 51024
+  },
+  {
+   "golden_id": 196,
+   "case_id": 1643061,
+   "customer_text": "having issues with video freezing &a audio continuing. Show goes back a segement or two after a commercial. Any help?",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.6692891030724831,
+   "simple_escalate": false,
+   "nn_draft": "Oh no! Do you notice it's just Metro PCS ads or are others causing this? For now, try: Any change?",
+   "nn_similarity": 0.7950759530067444,
+   "nn_source_case_id": 1202185
+  },
+  {
+   "golden_id": 197,
+   "case_id": 262770,
+   "customer_text": "I can't watch with iPhone to tv with Apple lightning to hdmi connector anymore? It's how I watch in my semi truck. Only audio",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.4100725800009618,
+   "simple_escalate": false,
+   "nn_draft": "Sorry! HDMI is not currently supported, but we are actively looking into iOS connectivity options. We'll share your vote, too!",
+   "nn_similarity": 0.8278400897979736,
+   "nn_source_case_id": 2783911
+  },
+  {
+   "golden_id": 198,
+   "case_id": 1250563,
+   "customer_text": "your website does not answer all questions and I can't get a hold of your people for 15-30 minutes. Can't wait to cancel",
+   "gold_intent": "other_non_support",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.4139291731195288,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the long wait time, Rachel! We're happy to help. What changes are you trying to make to your subscription?",
+   "nn_similarity": 0.7757058143615723,
+   "nn_source_case_id": 2106164
+  },
+  {
+   "golden_id": 199,
+   "case_id": 604043,
+   "customer_text": "why would the NFL game I recorded not show up in my DVR list? I can only see it if I go under My Team > My Games and it shows up as “Upcoming”. The game ended at 1pm. I don’t live in a blackout area",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "live_tv_blackout",
+   "simple_confidence": 0.9433216983744616,
+   "simple_escalate": false,
+   "nn_draft": "Sorry to hear about the trouble, Bryan! Call/chat: so we can look at your account to better assist you.",
+   "nn_similarity": 0.815990686416626,
+   "nn_source_case_id": 2809373
+  },
+  {
+   "golden_id": 200,
+   "case_id": 794160,
+   "customer_text": "Why is the 5.99 price for new customers only??? All but 5 of your shows suck anyways you should just charge everyone 1.50 a month",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.929256382961904,
+   "simple_escalate": true,
+   "nn_draft": "This promo is typically for new and eligible returning subscribers, but call/chat to see your options",
+   "nn_similarity": 0.7904239892959595,
+   "nn_source_case_id": 1248953
+  },
+  {
+   "golden_id": 201,
+   "case_id": 666053,
+   "customer_text": "just read that I have to login on my cell phone from home every 30 days.... That's crazy. At home, I watch on tv, on the road I watch on my phone. Who thinks to log in at home?",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.9792580765016939,
+   "simple_escalate": true,
+   "nn_draft": "You shouldn't have to! Are you streaming from an iPhone via Chromecast, or on Vizio? Let's first try",
+   "nn_similarity": 0.6980364322662354,
+   "nn_source_case_id": 1592733
+  },
+  {
+   "golden_id": 202,
+   "case_id": 2257919,
+   "customer_text": "Can you guys put the number that shows how many unwatched episodes are left to watch in a TV show back?",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.514547997195601,
+   "simple_escalate": false,
+   "nn_draft": "Sounds like your binge-watching skill level is Over 9000! 💥 We'll be here if you need anything support-wise. #HappyStreaming",
+   "nn_similarity": 0.7694886922836304,
+   "nn_source_case_id": 2654959
+  },
+  {
+   "golden_id": 203,
+   "case_id": 89782,
+   "customer_text": "why does every show I watch buffer constantly? I’m not having this problem with any other streaming service.",
+   "gold_intent": "playback_error",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.852846257172539,
+   "simple_escalate": false,
+   "nn_draft": "Don't go, Betty! Let's see what we can do to smooth things out. What device does this occur on? Try",
+   "nn_similarity": 0.89348965883255,
+   "nn_source_case_id": 1202203
+  },
+  {
+   "golden_id": 204,
+   "case_id": 2577821,
+   "customer_text": ". @115940 what time EST should I expect the new @429555 and @1760 episodes to be on your service?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6461306772496109,
+   "simple_escalate": false,
+   "nn_draft": "Hey! We expect to get Season 4 sometime after it finishes airing on TV. Please keep the show in WL/My Stuff for updates.",
+   "nn_similarity": 0.8449368476867676,
+   "nn_source_case_id": 953540
+  },
+  {
+   "golden_id": 205,
+   "case_id": 810650,
+   "customer_text": "you guys charged my acc when I didn’t want the subscription lol",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.7847813361382266,
+   "simple_escalate": true,
+   "nn_draft": "Uh oh! We definitely want to look into this. Please give us a call at the phone number listed here",
+   "nn_similarity": 0.7948681712150574,
+   "nn_source_case_id": 3174
+  },
+  {
+   "golden_id": 206,
+   "case_id": 417385,
+   "customer_text": "Is there a way to go back to the old version? The new version is confusing, all over the place, and doesn’t show favorites",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8835606952008832,
+   "simple_escalate": false,
+   "nn_draft": "Hi, Scott. There isn't a way to roll back, but we are gathering feedback and making enhancements",
+   "nn_similarity": 0.7717045545578003,
+   "nn_source_case_id": 261990
+  },
+  {
+   "golden_id": 207,
+   "case_id": 2503539,
+   "customer_text": "what's the reason I can't manage my add-ons and sign up for Hulu live",
+   "gold_intent": "account_access",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.914564342873164,
+   "simple_escalate": true,
+   "nn_draft": "Our sincere apologies, Rod! We're currently investigating. In the meantime, try Incognito/Private Mode and a different browser.",
+   "nn_similarity": 0.8388919234275818,
+   "nn_source_case_id": 2257783
+  },
+  {
+   "golden_id": 208,
+   "case_id": 997515,
+   "customer_text": "are live college football games on Fox viewable with the Live TV package?",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "other_non_support",
+   "simple_confidence": 0.6931924871661741,
+   "simple_escalate": false,
+   "nn_draft": "Other sports too! Enter your ZIP here: to see the full channel lineup for your area. 👍🏽",
+   "nn_similarity": 0.7857294082641602,
+   "nn_source_case_id": 1579609
+  },
+  {
+   "golden_id": 209,
+   "case_id": 175257,
+   "customer_text": "why y’all only got 100 episode of Naruto Shippiden in dub anime and not the other 400? Questions that needs answer ASAP! Before I cancel my account smh.",
+   "gold_intent": "content_availability",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "cancel_refund",
+   "simple_confidence": 0.8370042489552151,
+   "simple_escalate": true,
+   "nn_draft": "Hi! No news on this at the moment, but we'd be happy to share your interest with our content team here!",
+   "nn_similarity": 0.8338274955749512,
+   "nn_source_case_id": 2684695
+  },
+  {
+   "golden_id": 210,
+   "case_id": 2971783,
+   "customer_text": "why do you have commercials? Back to Netflix.",
+   "gold_intent": "ads_experience",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8090746986565194,
+   "simple_escalate": false,
+   "nn_draft": "We offer ads on our base plan to provide an affordable option, but if you prefer no interruptions, see",
+   "nn_similarity": 0.8414571285247803,
+   "nn_source_case_id": 1545047
+  },
+  {
+   "golden_id": 211,
+   "case_id": 2377748,
+   "customer_text": "Yeah, New Hulu is awful. It's almost impossible to find the new episodes of my shows. It shouldn't take 30 min to do that. @115940",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.7333189470548136,
+   "simple_escalate": false,
+   "nn_draft": "Help is here! From what section are you trying to remove shows? To disable autoplay, please see",
+   "nn_similarity": 0.8378562927246094,
+   "nn_source_case_id": 773708
+  },
+  {
+   "golden_id": 212,
+   "case_id": 2732815,
+   "customer_text": "Why isn't Broad City season 4 on Hulu? 😞",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9848293958111429,
+   "simple_escalate": false,
+   "nn_draft": "Hey there! We don't have the rights to stream this season just yet, but we hope to soon! Keep an eye on",
+   "nn_similarity": 0.9770030975341797,
+   "nn_source_case_id": 2311796
+  },
+  {
+   "golden_id": 213,
+   "case_id": 2598251,
+   "customer_text": "Hey @115940 i feel like an elderly person but if i fall asleep watching a show on the apple tv and like... 6 or 7 autoplay how do i get back to number 2??? Everything everywhere just says “watch episode 8”",
+   "gold_intent": "how_to_feature",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "how_to_feature",
+   "simple_confidence": 0.8335685978380134,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any trouble! Autoplay should continue for 3-4 hours before asking if you're still around. We'll share your input.",
+   "nn_similarity": 0.7520604133605957,
+   "nn_source_case_id": 2715975
+  },
+  {
+   "golden_id": 214,
+   "case_id": 2263668,
+   "customer_text": "I don't need an ad for @209410 while I am watching The Orville. I'm already sold. Your work here is done. #Hulu #TheOrville",
+   "gold_intent": "ads_experience",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "ads_experience",
+   "simple_confidence": 0.7444518215879239,
+   "simple_escalate": false,
+   "nn_draft": "Apologies, Jacob! Network ads may appear on occasion to advertise upcoming episodes. We'll share your feedback with our team!",
+   "nn_similarity": 0.8170772790908813,
+   "nn_source_case_id": 2027086
+  },
+  {
+   "golden_id": 215,
+   "case_id": 2700038,
+   "customer_text": "Why doesn't @115940 have season 4 of Power",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.9436085403737107,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for any FOMO! We don't have an exact date to share just yet, but we'll let our team know you'd like to see S4 ASAP.",
+   "nn_similarity": 0.8782106637954712,
+   "nn_source_case_id": 1007449
+  },
+  {
+   "golden_id": 216,
+   "case_id": 466884,
+   "customer_text": "why isn't shark tank available? it had a new episode on Sunday.",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.898882543161712,
+   "simple_escalate": false,
+   "nn_draft": "Sorry about that! Our team is currently looking into the availability of this episode with the content owner. Thanks for your patience in the meantime!",
+   "nn_similarity": 0.8878774046897888,
+   "nn_source_case_id": 511209
+  },
+  {
+   "golden_id": 217,
+   "case_id": 1107635,
+   "customer_text": "When @115940 charges u for the month but still won't let me watch anything ..then it says to start my free trial again or pay😡😡",
+   "gold_intent": "billing_payment",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "billing_payment",
+   "simple_confidence": 0.9732554475674432,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! We'd love to help with this. Try logging out, restarting your device, and logging back in. If no change, reach out: so we can look into this further.",
+   "nn_similarity": 0.8053799271583557,
+   "nn_source_case_id": 2955299
+  },
+  {
+   "golden_id": 218,
+   "case_id": 1485115,
+   "customer_text": "None of my live channels are getting past the loading/buffering screen. I've tried on multiple devices.",
+   "gold_intent": "playback_error",
+   "gold_escalate": true,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "playback_error",
+   "simple_confidence": 0.8047403924333222,
+   "simple_escalate": false,
+   "nn_draft": "So sorry for the trouble! Our team has been investigating/working on a fix. It's now resolved!",
+   "nn_similarity": 0.8357388973236084,
+   "nn_source_case_id": 2451955
+  },
+  {
+   "golden_id": 219,
+   "case_id": 525093,
+   "customer_text": "trying to watch newest shark tank on my Sony tv. The tv app doesn’t even have season 9 populated yet. But I can see it is available from my iPhone",
+   "gold_intent": "content_availability",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "content_availability",
+   "simple_confidence": 0.5394315800250946,
+   "simple_escalate": false,
+   "nn_draft": "Sorry for the delay! Our team is currently investigating the matter on our end. Add Shark Tank to Watchlist/My Stuff for updates.",
+   "nn_similarity": 0.7662038803100586,
+   "nn_source_case_id": 2893049
+  },
+  {
+   "golden_id": 220,
+   "case_id": 268500,
+   "customer_text": "Dear @115940 we hate you're new update please fix it I like my shows lined where I can see them when I log in your update is a hot mess",
+   "gold_intent": "app_ui_feedback",
+   "gold_escalate": false,
+   "trivial_pred_intent": "other_non_support",
+   "trivial_draft": "Oh no! Which device do you use? Are all channels affected? For now, please try a quick reboot of your device+modem/router.",
+   "simple_pred_intent": "account_access",
+   "simple_confidence": 0.7227847832031896,
+   "simple_escalate": true,
+   "nn_draft": "Oh no! We'd love to help, Rob. Which device is this on? Do you see any errors? Try: Any better?",
+   "nn_similarity": 0.82525235414505,
+   "nn_source_case_id": 1737305
+  }
+ ]
+}

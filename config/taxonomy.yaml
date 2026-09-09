@@ -1,0 +1,179 @@
+# Intent taxonomy for hulu_support -- FROZEN v1 (2026-09-09)
+#
+# Provenance: induced from 14,703 hulu_support cases. Method: k-means over
+# nomic-embed-text embeddings of customer openings, k chosen by silhouette
+# sweep (see artifacts/cluster_report.md), then the author read the 15 nearest
+# openings to each centroid and merged/split clusters by hand into labels that
+# are (a) mutually exclusive, (b) collectively exhaustive with `other_non_support`,
+# and (c) *actionable* -- each label maps to a distinct handling policy.
+#
+# (c) is the important one and the reason this is not just a topic model. A
+# taxonomy that splits "buffering" from "freezing" is descriptively finer but
+# operationally useless: both get the same reply and the same routing. A
+# taxonomy that lumps `billing_payment` with `how_to_feature` is operationally
+# dangerous. Labels earn their existence by changing what the agent does.
+#
+# This file is the single source of truth for three things that must never
+# drift apart: the classifier prompt, the human labelling codebook
+# (docs/LABELING_PROTOCOL.md renders from here), and the triage policy.
+
+version: 1
+brand: hulu_support
+
+intents:
+  - name: playback_error
+    summary: >-
+      Content will not play, or plays badly, on a specific device or app --
+      buffering, freezing, black screen, spinning loader, error codes, audio/video
+      desync, playback dying during an ad break.
+    handling: diagnose
+    includes:
+      - "app keeps buffering every 20 seconds"
+      - "getting an error during a commercial on a downloaded video"
+      - "Hulu won't load on my samsung smartTV but netflix works fine"
+      - "playback failures on PS4, only on shows with ads"
+    excludes:
+      - who: live_tv_blackout
+        why: "If the content is unavailable *by policy* (region/blackout) rather than failing technically."
+      - who: account_access
+        why: "If the failure is at login, before any content is requested."
+    edge_rules:
+      - "Ads that FREEZE or ERROR are playback_error. Ads that are merely too many or too repetitive are ads_experience."
+      - "'No service on any device, logs out or says content unavailable' -> playback_error, because the dominant symptom is technical failure across devices."
+
+  - name: live_tv_blackout
+    summary: >-
+      A live channel, sports event or local feed is unavailable, blacked out,
+      geo-restricted, showing the wrong regional feed, or missing from the
+      channel lineup. The content is withheld by policy or rights, not broken.
+    handling: policy_answer
+    includes:
+      - "World Series cut out, said not available in my area (Indy)"
+      - "what the heck is going on with you and Big Ten Net and SEC net?"
+      - "I'm in the UK and can't get Hulu"
+      - "NFL has been blacked out on Hulu for weeks"
+    excludes:
+      - who: playback_error
+        why: "If the live stream is technically failing (lag, connection error) rather than withheld."
+    edge_rules:
+      - "'Live sports are laggy on a 150mbps connection' is playback_error -- lag is technical."
+      - "'Not available in my area' is live_tv_blackout even when phrased as an error."
+
+  - name: content_availability
+    summary: >-
+      A title, season or episode is missing, delayed, removed, or requested.
+      Includes catalogue questions and 'please add X' requests.
+    handling: policy_answer
+    includes:
+      - "when will season 4 be available please?"
+      - "why do you have Dragon Ball & GT but not Z?"
+      - "WHERE did Tosh.o go?"
+      - "Is there a place to request certain shows be added?"
+    excludes:
+      - who: live_tv_blackout
+        why: "If it is a live/linear channel or event rather than on-demand catalogue."
+
+  - name: billing_payment
+    summary: >-
+      Charges, prices, double-billing, failed payments, payment methods,
+      invoices, or a plan not matching what is being billed.
+    handling: escalate
+    includes:
+      - "was getting charged double for the past 4+ months"
+      - "why am I paying $50 a month which includes limited commercials"
+    edge_rules:
+      - "Mentioning price purely as rhetorical complaint ('remind me why I pay you') alongside a technical fault is NOT billing_payment -- label the technical fault. Billing must be the thing the customer wants acted on."
+
+  - name: account_access
+    summary: >-
+      Cannot sign in, sign up, restart a subscription, reset a password, or
+      manage profiles/devices on the account.
+    handling: escalate
+    includes:
+      - "log into account and the dots just spin"
+      - "I need to get my subscription restarted but cant seem to"
+      - "everytime I go sign up, it says page not found"
+
+  - name: cancel_refund
+    summary: >-
+      Wants to cancel, has cancelled, or is asking for money back.
+    handling: escalate
+    includes:
+      - "cancelled my account and still getting charged"
+      - "I want a refund for the month I couldn't watch anything"
+    edge_rules:
+      - "A *threat* to cancel used as leverage inside another complaint ('I'm SO close to cancelling because this ad freezes') is NOT cancel_refund. Label the underlying issue and let the triage layer read the churn risk separately."
+
+  - name: how_to_feature
+    summary: >-
+      A genuine 'how do I' question about an existing product capability --
+      captions, downloads, video quality, marking watched, parental controls,
+      profiles, DVR settings.
+    handling: auto_answer
+    includes:
+      - "Is there any way i can turn down the stream quality?"
+      - "do you offer downloads for off-line viewing?"
+      - "How do I mark episodes as watched?"
+      - "there's no closed captioned or subtitle for this show?? Using iPhone"
+
+  - name: app_ui_feedback
+    summary: >-
+      Opinion or complaint about the interface, redesign, navigation or a
+      removed UI section. The app works; the customer dislikes it.
+    handling: acknowledge
+    includes:
+      - "I'm not a fan of the new interface on PS4 and iOS"
+      - "what happened to your trailers section?"
+      - "The new interface makes my wife unhappy"
+    excludes:
+      - who: how_to_feature
+        why: "If the customer is asking how to accomplish something, not objecting to the design."
+
+  - name: ads_experience
+    summary: >-
+      Volume, repetition, or placement of advertising -- including ads appearing
+      on a plan the customer believes should have fewer.
+    handling: acknowledge
+    includes:
+      - "every damn show is full of commercials"
+      - "when your hulu shows you 20,000 commercials"
+    excludes:
+      - who: playback_error
+        why: "If the ad itself fails to play or freezes the stream."
+
+  - name: other_non_support
+    summary: >-
+      Not an actionable support request: praise, banter, jokes, promotional
+      retweets, unintelligible fragments, or messages aimed at another account.
+    handling: no_action
+    includes:
+      - "I caught up to episode 3 of Runaways. So much mystery!"
+      - "i have a hulking qiestion"
+      - "Get ready for tonight's game! #ThunderUp"
+
+# ---------------------------------------------------------------------------
+# Handling policies. `handling` above is the *default* disposition for an
+# intent; the triage layer can still escalate an individual case (low
+# confidence, weak grounding, angry customer, repeat contact).
+handling_policies:
+  auto_answer:   "Agent may send a grounded answer without human review."
+  policy_answer: "Agent may send, but the answer must be grounded in >=1 retrieved precedent; unsupported claims are forbidden."
+  diagnose:      "Agent may send ONE diagnostic clarifying question. It may not assert a fix."
+  acknowledge:   "Agent may send an empathetic acknowledgement and log feedback. It may not promise a change."
+  escalate:      "Never auto-send. Route to a human with a drafted suggestion attached."
+  no_action:     "No reply needed; close or ignore."
+
+# Labels a human reviewer may add on top of the intent, used by triage and
+# error analysis. Kept separate from intent so that one message can be, e.g.,
+# a playback_error AND high-churn-risk.
+flags:
+  - name: angry
+    definition: "Profanity, all-caps shouting, insults, or explicit frustration directed at the brand."
+  - name: churn_risk
+    definition: "Explicit statement of intent to cancel or switch, including conditional threats."
+  - name: repeat_contact
+    definition: "States this is a recurring problem or a follow-up to a previous unresolved contact."
+  - name: outage_signal
+    definition: "Describes a fault plausibly affecting many users simultaneously (live event, whole service)."
+  - name: needs_account_data
+    definition: "Cannot be answered without looking at this specific customer's account or order."

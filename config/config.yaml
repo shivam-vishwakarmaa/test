@@ -1,0 +1,71 @@
+# Hiver take-home -- pipeline configuration.
+# Every number in the README is produced by running the pipeline with this file.
+
+brand: hulu_support
+seed: 20260909
+
+paths:
+  raw_csv: data/raw/twcs.csv
+  interim_dir: data/interim
+  golden: data/golden/golden_v1.jsonl
+  artifacts: artifacts
+
+data:
+  # A brand thread must have >= this many words in the opening to count as a case.
+  min_opening_words: 4
+  min_ascii_ratio: 0.85
+
+embedding:
+  # 'ollama' = nomic-embed-text (local, free, semantic).
+  # 'tfidf'  = deterministic offline fallback so graders need no daemon.
+  backend: ollama
+  model: nomic-embed-text
+  tfidf_dim: 256
+
+retrieval:
+  k: 6
+  # Only ground on historical replies that actually said something. See
+  # docs/DECISIONS.md #7 -- grounding on link-only deflections teaches the
+  # drafter to deflect.
+  min_reply_words: 8
+  exclude_deflections: true
+
+llm:
+  # 'anthropic' for real runs; 'cached' replays committed artifacts so the
+  # headline numbers reproduce offline in minutes; 'ollama' is a local fallback.
+  backend: cached
+  cache_dir: artifacts/llm_cache
+  max_retries: 4
+  timeout_s: 120
+
+agent:
+  # Support automation is volume-bound: a production Hulu queue is tens of
+  # thousands of tickets a week, so the deployable choice is the cheapest model
+  # that clears the quality bar, not the strongest one. Haiku 4.5 is the
+  # default; swap to claude-opus-5 here to run the capability ablation.
+  model: claude-haiku-4-5
+  temperature: 0.0
+  max_tokens: 1024
+  n_few_shot: 8
+
+judge:
+  # Deliberately a DIFFERENT and stronger model than the drafter. A judge that
+  # shares a family with the generator inflates scores through self-enhancement
+  # bias; see docs/REPORT.md section 4.
+  model: claude-opus-5
+  temperature: 0.0
+  max_tokens: 1500
+  # Each reply is judged twice with the rubric criteria in reversed order to
+  # measure order sensitivity.
+  double_score_for_consistency: true
+
+triage:
+  # Intents the agent is never allowed to auto-send, regardless of confidence.
+  never_auto_intents:
+    - billing_payment
+    - account_access
+    - cancel_refund
+  # Auto-send requires classifier confidence at or above this AND a groundedness
+  # score at or above `min_grounding`. Tuned on dev, reported on test.
+  min_confidence: 0.75
+  min_grounding: 3

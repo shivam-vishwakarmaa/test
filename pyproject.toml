@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "support-agent"
+version = "0.1.0"
+description = "Hulu AI support agent -- Hiver take-home submission"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "scikit-learn>=1.3",
+    "PyYAML>=6.0",
+    "anthropic>=0.40",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
