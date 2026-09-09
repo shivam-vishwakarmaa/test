@@ -104,43 +104,48 @@ around it would be scope creep dressed up as rigor); and **classification, retri
 four separately-callable stages, not one prompt** (Decision #6) specifically so each stage's errors
 are independently measurable — the whole point of the eval harness on the right-hand side.
 
+![Architecture diagram: raw data through thread reconstruction, corpus cleaning, weak labeling, embedding/retrieval index, and golden-set sampling, feeding the four-stage agent pipeline (classify, retrieve, draft, triage), which routes to auto-send or human escalation and feeds the evaluation harness (judge, metrics, calibration) into the report.](docs/architecture.svg)
+
+<details>
+<summary>Mermaid source (renders live on GitHub; edit this if the pipeline changes)</summary>
+
 ```mermaid
 flowchart TD
-    raw[("twcs.csv — 3M tweets\n(Kaggle Customer Support on Twitter)")]
-    raw --> threads["thread reconstruction\nunion-find over in_response_to_tweet_id\ndata/threads.py"]
-    threads --> corpus["clean + filter\ndata/corpus.py"]
-    corpus --> cases[("hulu_support_cases.jsonl\n14,703 cases")]
+    raw[("twcs.csv — 3M tweets<br/>Kaggle Customer Support on Twitter")]
+    raw --> threads["thread reconstruction<br/>union-find over in_response_to_tweet_id<br/>data/threads.py"]
+    threads --> corpus["clean + filter<br/>data/corpus.py"]
+    corpus --> cases[("hulu_support_cases.jsonl<br/>14,703 cases")]
 
-    cases --> weak["weak / rule-based labeler\ntaxonomy/weak_labels.py"]
-    cases --> embedstep["embed customer openings\nOllama nomic-embed-text (cached)\nretrieval/embed.py"]
-    embedstep --> index[("precedent_index\n14,697 retrievable precedents\n(deflection-only replies excluded)")]
-    cases --> sampler["stratified golden sampling\nlabeling/sample_golden.py"]
-    sampler --> golden[("golden_v1.jsonl\n220 hand-labeled examples")]
-    weak --> simple["simple baseline\nTF-IDF+LR + kNN reply\nbaselines/simple.py"]
+    cases --> weak["weak / rule-based labeler<br/>taxonomy/weak_labels.py"]
+    cases --> embedstep["embed customer openings<br/>Ollama nomic-embed-text, cached<br/>retrieval/embed.py"]
+    embedstep --> index[("precedent_index<br/>14,697 retrievable precedents<br/>deflection-only replies excluded")]
+    cases --> sampler["stratified golden sampling<br/>labeling/sample_golden.py"]
+    sampler --> golden[("golden_v1.jsonl<br/>220 hand-labeled examples")]
+    weak --> simple["simple baseline<br/>TF-IDF+LR + kNN reply<br/>baselines/simple.py"]
 
     golden --> classify
-    subgraph pipeline["agent pipeline — support_agent/agent/pipeline.py"]
+    subgraph pipeline["agent pipeline -- support_agent/agent/pipeline.py"]
         direction TB
-        classify["1 classify (LLM)\nintent + confidence + flags"]
-        retrieve["2 retrieve\ncosine top-k over precedent_index"]
-        draft["3 draft (LLM)\nreply grounded ONLY in retrieved precedents"]
-        triage["4 triage — DETERMINISTIC RULE\n(not an LLM call — Decision #6)"]
+        classify["1 classify -- LLM<br/>intent + confidence + flags"]
+        retrieve["2 retrieve<br/>cosine top-k over precedent_index"]
+        draft["3 draft -- LLM<br/>reply grounded ONLY in retrieved precedents"]
+        triage["4 triage -- DETERMINISTIC RULE<br/>not an LLM call -- Decision #6"]
         classify --> retrieve --> draft --> triage
     end
-    index -.k=6.-> retrieve
-    triage -->|auto_answer / policy_answer,\nhigh confidence, grounded,\nnot angry / churn| autosend(["auto-send"])
-    triage -->|everything else,\nincl. angry/churn override\n(Decision #11)| human(["escalate to human\n+ drafted reply attached"])
+    index -.->|"k=6"| retrieve
+    triage -->|"auto_answer / policy_answer,<br/>high confidence, grounded,<br/>not angry / churn"| autosend(["auto-send"])
+    triage -->|"everything else,<br/>incl. angry/churn override,<br/>Decision #11"| human(["escalate to human<br/>+ drafted reply attached"])
 
-    llmclient["LLMClient — gemini / anthropic / ollama / cached\ncontent-addressed on-disk cache, retries,\nQuotaExhausted vs. per-item-error handling\nllm/client.py"]
+    llmclient["LLMClient -- gemini / anthropic / ollama / cached<br/>content-addressed on-disk cache, retries,<br/>QuotaExhausted vs. per-item-error handling<br/>llm/client.py"]
     classify -.-> llmclient
     draft -.-> llmclient
 
     subgraph evalharness["evaluation harness"]
         direction TB
-        judge["LLM judge (different model,\ndouble-scored, order-reversed)\neval/judge.py"]
-        metrics["classification / triage /\nselective-prediction (AURC)\neval/metrics.py"]
-        calib[("judge_calibration.json\n45 items, human-scored")]
-        qwk["judge-vs-human\nquadratic-weighted kappa"]
+        judge["LLM judge -- different model,<br/>double-scored, order-reversed<br/>eval/judge.py"]
+        metrics["classification / triage /<br/>selective-prediction, AURC<br/>eval/metrics.py"]
+        calib[("judge_calibration.json<br/>45 items, human-scored")]
+        qwk["judge-vs-human<br/>quadratic-weighted kappa"]
         judge --> qwk
         calib --> qwk
     end
@@ -149,9 +154,16 @@ flowchart TD
     triage --> metrics
     judge -.-> llmclient
 
-    metrics --> report[["docs/REPORT.md\nresults · failure analysis ·\nmisleading-number section"]]
+    metrics --> report[["docs/REPORT.md<br/>results, failure analysis,<br/>misleading-number section"]]
     qwk --> report
 ```
+
+</details>
+
+*(The image above is a static, committed render (`docs/architecture.svg`) so it displays in any
+Markdown viewer, including ones without Mermaid support like VS Code's built-in preview. Regenerate
+it after editing the source with `npx -y @mermaid-js/mermaid-cli -i <(the block above) -o
+docs/architecture.svg`, or paste the block into the [Mermaid Live Editor](https://mermaid.live).)*
 
 **Why triage is a plain function and not a fifth LLM call:** the thing that decides whether a human
 ever sees a case has to be auditable as a rule with named reasons ("intent is on the
